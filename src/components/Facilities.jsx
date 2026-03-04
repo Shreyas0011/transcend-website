@@ -2,19 +2,19 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const facilities = [
-    { title: 'Classroom', image: '/facilities/classroom.png' },
-    { title: 'Yoga Room', image: '/facilities/yoga.png' },
-    { title: 'Library', image: '/facilities/library.png' },
-    { title: 'Auditorium', image: '/facilities/auditorium.png' },
-    { title: 'Conference Room', image: '/facilities/conference.png' },
-    { title: 'Computer Lab', image: '/facilities/lab.png' },
-    { title: 'Swimming Pool', image: '/facilities/pool.png' },
-    { title: 'Table Tennis', image: '/facilities/tt.png' },
-    { title: 'Basketball Court', image: '/facilities/basketball.png' },
-    { title: 'AV Theatre Room', image: '/facilities/av.png' },
-    { title: 'Canteen', image: '/facilities/canteen.png' },
-    { title: 'Badminton Court', image: '/facilities/badminton.png' },
-    { title: 'Reception', image: '/facilities/reception.png' },
+    { title: 'Classroom', image: 'https://images.unsplash.com/photo-1585827367315-9968b19edb6b?auto=format&fit=crop&q=80&w=800' },
+    { title: 'Yoga Room', image: 'https://images.unsplash.com/photo-1518611012118-283d63c14dcb?auto=format&fit=crop&q=80&w=800' },
+    { title: 'Library', image: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=800' },
+    { title: 'Auditorium', image: 'https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&q=80&w=800' },
+    { title: 'Conference Room', image: 'https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&q=80&w=800' },
+    { title: 'Computer Lab', image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800' },
+    { title: 'Swimming Pool', image: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&q=80&w=800' },
+    { title: 'Table Tennis', image: 'https://images.unsplash.com/photo-1534158914592-062992fbe900?auto=format&fit=crop&q=80&w=800' },
+    { title: 'Basketball Court', image: 'https://images.unsplash.com/photo-1504450758481-7338ebe75224?auto=format&fit=crop&q=80&w=800' },
+    { title: 'AV Theatre Room', image: 'https://images.unsplash.com/photo-1489433390058-2dca2c192c45?auto=format&fit=crop&q=80&w=800' },
+    { title: 'Canteen', image: 'https://images.unsplash.com/photo-1555396273-cf921244267c?auto=format&fit=crop&q=80&w=800' },
+    { title: 'Badminton Court', image: 'https://images.unsplash.com/photo-1626245917822-b19f42531513?auto=format&fit=crop&q=80&w=800' },
+    { title: 'Reception', image: 'https://images.unsplash.com/photo-1568992687396-43ac0755cc50?auto=format&fit=crop&q=80&w=800' },
 ];
 
 const Facilities = () => {
