@@ -9,8 +9,8 @@ const VIDEOS = [
         title: 'Chairman, Transcend Group of Institutions',
     },
     {
-        type: 'youtube',
-        id: 'principalVideoId',  // ← paste real YouTube video ID here
+        type: 'gdrive',
+        id: '1tR3bPNv090Qd9JntXn5Qms6Em1VvTHpF',
         label: "Principal's Message",
         name: 'Dr. Shwetha S',
         title: 'Principal, Transcend Group of Institutions',
