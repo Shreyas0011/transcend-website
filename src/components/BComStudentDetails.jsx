@@ -54,20 +54,20 @@ const bcomATStudents = [
 ];
 
 const bcomHRMStudents = [
-    { id: 1, name: 'Ananya V Kumar', stream: 'B.Com [Hr & Management]', details: 'HR Leadership Award · Internship at Unilever HR Division', photo: null, resume: '#' },
-    { id: 2, name: 'Bhargav Rama', stream: 'B.Com [Hr & Management]', details: 'Class Representative · Placed at Accenture · CGPA 9.1', photo: null, resume: '#' },
-    { id: 3, name: 'Chinmay Ganesh Netravali', stream: 'B.Com [Hr & Management]', details: 'Debate Champion · Management Conclave Speaker', photo: null, resume: '#' },
-    { id: 4, name: 'Harshitha S', stream: 'B.Com [Hr & Management]', details: 'Best Outgoing Student · Toastmasters Club President', photo: null, resume: '#' },
-    { id: 5, name: 'N K Mayur Somanna', stream: 'B.Com [Hr & Management]', details: 'Sports Captain · Community Service Award · NSS Leader', photo: null, resume: '#' },
-    { id: 6, name: 'Nagavarsha B N', stream: 'B.Com [Hr & Management]', details: 'Cultural Secretary · Internship at TCS HR Division', photo: null, resume: '#' },
-    { id: 7, name: 'R Sharath', stream: 'B.Com [Hr & Management]', details: 'Entrepreneurship Award · Startup Incubation Programme Finalist', photo: null, resume: '#' },
-    { id: 8, name: 'Ridhi Shetty', stream: 'B.Com [Hr & Management]', details: 'Gold Medalist · Ranked 1st in Batch · Inspiring Minds Awardee', photo: null, resume: '#' },
-    { id: 9, name: 'Saiskandan Sabarinathan', stream: 'B.Com [Hr & Management]', details: 'Finance Quiz Runner-Up · Internship at Wipro HR', photo: null, resume: '#' },
-    { id: 10, name: 'Shrujan Shreekanth Prabhu', stream: 'B.Com [Hr & Management]', details: "Dean's List · Placed at Infosys · CGPA 9.3", photo: null, resume: '#' },
-    { id: 11, name: 'T Harshith Aryan', stream: 'B.Com [Hr & Management]', details: 'TEDx Speaker · Best Paper Presenter · Campus Innovation Winner', photo: null, resume: '#' },
-    { id: 12, name: 'Drishya Aiyyappa', stream: 'B.Com [Hr & Management]', details: 'NSS Best Volunteer · Social Impact Project Lead', photo: null, resume: '#' },
-    { id: 13, name: 'Abhijna R Bhat', stream: 'B.Com [Hr & Management]', details: 'Merit Scholarship Awardee · Internship at HDFC Bank HR', photo: null, resume: '#' },
-    { id: 14, name: 'B Balaji Ramanathan', stream: 'B.Com [Hr & Management]', details: 'Placed at Deloitte · Business Plan Winner · Commerce Society VP', photo: null, resume: '#' },
+    { id: 1, name: 'Ananya V Kumar', stream: 'B.Com [HR & Management]', details: 'HR Leadership Award · Internship at Unilever HR Division', photo: null, resume: '#' },
+    { id: 2, name: 'Bhargav Rama', stream: 'B.Com [HR & Management]', details: 'Class Representative · Placed at Accenture · CGPA 9.1', photo: null, resume: '#' },
+    { id: 3, name: 'Chinmay Ganesh Netravali', stream: 'B.Com [HR & Management]', details: 'Debate Champion · Management Conclave Speaker', photo: null, resume: '#' },
+    { id: 4, name: 'Harshitha S', stream: 'B.Com [HR & Management]', details: 'Best Outgoing Student · Toastmasters Club President', photo: null, resume: '#' },
+    { id: 5, name: 'N K Mayur Somanna', stream: 'B.Com [HR & Management]', details: 'Sports Captain · Community Service Award · NSS Leader', photo: null, resume: '#' },
+    { id: 6, name: 'Nagavarsha B N', stream: 'B.Com [HR & Management]', details: 'Cultural Secretary · Internship at TCS HR Division', photo: null, resume: '#' },
+    { id: 7, name: 'R Sharath', stream: 'B.Com [HR & Management]', details: 'Entrepreneurship Award · Startup Incubation Programme Finalist', photo: null, resume: '#' },
+    { id: 8, name: 'Ridhi Shetty', stream: 'B.Com [HR & Management]', details: 'Gold Medalist · Ranked 1st in Batch · Inspiring Minds Awardee', photo: null, resume: '#' },
+    { id: 9, name: 'Saiskandan Sabarinathan', stream: 'B.Com [HR & Management]', details: 'Finance Quiz Runner-Up · Internship at Wipro HR', photo: null, resume: '#' },
+    { id: 10, name: 'Shrujan Shreekanth Prabhu', stream: 'B.Com [HR & Management]', details: "Dean's List · Placed at Infosys · CGPA 9.3", photo: null, resume: '#' },
+    { id: 11, name: 'T Harshith Aryan', stream: 'B.Com [HR & Management]', details: 'TEDx Speaker · Best Paper Presenter · Campus Innovation Winner', photo: null, resume: '#' },
+    { id: 12, name: 'Drishya Aiyyappa', stream: 'B.Com [HR & Management]', details: 'NSS Best Volunteer · Social Impact Project Lead', photo: null, resume: '#' },
+    { id: 13, name: 'Abhijna R Bhat', stream: 'B.Com [HR & Management]', details: 'Merit Scholarship Awardee · Internship at HDFC Bank HR', photo: null, resume: '#' },
+    { id: 14, name: 'B Balaji Ramanathan', stream: 'B.Com [HR & Management]', details: 'Placed at Deloitte · Business Plan Winner · Commerce Society VP', photo: null, resume: '#' },
 ];
 
 const StudentCard = ({ student, index }) => {
@@ -147,11 +147,12 @@ const StudentCard = ({ student, index }) => {
                                 color: hovered ? '#fff' : '#6b7280',
                                 boxShadow: hovered ? '0 8px 24px rgba(67,56,202,0.4)' : 'none',
                             }}
+                        >
                             View Resume
                         </Link>
+                    </div>
                 </div>
             </div>
-        </div>
         </div >
     );
 };
@@ -235,7 +236,7 @@ const BComStudentDetails = () => {
                 <div className="mt-20">
                     <div className="flex items-center gap-5 mb-10">
                         <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, rgba(99,102,241,0.4), transparent)' }} />
-                        <span className="text-indigo-400 text-base tracking-[0.2em] font-bold uppercase whitespace-nowrap">B.Com [Hr & Management]</span>
+                        <span className="text-indigo-400 text-base tracking-[0.2em] font-bold uppercase whitespace-nowrap">B.Com [HR & Management]</span>
                         <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.4))' }} />
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
