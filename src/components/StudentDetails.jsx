@@ -136,7 +136,7 @@ const rmSclStudents = [
     {
         id: 1,
         name: 'Abhinav Narayanan',
-        stream: 'BBA [RM & Scl]',
+        stream: 'BBA [RM & SCL]',
         details: 'Retail Strategy Intern · Supply Chain Club Lead · CGPA 9.0',
         photo: null,
         resume: '#',
@@ -144,7 +144,7 @@ const rmSclStudents = [
     {
         id: 2,
         name: 'Adish N N',
-        stream: 'BBA [RM & Scl]',
+        stream: 'BBA [RM & SCL]',
         details: 'Best Project Award · Logistics Symposium Winner',
         photo: null,
         resume: '#',
@@ -152,7 +152,7 @@ const rmSclStudents = [
     {
         id: 3,
         name: 'Aiman Shaikh',
-        stream: 'BBA [RM & Scl]',
+        stream: 'BBA [RM & SCL]',
         details: 'Cultural Fest Organiser · Internship at Amazon Logistics',
         photo: null,
         resume: '#',
@@ -160,7 +160,7 @@ const rmSclStudents = [
     {
         id: 4,
         name: 'Akshay D',
-        stream: 'BBA [RM & Scl]',
+        stream: 'BBA [RM & SCL]',
         details: 'Sports Captain · E-Commerce Case Study Champion',
         photo: null,
         resume: '#',
@@ -168,7 +168,7 @@ const rmSclStudents = [
     {
         id: 5,
         name: 'Hafsa Sameer',
-        stream: 'BBA [RM & Scl]',
+        stream: 'BBA [RM & SCL]',
         details: 'Toastmasters Best Speaker · Placed at Flipkart',
         photo: null,
         resume: '#',
@@ -176,7 +176,7 @@ const rmSclStudents = [
     {
         id: 6,
         name: 'Prajwal A S',
-        stream: 'BBA [RM & Scl]',
+        stream: 'BBA [RM & SCL]',
         details: 'Retail Analytics Hackathon Finalist · TechScale Runner-Up',
         photo: null,
         resume: '#',
@@ -184,7 +184,7 @@ const rmSclStudents = [
     {
         id: 7,
         name: 'Pranav P',
-        stream: 'BBA [RM & Scl]',
+        stream: 'BBA [RM & SCL]',
         details: "Class Representative · Dean's List · Internship at BigBasket",
         photo: null,
         resume: '#',
@@ -192,7 +192,7 @@ const rmSclStudents = [
     {
         id: 8,
         name: 'R Pranith',
-        stream: 'BBA [RM & Scl]',
+        stream: 'BBA [RM & SCL]',
         details: 'NSS Best Volunteer · Supply Chain Paper Presenter',
         photo: null,
         resume: '#',
@@ -200,7 +200,7 @@ const rmSclStudents = [
     {
         id: 9,
         name: 'Rishi Kiran',
-        stream: 'BBA [RM & Scl]',
+        stream: 'BBA [RM & SCL]',
         details: 'Entrepreneurship Award · Business Model Canvas Winner',
         photo: null,
         resume: '#',
@@ -208,7 +208,7 @@ const rmSclStudents = [
     {
         id: 10,
         name: 'S Rithvik',
-        stream: 'BBA [RM & Scl]',
+        stream: 'BBA [RM & SCL]',
         details: 'Marketing Olympiad Gold · Internship at Reliance Retail',
         photo: null,
         resume: '#',
@@ -216,7 +216,7 @@ const rmSclStudents = [
     {
         id: 11,
         name: 'Shreyas Rao',
-        stream: 'BBA [RM & Scl]',
+        stream: 'BBA [RM & SCL]',
         details: 'Best Outgoing Student · Placed at DMart · CGPA 9.3',
         photo: null,
         resume: '#',
@@ -224,7 +224,7 @@ const rmSclStudents = [
     {
         id: 12,
         name: 'Yusuf Aliakbar Merchant',
-        stream: 'BBA [RM & Scl]',
+        stream: 'BBA [RM & SCL]',
         details: 'Debate Runner-Up · Social Impact Project Lead',
         photo: null,
         resume: '#',
@@ -232,7 +232,7 @@ const rmSclStudents = [
     {
         id: 13,
         name: 'Zayan Khan',
-        stream: 'BBA [RM & Scl]',
+        stream: 'BBA [RM & SCL]',
         details: 'Innovation Challenge Winner · Internship at Decathlon',
         photo: null,
         resume: '#',
@@ -421,7 +421,7 @@ const StudentDetails = () => {
                 <div className="mt-20">
                     <div className="flex items-center gap-5 mb-10">
                         <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, rgba(99,102,241,0.4), transparent)' }} />
-                        <span className="text-indigo-400 text-base tracking-[0.2em] font-bold uppercase whitespace-nowrap">BBA [RM & Scl]</span>
+                        <span className="text-indigo-400 text-base tracking-[0.2em] font-bold uppercase whitespace-nowrap">BBA [RM & SCL]</span>
                         <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.4))' }} />
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
