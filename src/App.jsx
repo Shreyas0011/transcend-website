@@ -26,7 +26,9 @@ import Differentiators from './components/Differentiators'
 import FloatingElements from './components/FloatingElements'
 import FacilitiesDetail from './components/FacilitiesDetail'
 import CustomCursor from './components/CustomCursor'
-import Preloader from './components/Preloader'
+import SmoothScroll from './components/SmoothScroll'
+
+
 
 const Home = () => (
   <main className="relative z-10 flex-grow">
@@ -47,8 +49,11 @@ const App = () => {
   return (
     <Router>
       <div className="relative min-h-screen bg-white text-gray-900 flex flex-col" style={{ fontFamily: "'Poppins', sans-serif" }}>
+        {/* Smooth Scrolling */}
+        <SmoothScroll />
+
         {/* Intro Preloader */}
-        <Preloader />
+
 
         {/* Custom creative cursor */}
         <CustomCursor />
