@@ -1,0 +1,291 @@
+import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
+const faculty = [
+    { id: 1, name: 'CA. Kiran Kumar', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'M.Com, C.A', expertise: 'Financial Accounting · Taxation · Auditing', photo: 'https://i.pravatar.cc/300?img=5' },
+    { id: 2, name: 'CA. Reddy Shekar P', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'B.Com, C.A', expertise: 'Corporate Accounting · Direct Tax · GST', photo: 'https://i.pravatar.cc/300?img=12' },
+    { id: 3, name: 'CA. Varsha V', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'B.Com, CA, CWA', expertise: 'Cost Accounting · Financial Reporting · CWA', photo: 'https://i.pravatar.cc/300?img=47' },
+    { id: 4, name: 'CA. Pratyush Bhagwani', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'B.Com, C.A', expertise: 'Taxation · Auditing · Financial Analysis', photo: 'https://i.pravatar.cc/300?img=15' },
+    { id: 5, name: 'Dr. K R Shashikala Rao', designation: 'Faculty', department: 'Languages', qualification: 'M.A (Hindi), B.Ed, Ph.D', expertise: 'Hindi Language · Literature · Research', photo: 'https://i.pravatar.cc/300?img=49' },
+    { id: 6, name: 'Anusha Balaji', designation: 'Faculty', department: 'Finance', qualification: 'B.Com, MBA Finance, ICWA', expertise: 'Management Accounting · Finance · ICWA', photo: 'https://i.pravatar.cc/300?img=44' },
+    { id: 7, name: 'Shivarama Guptha B', designation: 'Faculty', department: 'Humanities', qualification: 'M.A (Vedanta), B.Ed', expertise: 'Philosophy · Value Education · Soft Skills', photo: 'https://i.pravatar.cc/300?img=17' },
+    { id: 8, name: 'Soumya D', designation: 'Faculty', department: 'Languages', qualification: 'M.A (Kannada), NET, Ph.D (Pursuing)', expertise: 'Kannada Language · Literature · NET Research', photo: 'https://i.pravatar.cc/300?img=50' },
+    { id: 9, name: 'Amrutha S', designation: 'Faculty', department: 'Languages', qualification: 'M.A (Kannada), B.Ed', expertise: 'Kannada Language · Communication · Education', photo: 'https://i.pravatar.cc/300?img=52' },
+    { id: 10, name: 'Apoorva A Jain', designation: 'Faculty', department: 'Commerce', qualification: 'M.Com', expertise: 'Commerce · Business Studies · Entrepreneurship', photo: 'https://i.pravatar.cc/300?img=55' },
+    { id: 11, name: 'Madhuri K A', designation: 'Faculty', department: 'Finance', qualification: 'M.B.A – Finance', expertise: 'Financial Management · Banking · Investment', photo: 'https://i.pravatar.cc/300?img=57' },
+    { id: 12, name: 'Shoba Girish', designation: 'Faculty', department: 'Commerce', qualification: 'M.Com', expertise: 'Accounting · Commerce · Business Law', photo: 'https://i.pravatar.cc/300?img=59' },
+    { id: 13, name: 'Sai Kumar Velu C R', designation: 'Faculty', department: 'Management', qualification: 'BA, PGDSM', expertise: 'Sales Management · Retail · Marketing', photo: 'https://i.pravatar.cc/300?img=20' },
+    { id: 14, name: 'Ms. Shreenidhi', designation: 'Faculty', department: 'Commerce', qualification: 'B.Com, M.Com, K.SET', expertise: 'Commerce · SET Qualified · Financial Accounting', photo: 'https://i.pravatar.cc/300?img=46' },
+    { id: 15, name: 'Akshay Champak', designation: 'Faculty', department: 'Commerce', qualification: 'B.Com, M.Com', expertise: 'Commerce · Business Economics · Statistics', photo: 'https://i.pravatar.cc/300?img=22' },
+    { id: 16, name: 'Mr. Subramanian V Iyer', designation: 'Faculty', department: 'Management', qualification: 'B.Com, MBA', expertise: 'Business Management · Strategy · Marketing', photo: 'https://i.pravatar.cc/300?img=25' },
+    { id: 17, name: 'Ms. Deepa Venkatesh', designation: 'Faculty', department: 'Commerce', qualification: 'B.Com, M.Com', expertise: 'Financial Accounting · Tally · Commerce', photo: 'https://i.pravatar.cc/300?img=51' },
+    { id: 18, name: 'Mukunda K M', designation: 'Faculty', department: 'Languages', qualification: 'B.A, M.A, Sanskritam', expertise: 'Sanskrit · Classical Languages · Literature', photo: 'https://i.pravatar.cc/300?img=27' },
+];
+
+const resourcePersonnel = [
+    { id: 1, name: 'Vani S R Rao', designation: 'Admin Executive', department: 'Administration', qualification: 'B.Com, ICWAI (Inter)', expertise: 'Administration · Office Management · Accounts', photo: 'https://i.pravatar.cc/300?img=45' },
+    { id: 2, name: 'Bharathi Srikanth', designation: 'Admin Executive', department: 'Administration', qualification: 'Bachelors in HR', expertise: 'HR Administration · Office Coordination', photo: 'https://i.pravatar.cc/300?img=48' },
+    { id: 3, name: 'Shravana Kumar', designation: 'Admin Executive', department: 'Administration', qualification: 'B.Com', expertise: 'Administration · Operations · Coordination', photo: 'https://i.pravatar.cc/300?img=8' },
+    { id: 4, name: 'A P Sampath Kumar', designation: 'Physical Education Trainer', department: 'Sports', qualification: 'B.A, B.P.Ed, M.P.Ed', expertise: 'Physical Training · Sports · Fitness', photo: 'https://i.pravatar.cc/300?img=3' },
+    { id: 5, name: 'Reshma Belagaje', designation: 'HR & PR Co-ordinator', department: 'HR & PR', qualification: '', expertise: 'Human Resources · Public Relations · Coordination', photo: 'https://i.pravatar.cc/300?img=53' },
+    { id: 6, name: 'Padma Latha Paluri', designation: 'Senior Accountant', department: 'Accounts', qualification: 'M.Com', expertise: 'Accounting · Finance · Reporting', photo: 'https://i.pravatar.cc/300?img=62' },
+    { id: 7, name: 'Prasad K', designation: 'Facility Head', department: 'Facilities', qualification: '', expertise: 'Facility Management · Operations · Infrastructure', photo: 'https://i.pravatar.cc/300?img=13' },
+    { id: 8, name: 'Roopa Kambam', designation: 'Admission Counsellor', department: 'Admissions', qualification: 'B.Com', expertise: 'Admissions · Student Counselling · Outreach', photo: 'https://i.pravatar.cc/300?img=60' },
+    { id: 9, name: 'Jessy Mathew', designation: 'Stores In-charge', department: 'Stores', qualification: 'B.Com', expertise: 'Inventory Management · Procurement · Stores', photo: 'https://i.pravatar.cc/300?img=64' },
+    { id: 10, name: 'Padmaja Ravi', designation: 'Admin Executive', department: 'Administration', qualification: '', expertise: 'Administration · Records Management', photo: 'https://i.pravatar.cc/300?img=54' },
+    { id: 11, name: 'Pankaj R Matta', designation: 'Data & Technology Head', department: 'Technology', qualification: '', expertise: 'Data Management · Technology · Digital Systems', photo: 'https://i.pravatar.cc/300?img=28' },
+    { id: 12, name: 'Niranjan D G', designation: 'Facility Executive', department: 'Facilities', qualification: '', expertise: 'Facility Operations · Maintenance · Support', photo: 'https://i.pravatar.cc/300?img=30' },
+];
+
+const FacultyCard = ({ member, index }) => {
+    const [visible, setVisible] = useState(false);
+    const [hovered, setHovered] = useState(false);
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const obs = new IntersectionObserver(
+            ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+            { threshold: 0.12 }
+        );
+        if (ref.current) obs.observe(ref.current);
+        return () => obs.disconnect();
+    }, []);
+
+    const chips = member.expertise.split('·').map(s => s.trim()).filter(Boolean);
+
+    return (
+        <div
+            ref={ref}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            style={{
+                opacity: visible ? 1 : 0,
+                transform: visible ? 'translateY(0)' : 'translateY(36px)',
+                transition: `opacity 0.6s ease ${index * 0.06}s, transform 0.6s cubic-bezier(0.16,1,0.3,1) ${index * 0.06}s`,
+            }}
+            className="flex flex-col rounded-[22px] overflow-hidden"
+        >
+            <div
+                className="flex flex-col h-full rounded-[22px] p-4 transition-all duration-300"
+                style={{
+                    background: hovered
+                        ? 'linear-gradient(160deg, rgba(45,62,145,0.18) 0%, rgba(15,17,40,0.97) 100%)'
+                        : 'rgba(12,14,30,0.9)',
+                    border: hovered
+                        ? '1.5px solid rgba(99,102,241,0.45)'
+                        : '1.5px solid rgba(255,255,255,0.09)',
+                    boxShadow: hovered
+                        ? '0 24px 60px rgba(45,62,145,0.32)'
+                        : '0 4px 24px rgba(0,0,0,0.5)',
+                }}
+            >
+                {/* Photo */}
+                <div className="w-full rounded-[14px] overflow-hidden mb-5 relative"
+                    style={{ aspectRatio: '4/3', background: 'linear-gradient(145deg, #0d0f20, #181b38)', border: '1.5px solid rgba(255,255,255,0.07)' }}>
+                    <img
+                        src={member.photo}
+                        alt={member.name}
+                        className="w-full h-full object-cover object-top"
+                    />
+                    <div className="absolute inset-0 pointer-events-none"
+                        style={{ background: 'linear-gradient(to bottom, transparent 55%, rgba(12,14,30,0.7) 100%)' }} />
+                    {/* Department tag */}
+                    <div className="absolute top-3 right-3 px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase"
+                        style={{ background: 'rgba(99,102,241,0.85)', color: '#e0e7ff', backdropFilter: 'blur(8px)' }}>
+                        {member.department}
+                    </div>
+                </div>
+
+                {/* Info */}
+                <div className="flex-1 flex flex-col px-1">
+                    <p className="text-base font-black text-white mb-0.5 leading-tight">{member.name}</p>
+                    <p className="text-indigo-400 text-xs font-bold tracking-wide uppercase mb-1">{member.designation}</p>
+                    <p className="text-gray-600 text-xs mb-4">{member.qualification}</p>
+
+                    {/* Expertise chips */}
+                    <div className="flex flex-wrap gap-1.5 mb-5">
+                        {chips.map((chip, i) => (
+                            <span key={i}
+                                className="text-[10px] font-semibold px-2.5 py-1 rounded-full text-gray-400 transition-colors duration-300"
+                                style={{
+                                    background: hovered ? 'rgba(99,102,241,0.12)' : 'rgba(255,255,255,0.04)',
+                                    border: '1px solid rgba(99,102,241,0.15)',
+                                    color: hovered ? '#c7d2fe' : '#6b7280',
+                                }}>
+                                {chip}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// Parses "18", "4", "2+", "100%" → { num: 18, suffix: '' } etc.
+const parseValue = (val) => {
+    const match = String(val).match(/^(\d+)(.*)$/);
+    return match ? { num: parseInt(match[1], 10), suffix: match[2] } : { num: 0, suffix: val };
+};
+
+const AnimatedStat = ({ value, label, delay }) => {
+    const [count, setCount] = useState(0);
+    const [started, setStarted] = useState(false);
+    const ref = useRef(null);
+    const { num, suffix } = parseValue(value);
+
+    useEffect(() => {
+        const obs = new IntersectionObserver(
+            ([entry]) => { if (entry.isIntersecting) setStarted(true); },
+            { threshold: 0.5 }
+        );
+        if (ref.current) obs.observe(ref.current);
+        return () => obs.disconnect();
+    }, []);
+
+    useEffect(() => {
+        if (!started) return;
+        const duration = 1400;
+        const startTime = performance.now() + delay;
+        let raf;
+        const tick = (now) => {
+            if (now < startTime) { raf = requestAnimationFrame(tick); return; }
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // easeOutExpo
+            const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+            setCount(Math.floor(ease * num));
+            if (progress < 1) raf = requestAnimationFrame(tick);
+            else setCount(num);
+        };
+        raf = requestAnimationFrame(tick);
+        return () => cancelAnimationFrame(raf);
+    }, [started, num, delay]);
+
+    return (
+        <div ref={ref} className="text-center py-6 rounded-2xl"
+            style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.12)' }}>
+            <p className="text-3xl font-black mb-1"
+                style={{ background: 'linear-gradient(135deg,#818cf8,#6366f1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                {count}{suffix}
+            </p>
+            <p className="text-gray-500 text-xs font-semibold tracking-wide uppercase">{label}</p>
+        </div>
+    );
+};
+
+const StatsBar = ({ visible }) => {
+    const stats = [
+        { value: '18', label: 'Teaching Faculty' },
+        { value: '4', label: 'Chartered Accountants' },
+        { value: '2+', label: 'Ph.D. Holders' },
+        { value: '100%', label: 'Industry Experienced' },
+    ];
+    return (
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-16"
+            style={{ opacity: visible ? 1 : 0, transition: 'opacity 0.7s ease 0.3s' }}>
+            {stats.map(({ value, label }, i) => (
+                <AnimatedStat key={label} value={value} label={label} delay={i * 120} />
+            ))}
+        </div>
+    );
+};
+
+const OurTeam = () => {
+    const [headerVisible, setHeaderVisible] = useState(false);
+    const headerRef = useRef(null);
+
+    useEffect(() => {
+        const obs = new IntersectionObserver(
+            ([entry]) => { if (entry.isIntersecting) setHeaderVisible(true); },
+            { threshold: 0.1 }
+        );
+        if (headerRef.current) obs.observe(headerRef.current);
+        return () => obs.disconnect();
+    }, []);
+
+    return (
+        <div className="min-h-screen text-white pt-28 pb-24 px-6 md:px-12 relative overflow-hidden"
+            style={{ background: 'linear-gradient(160deg, #05060f 0%, #080b1a 60%, #05060f 100%)' }}>
+
+            {/* Background glows */}
+            <div className="fixed inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full blur-[140px]"
+                    style={{ background: 'radial-gradient(circle, rgba(67,56,202,0.12) 0%, transparent 70%)' }} />
+                <div className="absolute bottom-[-5%] left-[-5%] w-[40%] h-[40%] rounded-full blur-[120px]"
+                    style={{ background: 'radial-gradient(circle, rgba(45,62,145,0.1) 0%, transparent 70%)' }} />
+                <div className="absolute inset-0 opacity-[0.04]"
+                    style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '36px 36px' }} />
+            </div>
+
+            <div className="max-w-[1400px] mx-auto relative z-10">
+                {/* Header */}
+                <div ref={headerRef} className="mb-16 text-center"
+                    style={{
+                        opacity: headerVisible ? 1 : 0,
+                        transform: headerVisible ? 'translateY(0)' : 'translateY(30px)',
+                        transition: 'opacity 0.7s ease, transform 0.7s cubic-bezier(0.16,1,0.3,1)',
+                    }}>
+                    <Link to="/" className="inline-flex items-center gap-2 text-gray-600 hover:text-indigo-400 transition-colors group mb-10">
+                        <svg className="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                        <span className="text-xs font-bold tracking-widest uppercase">Back to Home</span>
+                    </Link>
+
+                    <div className="flex items-center justify-center gap-4 mb-6">
+                        <div className="w-10 h-[2px]" style={{ background: 'linear-gradient(90deg, #4338ca, #6366f1)' }} />
+                        <span className="text-indigo-400 text-xs tracking-[0.3em] font-bold uppercase">Faculty & Staff</span>
+                        <div className="w-10 h-[2px]" style={{ background: 'linear-gradient(90deg, #6366f1, #4338ca)' }} />
+                    </div>
+
+                    <h1 className="text-5xl md:text-[3.5rem] font-black tracking-tight text-white leading-tight mb-4">
+                        Our{' '}
+                        <span style={{
+                            background: 'linear-gradient(135deg, #818cf8, #6366f1)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            backgroundClip: 'text',
+                        }}>Team</span>
+                    </h1>
+                    <p className="text-gray-500 text-lg font-medium max-w-xl mx-auto">
+                        Meet the dedicated educators and mentors who shape the future at Transcend Group of Institutions.
+                    </p>
+                </div>
+
+                {/* Stats bar — animated counters */}
+                <StatsBar visible={headerVisible} />
+
+                {/* Section divider */}
+                <div className="flex items-center gap-5 mb-10">
+                    <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, rgba(99,102,241,0.4), transparent)' }} />
+                    <span className="text-indigo-400 text-base tracking-[0.2em] font-bold uppercase whitespace-nowrap">Teaching Faculty</span>
+                    <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.4))' }} />
+                </div>
+
+                {/* Faculty grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {faculty.map((member, idx) => (
+                        <FacultyCard key={member.id} member={member} index={idx} />
+                    ))}
+                </div>
+
+                {/* Section: Resource Personnel */}
+                <div className="mt-20">
+                    <div className="flex items-center gap-5 mb-10">
+                        <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, rgba(99,102,241,0.4), transparent)' }} />
+                        <span className="text-indigo-400 text-base tracking-[0.2em] font-bold uppercase whitespace-nowrap">Resource Personnel</span>
+                        <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.4))' }} />
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        {resourcePersonnel.map((member, idx) => (
+                            <FacultyCard key={member.id} member={member} index={idx} />
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default OurTeam;
