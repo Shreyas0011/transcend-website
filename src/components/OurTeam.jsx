@@ -170,13 +170,13 @@ const AnimatedStat = ({ value, label, delay }) => {
     }, [started, num, delay]);
 
     return (
-        <div ref={ref} className="text-center py-6 rounded-2xl"
-            style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.12)' }}>
-            <p className="text-xl font-black mb-1"
+        <div ref={ref} className="text-center py-4 rounded-xl"
+            style={{ background: 'rgba(99,102,241,0.04)', border: '1px solid rgba(99,102,241,0.08)' }}>
+            <p className="text-lg font-black mb-0.5"
                 style={{ background: 'linear-gradient(135deg,#818cf8,#6366f1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 {count}{suffix}
             </p>
-            <p className="text-gray-500 text-[10px] font-semibold tracking-wide uppercase">{label}</p>
+            <p className="text-gray-500 text-[9px] font-bold tracking-[0.15em] uppercase">{label}</p>
         </div>
     );
 };
@@ -278,14 +278,33 @@ const OurTeam = () => {
 
                     {/* Message to Students */}
                     <div className="max-w-4xl mx-auto mb-20 animate-fade-up" style={{ animationDelay: '0.4s' }}>
-                        <div className="glass-card bg-[#2d3e91]/5 border border-indigo-500/10 p-8 rounded-[2rem] relative overflow-hidden">
-                            <div className="absolute top-0 left-0 w-2 h-full bg-[#2d3e91]" />
-                            <h3 className="text-2xl font-black text-white mb-6 flex items-center gap-3">
-                                <span className="bg-[#2d3e91] text-white px-4 py-1.5 rounded-lg text-lg">Message to Students</span>
-                            </h3>
-                            <p className="text-gray-400 text-base leading-relaxed font-medium italic">
-                                "Education is the key to unlocking your potential and achieving your goals. However, education is not just about academic excellence. It is also about developing a well-rounded personality and being an individual who is socially responsible, empathetic, and companionate. At TRANSCEND, we are committed to creating a safe and inclusive environment where you can thrive. We encourage you to participate in extra curricular activities, volunteer in your community and develop your leadership skills. We believe in you, and we are proud to be a part of your journey."
-                            </p>
+                        <div className="relative p-10 rounded-[2.5rem] overflow-hidden group">
+                            {/* Decorative background */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#2d3e91]/10 to-transparent opacity-50" />
+                            <div className="absolute -top-24 -right-24 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl group-hover:scale-110 transition-transform duration-700" />
+
+                            {/* Quote icon */}
+                            <div className="absolute top-8 left-8 text-indigo-500/20 select-none pointer-events-none">
+                                <svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V12C14.017 12.5523 13.5693 13 13.017 13H11.017C10.4647 13 10.017 12.5523 10.017 12V9C10.017 7.34315 11.3601 6 13.017 6H19.017C20.6739 6 22.017 7.34315 22.017 9V15C22.017 16.6569 20.6739 18 19.017 18H17.017L17.017 21H14.017ZM3.017 21L3.017 18C3.017 16.8954 3.91243 16 5.017 16H8.017C8.56928 16 9.017 15.5523 9.017 15V9C9.017 8.44772 8.56928 8 8.017 8H4.017C3.46472 8 3.017 8.44772 3.017 9V12C3.017 12.5523 2.56928 13 2.017 13H0.017C-0.535282 13 -1.017 12.5523 -1.017 12V9C-1.017 7.34315 0.326142 6 2.017 6H8.017C9.67386 6 11.017 7.34315 11.017 9V15C11.017 16.6569 9.67386 18 8.017 18H6.017L6.017 21H3.017Z" />
+                                </svg>
+                            </div>
+
+                            <div className="relative z-10 text-center px-4">
+                                <h3 className="text-xs font-black tracking-[0.4em] uppercase text-indigo-400 mb-8 px-6 py-2 rounded-full border border-indigo-500/20 inline-block bg-indigo-500/5">
+                                    Message to Students
+                                </h3>
+
+                                <blockquote className="text-gray-300 text-lg md:text-xl font-medium leading-relaxed italic max-w-3xl mx-auto">
+                                    "Education is the key to unlocking your potential and achieving your goals. However, education is not just about academic excellence. It is also about developing a well-rounded personality and being an individual who is socially responsible, empathetic, and companionate."
+                                </blockquote>
+
+                                <div className="mt-8 pt-8 border-t border-indigo-500/10 flex flex-col items-center">
+                                    <p className="text-gray-400 text-sm leading-relaxed max-w-2xl mx-auto">
+                                        At <span className="text-indigo-400 font-bold">TRANSCEND</span>, we are committed to creating a safe and inclusive environment where you can thrive. We encourage you to participate in extra curricular activities, volunteer in your community and develop your leadership skills. We believe in you, and we are proud to be a part of your journey.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
