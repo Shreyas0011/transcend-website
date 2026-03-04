@@ -1,12 +1,42 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 const highlights = [
-    { icon: '🏛️', title: 'Modern Campus', desc: '50-acre green campus with state-of-the-art infrastructure and sustainable architecture.', color: '#1e3a8a' },
-    { icon: '🔬', title: 'Research Labs', desc: 'Advanced research laboratories equipped with cutting-edge instruments and technology.', color: '#b91c1c' },
-    { icon: '📚', title: 'Digital Library', desc: '1 lakh+ books, e-journals, and 24/7 digital access to global knowledge repositories.', color: '#b45309' },
-    { icon: '🏃', title: 'Sports Complex', desc: 'Olympic-standard sports facilities including swimming pool, courts, and fitness centers.', color: '#1e3a8a' },
-    { icon: '🎬', title: 'Auditorium', desc: '2000-seat air-conditioned auditorium hosting international conferences and cultural events.', color: '#b91c1c' },
-    { icon: '🛏️', title: 'Student Hostels', desc: 'Secure and comfortable residential facilities for 3000+ students with modern amenities.', color: '#b45309' },
+    {
+        title: 'Modern Campus',
+        desc: '50-acre green campus with state-of-the-art infrastructure and sustainable architecture.',
+        image: 'https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1200',
+        color: '#1e3a8a'
+    },
+    {
+        title: 'Research Labs',
+        desc: 'Advanced research laboratories equipped with cutting-edge instruments and technology.',
+        image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200',
+        color: '#b91c1c'
+    },
+    {
+        title: 'Digital Library',
+        desc: '1 lakh+ books, e-journals, and 24/7 digital access to global knowledge repositories.',
+        image: 'https://images.unsplash.com/photo-1521587760476-6c12bcf74bc1?auto=format&fit=crop&q=80&w=1200',
+        color: '#b45309'
+    },
+    {
+        title: 'Sports Complex',
+        desc: 'Olympic-standard sports facilities including swimming pool, courts, and fitness centers.',
+        image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1200',
+        color: '#1e3a8a'
+    },
+    {
+        title: 'Auditorium',
+        desc: '2000-seat air-conditioned auditorium hosting international conferences and cultural events.',
+        image: 'https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&q=80&w=1200',
+        color: '#b91c1c'
+    },
+    {
+        title: 'Student Hostels',
+        desc: 'Secure and comfortable residential facilities for 3000+ students with modern amenities.',
+        image: 'https://images.unsplash.com/photo-1555854817-5b2247a8175f?auto=format&fit=crop&q=80&w=1200',
+        color: '#b45309'
+    },
 ]
 
 const CampusHighlights = () => {
@@ -23,11 +53,10 @@ const CampusHighlights = () => {
         return () => observer.disconnect()
     }, [])
 
-    // Auto-cycle active card
     useEffect(() => {
         const id = setInterval(() => {
             setActiveIdx(prev => (prev + 1) % highlights.length)
-        }, 3500)
+        }, 5000)
         return () => clearInterval(id)
     }, [])
 
@@ -35,96 +64,108 @@ const CampusHighlights = () => {
         <section
             id="campus"
             ref={sectionRef}
-            className="relative py-24 px-6 overflow-hidden bg-slate-50"
+            className="relative py-32 px-6 overflow-hidden bg-white"
         >
-            {/* Floating circles - light theme mix-blending */}
-            <div className="absolute -left-20 top-1/3 w-64 h-64 rounded-full opacity-40 animate-morph mix-blend-multiply pointer-events-none"
-                style={{ background: 'radial-gradient(circle, #bfdbfe, transparent)', filter: 'blur(40px)' }} />
-            <div className="absolute -right-20 bottom-1/3 w-48 h-48 rounded-full opacity-40 animate-morph mix-blend-multiply pointer-events-none"
-                style={{ background: 'radial-gradient(circle, #fecaca, transparent)', filter: 'blur(40px)', animationDelay: '4s' }} />
+            <div className="absolute inset-0 opacity-[0.03]"
+                style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
-            <div className="relative z-10 max-w-6xl mx-auto">
-                {/* Header */}
-                <div className="text-center mb-16">
-                    <span className="text-amber-600 text-sm font-bold tracking-widest uppercase mb-3 block">Campus Life</span>
-                    <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
-                        Experience Our <span className="shimmer-text">Campus</span>
+            <div className="relative z-10 max-w-7xl mx-auto">
+                <div className="text-center mb-20">
+                    <span className="text-[#2d3e91] text-xs font-black tracking-[0.3em] uppercase mb-4 block">Campus Experience</span>
+                    <h2 className="text-5xl md:text-7xl font-black text-[#0f172a] mb-6 tracking-tight">
+                        Premium <span className="text-blue-600">Amenities</span>
                     </h2>
-                    <p className="text-gray-600 max-w-xl mx-auto text-lg">
-                        Life at Transcend is vibrant, supportive, and inspiring — every corner is designed for growth.
+                    <p className="text-gray-500 max-w-2xl mx-auto text-xl font-medium leading-relaxed">
+                        Beyond academics, we provide an ecosystem designed for excellence, comfort, and holistic growth.
                     </p>
                 </div>
 
-                {/* Main layout: big active card + grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-                    {/* Active highlight card */}
-                    <div
-                        className="relative overflow-hidden rounded-3xl p-10 text-center bg-white"
-                        style={{
-                            border: `1px solid ${highlights[activeIdx].color}30`,
-                            boxShadow: `0 20px 50px ${highlights[activeIdx].color}15`,
-                            opacity: isVisible ? 1 : 0,
-                            transform: isVisible ? 'translateY(0)' : 'translateY(40px)',
-                            transition: 'opacity 0.8s ease, transform 0.8s ease, border 0.5s ease',
-                            minHeight: 320,
-                        }}
-                    >
-                        {/* Animated backdrop splash */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                    {/* Featured Image Section */}
+                    <div className="lg:col-span-8 relative group">
                         <div
-                            className="absolute inset-0 opacity-10 transition-colors duration-500"
-                            style={{ background: `linear-gradient(135deg, ${highlights[activeIdx].color}, transparent)` }}
-                        />
-
-                        {/* Animated ring */}
-                        <div
-                            className="absolute -inset-10 rounded-full border border-dashed opacity-20 animate-spin-slow pointer-events-none"
-                            style={{ borderColor: highlights[activeIdx].color, borderWidth: 1 }}
-                        />
-
-                        <div className="relative z-10">
-                            <div className="text-8xl mb-6 animate-float-medium drop-shadow-sm">{highlights[activeIdx].icon}</div>
-                            <h3 className="text-3xl font-black text-gray-900 mb-4">{highlights[activeIdx].title}</h3>
-                            <p className="text-gray-600 text-lg leading-relaxed font-medium">{highlights[activeIdx].desc}</p>
-                        </div>
-
-                        {/* Dot indicator */}
-                        <div className="relative z-10 flex justify-center gap-2 mt-8">
-                            {highlights.map((_, i) => (
-                                <button
+                            className="relative overflow-hidden rounded-[32px] h-[500px] md:h-[600px] shadow-2xl transition-all duration-700"
+                            style={{
+                                opacity: isVisible ? 1 : 0,
+                                transform: isVisible ? 'none' : 'translateY(40px)',
+                            }}
+                        >
+                            {/* Background Image with Crossfade */}
+                            {highlights.map((h, i) => (
+                                <div
                                     key={i}
-                                    onClick={() => setActiveIdx(i)}
-                                    className="rounded-full transition-all duration-300"
+                                    className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
                                     style={{
-                                        width: i === activeIdx ? 24 : 8,
-                                        height: 8,
-                                        background: i === activeIdx ? highlights[activeIdx].color : '#cbd5e1',
+                                        opacity: activeIdx === i ? 1 : 0,
+                                        zIndex: activeIdx === i ? 1 : 0
                                     }}
-                                />
+                                >
+                                    <img
+                                        src={h.image}
+                                        alt={h.title}
+                                        className="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-[10s] ease-linear"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                                </div>
                             ))}
+
+                            {/* Content Over Image */}
+                            <div className="absolute bottom-0 left-0 right-0 p-10 md:p-16 z-10">
+                                <div className="max-w-xl">
+                                    <div className="flex items-center gap-3 mb-6">
+                                        <div className="h-0.5 w-12 bg-blue-500" />
+                                        <span className="text-blue-400 font-bold tracking-widest text-sm uppercase">Highlight {activeIdx + 1}</span>
+                                    </div>
+                                    <h3 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
+                                        {highlights[activeIdx].title}
+                                    </h3>
+                                    <p className="text-gray-300 text-lg md:text-xl font-medium leading-relaxed mb-8">
+                                        {highlights[activeIdx].desc}
+                                    </p>
+                                    <div className="flex gap-2">
+                                        {highlights.map((_, i) => (
+                                            <button
+                                                key={i}
+                                                onClick={() => setActiveIdx(i)}
+                                                className="h-1.5 rounded-full transition-all duration-500"
+                                                style={{
+                                                    width: activeIdx === i ? '40px' : '12px',
+                                                    background: activeIdx === i ? '#3b82f6' : 'rgba(255,255,255,0.3)'
+                                                }}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Grid of all highlights */}
-                    <div className="grid grid-cols-2 gap-4">
+                    {/* Navigation Thumbnails */}
+                    <div className="lg:col-span-4 flex flex-col gap-4">
                         {highlights.map((h, i) => (
-                            <div
-                                key={h.title}
+                            <button
+                                key={i}
                                 onClick={() => setActiveIdx(i)}
-                                className="glass-card bg-white p-5 cursor-pointer transition-all duration-300"
-                                style={{
-                                    opacity: isVisible ? 1 : 0,
-                                    transition: `all 0.4s ease ${i * 0.08}s`,
-                                    border: activeIdx === i ? `1px solid ${h.color}40` : '1px solid rgba(0,0,0,0.05)',
-                                    boxShadow: activeIdx === i ? `0 12px 24px ${h.color}15` : '0 4px 12px rgba(0,0,0,0.02)',
-                                    transform: isVisible ? (activeIdx === i ? 'translateY(-4px) scale(1.02)' : 'translateY(0)') : 'translateY(20px)',
-                                }}
+                                className={`group flex items-center gap-4 p-4 rounded-2xl border-2 transition-all duration-300 text-left h-full ${activeIdx === i
+                                    ? 'bg-blue-50 border-blue-500 shadow-lg translate-x-2'
+                                    : 'bg-white border-gray-100 hover:border-gray-200 hover:translate-x-1'
+                                    }`}
                             >
-                                <div className="flex items-center gap-4 mb-3">
-                                    <div className="text-3xl animate-float-fast drop-shadow-sm" style={{ animationDelay: `${i * 0.4}s` }}>{h.icon}</div>
+                                <div className="w-20 h-20 rounded-xl overflow-hidden shrink-0 shadow-md">
+                                    <img src={h.image} alt={h.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                                 </div>
-                                <p className={`text-base font-bold mb-1 transition-colors ${activeIdx === i ? 'text-gray-900' : 'text-gray-700'}`}>{h.title}</p>
-                                <p className="text-xs text-gray-500 leading-relaxed font-medium line-clamp-2">{h.desc}</p>
-                            </div>
+                                <div>
+                                    <h4 className={`font-black text-lg ${activeIdx === i ? 'text-blue-700' : 'text-gray-800'}`}>
+                                        {h.title}
+                                    </h4>
+                                    <p className="text-gray-500 text-xs font-bold uppercase tracking-wider mt-0.5">Explore Feature</p>
+                                </div>
+                                <div className={`ml-auto transition-all duration-300 ${activeIdx === i ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'}`}>
+                                    <svg className="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </div>
+                            </button>
                         ))}
                     </div>
                 </div>
