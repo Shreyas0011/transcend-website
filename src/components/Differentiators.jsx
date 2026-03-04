@@ -190,6 +190,7 @@ const sections = [
             { icon: '📈', heading: 'Real-World Edge', body: 'Programs like Udemy\'s "Complete Investment Banking Course," Coursera\'s "Entrepreneurship Strategy," and Wharton\'s "Business Strategy" build elite skills. Emotional intelligence, Six Sigma, data-driven decision making — all covered.' },
         ],
         badges: ['Udemy', 'Coursera', 'Harvard', 'Yale', 'Wharton', 'Google Cloud'],
+        videoUrl: "https://drive.google.com/file/d/1OZEWapCt5jcdIdbvzFBRnkZzBF67M9HC/preview",
     },
     {
         number: '02', emoji: '🏢', title: 'Corporate Exposure',
@@ -262,24 +263,41 @@ const DiffSection = ({ section, index }) => {
     return (
         <div ref={ref} id={`section-${section.number}`} className="mb-28">
 
-            {/* Section heading */}
-            <div className="flex flex-col sm:flex-row sm:items-end gap-4 mb-10"
+            {/* Section heading area */}
+            <div className="flex flex-col lg:flex-row lg:items-center gap-10 mb-10"
                 style={{ opacity: visible ? 1 : 0, transform: visible ? 'none' : 'translateY(30px)', transition: 'all 0.7s cubic-bezier(0.16,1,0.3,1)' }}>
-                <div className="font-black leading-none select-none"
-                    style={{ fontSize: 'clamp(5rem,12vw,9rem)', color: `${section.color}18`, lineHeight: 1, letterSpacing: '-0.04em' }}>
-                    {section.number}
+                {/* Heading Text */}
+                <div className="flex-1">
+                    <div className="flex flex-col sm:flex-row sm:items-end gap-4 mb-6">
+                        <div className="font-black leading-none select-none text-[#ffffff18]"
+                            style={{ fontSize: 'clamp(5rem,12vw,9rem)', letterSpacing: '-0.04em' }}>
+                            {section.number}
+                        </div>
+                        <div className="pb-2">
+                            <span className="inline-block px-4 py-1 rounded-full text-[11px] font-black tracking-widest mb-3"
+                                style={{ background: `${section.color}18`, color: section.color, border: `1.5px solid ${section.color}40` }}>
+                                {section.tag}
+                            </span>
+                            <h2 className="font-black text-white leading-tight"
+                                style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', letterSpacing: '-0.02em' }}>
+                                {section.emoji} {section.title}
+                            </h2>
+                            <p className="font-semibold text-sm mt-1 opacity-60" style={{ color: section.color }}>{section.sub}</p>
+                        </div>
+                    </div>
                 </div>
-                <div className="pb-2">
-                    <span className="inline-block px-4 py-1 rounded-full text-[11px] font-black tracking-widest mb-3"
-                        style={{ background: `${section.color}18`, color: section.color, border: `1.5px solid ${section.color}40` }}>
-                        {section.tag}
-                    </span>
-                    <h2 className="font-black text-white leading-tight"
-                        style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', letterSpacing: '-0.02em' }}>
-                        {section.emoji} {section.title}
-                    </h2>
-                    <p className="font-semibold text-sm mt-1 opacity-60" style={{ color: section.color }}>{section.sub}</p>
-                </div>
+
+                {/* Optional Section Video */}
+                {section.videoUrl && (
+                    <div className="w-full lg:w-[450px] animate-fade-up" style={{ animationDelay: '0.4s' }}>
+                        <VideoSlot
+                            url={section.videoUrl}
+                            label="Session Highlight"
+                            color={section.color}
+                            isPlaceholder={false}
+                        />
+                    </div>
+                )}
             </div>
 
             {/* Text blocks — 3-col */}
@@ -417,53 +435,7 @@ const Differentiators = () => {
                     {/* Marquee */}
                     <MarqueeStrip />
 
-                    {/* Video Highlights Grid */}
-                    <div className="mb-32" style={{ opacity: hv ? 1 : 0, transform: hv ? 'none' : 'translateY(30px)', transition: 'all 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s' }}>
-                        <div className="flex items-center gap-4 mb-10">
-                            <div className="h-px flex-1 rounded-full bg-gradient-to-r from-indigo-500/40 to-transparent" />
-                            <span className="text-xs font-black tracking-[0.4em] uppercase text-indigo-300 bg-indigo-500/10 px-6 py-2.5 rounded-full border border-indigo-500/20 backdrop-blur-md">
-                                Global Session Highlights
-                            </span>
-                            <div className="h-px flex-1 rounded-full bg-gradient-to-l from-indigo-500/40 to-transparent" />
-                        </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                            {/* Slot 1: Active Video */}
-                            <div className="relative group">
-                                <VideoSlot
-                                    url="https://drive.google.com/file/d/1OZEWapCt5jcdIdbvzFBRnkZzBF67M9HC/preview"
-                                    color="#818cf8"
-                                    label="Featured Session"
-                                    isPlaceholder={false}
-                                />
-                                <div className="absolute top-2 left-2 w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-black z-10"
-                                    style={{ background: '#818cf8', color: '#000', boxShadow: '0 4px 15px rgba(129,140,248,0.5)' }}>
-                                    1
-                                </div>
-                            </div>
-
-                            {/* Slots 2-12: Placeholders */}
-                            {Array.from({ length: 11 }).map((_, n) => (
-                                <div key={n + 1} className="relative group">
-                                    <VideoSlot
-                                        color="#818cf8"
-                                        label={`Session ${n + 2}`}
-                                        isPlaceholder={true}
-                                    />
-                                    <div className="absolute top-2 left-2 w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-black z-10 transition-all group-hover:scale-110 group-hover:rotate-6"
-                                        style={{ background: 'rgba(129,140,248,0.3)', color: '#fff', border: '1px solid rgba(129,140,248,0.5)' }}>
-                                        {n + 2}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className="mt-12 text-center">
-                            <p className="text-gray-400 text-sm font-medium italic opacity-60">
-                                "Bringing corporate excellence to your campus journey."
-                            </p>
-                        </div>
-                    </div>
 
                     {/* Sections */}
                     {sections.map((s, i) => <DiffSection key={s.number} section={s} index={i} />)}
