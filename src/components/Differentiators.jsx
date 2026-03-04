@@ -216,6 +216,7 @@ const sections = [
             { icon: '💡', heading: 'Transformative Stories & Exposure', body: 'Narratives spanning grassroots struggles to entrepreneurial triumphs. Students gain insights into resilience, opportunity spotting, and income generation from innate talents — in interactive, institution-led sessions.' },
             { icon: '⚡', heading: 'Empower Your Real-World Success', body: 'These skill monetisation programs bridge academia to entrepreneurship — empowering you to earn from day one. Join TRANSCEND VAP to convert challenges into opportunities and launch confidently.' },
         ],
+        videoUrl: "https://drive.google.com/file/d/1OWkbiQbI1UiNzbCAnraOBky5ZJH8ZouI/preview",
     },
     {
         number: '04', emoji: '🎤', title: 'Toastmasters On Campus',
