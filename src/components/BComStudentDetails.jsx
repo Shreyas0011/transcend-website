@@ -2,71 +2,72 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const bcomATStudents = [
-    { id: 1, name: 'Aditi G', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Academic Topper · CA Foundation Cleared · CGPA 9.4', photo: null, resume: '#' },
-    { id: 2, name: 'Aditya G Attimarad', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Finance Club Lead · Placed at Ernst & Young', photo: null, resume: '#' },
-    { id: 3, name: 'Aditya P', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Best Project Award · TechScale Participant', photo: null, resume: '#' },
-    { id: 4, name: 'Aditya V Kashyap', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Taxation Workshop Winner · Internship at Deloitte', photo: null, resume: '#' },
-    { id: 5, name: 'Ananya K S', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Cultural Secretary · NSS Best Volunteer · CGPA 9.1', photo: null, resume: '#' },
-    { id: 6, name: 'Anusha C', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Toastmasters Best Speaker · Merit Scholarship Awardee', photo: null, resume: '#' },
-    { id: 7, name: 'Anya N Makam', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Debate Champion · Ranked 2nd in University Exams', photo: null, resume: '#' },
-    { id: 8, name: 'Archana Ramesh', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Best Outgoing Student · Placed at KPMG', photo: null, resume: '#' },
-    { id: 9, name: 'Asha Vivek', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Commerce Olympiad Gold · Social Impact Project Lead', photo: null, resume: '#' },
-    { id: 10, name: 'B Amritha', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Management Conclave Speaker · Internship at PwC', photo: null, resume: '#' },
-    { id: 11, name: 'C G Charan Ram', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Sports Captain · Finance Quiz Runner-Up', photo: null, resume: '#' },
-    { id: 12, name: 'Dhanyashree T M', stream: 'B.Com [ACCOUNTING & TAXATION]', details: "Dean's List · GST Symposium Presenter", photo: null, resume: '#' },
-    { id: 13, name: 'Disha Singanamala', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Entrepreneurship Award · Campus Innovation Finalist', photo: null, resume: '#' },
-    { id: 14, name: 'Greeshma V', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Best Paper Presenter · Placed at Grant Thornton', photo: null, resume: '#' },
-    { id: 15, name: 'H S Deemanth Sai', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Class Representative · Audit Internship at BDO', photo: null, resume: '#' },
-    { id: 16, name: 'Hithapriya S', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Merit Rank Holder · CA Inter Pursuing', photo: null, resume: '#' },
-    { id: 17, name: 'Jairaj Unnikrishnan', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Quiz Champion · Internship at Infosys Finance Division', photo: null, resume: '#' },
-    { id: 18, name: 'Jasmine Purohit', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Cultural Fest Organiser · CGPA 9.2 · NSS Leader', photo: null, resume: '#' },
-    { id: 19, name: 'K R Rishikesh', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Startup Pitch Finalist · Income Tax Moot Winner', photo: null, resume: '#' },
-    { id: 20, name: 'Kruthi K Prasad', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Gold Medalist · Ranked 1st in Batch · Inspiring Minds Awardee', photo: null, resume: '#' },
-    { id: 21, name: 'Maithili S Kulkarni', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Placed at Wipro Finance · Commerce Society President', photo: null, resume: '#' },
-    { id: 22, name: 'Manas Kumar Jha', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Inter-College Debate Winner · Internship at HDFC Bank', photo: null, resume: '#' },
-    { id: 23, name: 'Nikiths B N', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Sports Representative · Accounting Case Study Champion', photo: null, resume: '#' },
-    { id: 24, name: 'Padmashree S', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Best Intern Award · Placed at Bajaj Finance', photo: null, resume: '#' },
-    { id: 25, name: 'Phalguni Prashant Acharya', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'TEDx Speaker · Community Service Award · CGPA 9.0', photo: null, resume: '#' },
-    { id: 26, name: 'R Anirudh', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Finance Hackathon Winner · Internship at Axis Bank', photo: null, resume: '#' },
-    { id: 27, name: 'R Bhaskar', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Academic Excellence Award · GST Workshop Facilitator', photo: null, resume: '#' },
-    { id: 28, name: 'S Shiva Raja Vell', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Entrepreneurship Club Head · Placed at Cognizant Finance', photo: null, resume: '#' },
-    { id: 29, name: 'Samhita Mudgal', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Toastmasters Leader · Best Research Paper Award', photo: null, resume: '#' },
-    { id: 30, name: 'Samhitha Narasimha D R', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'University Rank Holder · Internship at Accenture', photo: null, resume: '#' },
-    { id: 31, name: 'Satvik Gupta', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Business Plan Winner · Placed at TCS Finance Division', photo: null, resume: '#' },
-    { id: 32, name: 'Seshasai V R', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Student Parliament President · Debate Runner-Up', photo: null, resume: '#' },
-    { id: 33, name: 'Srinath R N', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Commerce Fest Coordinator · Internship at ICICI Bank', photo: null, resume: '#' },
-    { id: 34, name: 'Tejas V', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Placed at Deloitte USI · Transfer Pricing Internship', photo: null, resume: '#' },
-    { id: 35, name: 'Varsha Mohan', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Best Outgoing Student · NSS State-Level Award', photo: null, resume: '#' },
-    { id: 36, name: 'Vidith C C', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Innovation Challenge Winner · Interned at Sundaram Finance', photo: null, resume: '#' },
-    { id: 37, name: 'Vilok Srajan Meda', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Startup Incubation Finalist · Business Model Canvas Winner', photo: null, resume: '#' },
-    { id: 38, name: 'Devika V', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Cultural Ambassador · Placed at IndusInd Bank · CGPA 8.9', photo: null, resume: '#' },
-    { id: 39, name: 'Gaurav M Kashyap', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Finance Hackathon Winner · Internship at Bajaj Finserv', photo: null, resume: '#' },
-    { id: 40, name: 'Shreyas Kashyap', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Best Project Award · Placed at Axis Bank · CGPA 9.1', photo: null, resume: '#' },
-    { id: 41, name: 'Suraj R', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Entrepreneurship Club Head · Campus Innovation Challenge Winner', photo: null, resume: '#' },
-    { id: 42, name: 'Abhinaya R', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Merit Scholarship Awardee · Internship at HDFC Securities', photo: null, resume: '#' },
-    { id: 43, name: 'Anica Kulkarni', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Toastmasters Best Speaker · Placed at Deloitte USI', photo: null, resume: '#' },
-    { id: 44, name: 'Divya Thirumal', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Cultural Fest Co-ordinator · NSS Best Volunteer · CGPA 9.0', photo: null, resume: '#' },
-    { id: 45, name: 'Eshwar H G', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Finance Quiz Champion · Internship at Sundaram Mutual Fund', photo: null, resume: '#' },
-    { id: 46, name: 'Shraavya Cadabam Sreenivas', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Best Paper Presenter · Commerce Olympiad Silver · CGPA 9.2', photo: null, resume: '#' },
-    { id: 47, name: 'Varsha Santhosh', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Class Representative · Placed at KPMG · Dean\'s List', photo: null, resume: '#' },
-    { id: 48, name: 'Karthikeya M A', stream: 'B.Com [ACCOUNTING & TAXATION]', details: 'Startup Pitch Finalist · Internship at Axis Capital', photo: null, resume: '#' },
+    { id: 1, name: 'Aditi G', stream: 'B.Com [Accounting & Taxation]', details: 'Academic Topper · CA Foundation Cleared · CGPA 9.4', photo: null, resume: '#' },
+    { id: 2, name: 'Aditya G Attimarad', stream: 'B.Com [Accounting & Taxation]', details: 'Finance Club Lead · Placed at Ernst & Young', photo: null, resume: '#' },
+    { id: 3, name: 'Aditya P', stream: 'B.Com [Accounting & Taxation]', details: 'Best Project Award · TechScale Participant', photo: null, resume: '#' },
+    { id: 4, name: 'Aditya V Kashyap', stream: 'B.Com [Accounting & Taxation]', details: 'Taxation Workshop Winner · Internship at Deloitte', photo: null, resume: '#' },
+    { id: 5, name: 'Ananya K S', stream: 'B.Com [Accounting & Taxation]', details: 'Cultural Secretary · NSS Best Volunteer · CGPA 9.1', photo: null, resume: '#' },
+    { id: 6, name: 'Anusha C', stream: 'B.Com [Accounting & Taxation]', details: 'Toastmasters Best Speaker · Merit Scholarship Awardee', photo: null, resume: '#' },
+    { id: 7, name: 'Anya N Makam', stream: 'B.Com [Accounting & Taxation]', details: 'Debate Champion · Ranked 2nd in University Exams', photo: null, resume: '#' },
+    { id: 8, name: 'Archana Ramesh', stream: 'B.Com [Accounting & Taxation]', details: 'Best Outgoing Student · Placed at KPMG', photo: null, resume: '#' },
+    { id: 9, name: 'Asha Vivek', stream: 'B.Com [Accounting & Taxation]', details: 'Commerce Olympiad Gold · Social Impact Project Lead', photo: null, resume: '#' },
+    { id: 10, name: 'B Amritha', stream: 'B.Com [Accounting & Taxation]', details: 'Management Conclave Speaker · Internship at PwC', photo: null, resume: '#' },
+    { id: 11, name: 'C G Charan Ram', stream: 'B.Com [Accounting & Taxation]', details: 'Sports Captain · Finance Quiz Runner-Up', photo: null, resume: '#' },
+    { id: 12, name: 'Dhanyashree T M', stream: 'B.Com [Accounting & Taxation]', details: "Dean's List · GST Symposium Presenter", photo: null, resume: '#' },
+    { id: 13, name: 'Disha Singanamala', stream: 'B.Com [Accounting & Taxation]', details: 'Entrepreneurship Award · Campus Innovation Finalist', photo: null, resume: '#' },
+    { id: 14, name: 'Greeshma V', stream: 'B.Com [Accounting & Taxation]', details: 'Best Paper Presenter · Placed at Grant Thornton', photo: null, resume: '#' },
+    { id: 15, name: 'H S Deemanth Sai', stream: 'B.Com [Accounting & Taxation]', details: 'Class Representative · Audit Internship at BDO', photo: null, resume: '#' },
+    { id: 16, name: 'Hithapriya S', stream: 'B.Com [Accounting & Taxation]', details: 'Merit Rank Holder · CA Inter Pursuing', photo: null, resume: '#' },
+    { id: 17, name: 'Jairaj Unnikrishnan', stream: 'B.Com [Accounting & Taxation]', details: 'Quiz Champion · Internship at Infosys Finance Division', photo: null, resume: '#' },
+    { id: 18, name: 'Jasmine Purohit', stream: 'B.Com [Accounting & Taxation]', details: 'Cultural Fest Organiser · CGPA 9.2 · NSS Leader', photo: null, resume: '#' },
+    { id: 19, name: 'K R Rishikesh', stream: 'B.Com [Accounting & Taxation]', details: 'Startup Pitch Finalist · Income Tax Moot Winner', photo: null, resume: '#' },
+    { id: 20, name: 'Kruthi K Prasad', stream: 'B.Com [Accounting & Taxation]', details: 'Gold Medalist · Ranked 1st in Batch · Inspiring Minds Awardee', photo: null, resume: '#' },
+    { id: 21, name: 'Maithili S Kulkarni', stream: 'B.Com [Accounting & Taxation]', details: 'Placed at Wipro Finance · Commerce Society President', photo: null, resume: '#' },
+    { id: 22, name: 'Manas Kumar Jha', stream: 'B.Com [Accounting & Taxation]', details: 'Inter-College Debate Winner · Internship at HDFC Bank', photo: null, resume: '#' },
+    { id: 23, name: 'Nikiths B N', stream: 'B.Com [Accounting & Taxation]', details: 'Sports Representative · Accounting Case Study Champion', photo: null, resume: '#' },
+    { id: 24, name: 'Padmashree S', stream: 'B.Com [Accounting & Taxation]', details: 'Best Intern Award · Placed at Bajaj Finance', photo: null, resume: '#' },
+    { id: 25, name: 'Phalguni Prashant Acharya', stream: 'B.Com [Accounting & Taxation]', details: 'TEDx Speaker · Community Service Award · CGPA 9.0', photo: null, resume: '#' },
+    { id: 26, name: 'R Anirudh', stream: 'B.Com [Accounting & Taxation]', details: 'Finance Hackathon Winner · Internship at Axis Bank', photo: null, resume: '#' },
+    { id: 27, name: 'R Bhaskar', stream: 'B.Com [Accounting & Taxation]', details: 'Academic Excellence Award · GST Workshop Facilitator', photo: null, resume: '#' },
+    { id: 28, name: 'S Shiva Raja Vell', stream: 'B.Com [Accounting & Taxation]', details: 'Entrepreneurship Club Head · Placed at Cognizant Finance', photo: null, resume: '#' },
+    { id: 29, name: 'Samhita Mudgal', stream: 'B.Com [Accounting & Taxation]', details: 'Toastmasters Leader · Best Research Paper Award', photo: null, resume: '#' },
+    { id: 30, name: 'Samhitha Narasimha D R', stream: 'B.Com [Accounting & Taxation]', details: 'University Rank Holder · Internship at Accenture', photo: null, resume: '#' },
+    { id: 31, name: 'Satvik Gupta', stream: 'B.Com [Accounting & Taxation]', details: 'Business Plan Winner · Placed at TCS Finance Division', photo: null, resume: '#' },
+    { id: 32, name: 'Seshasai V R', stream: 'B.Com [Accounting & Taxation]', details: 'Student Parliament President · Debate Runner-Up', photo: null, resume: '#' },
+    { id: 33, name: 'Srinath R N', stream: 'B.Com [Accounting & Taxation]', details: 'Commerce Fest Coordinator · Internship at ICICI Bank', photo: null, resume: '#' },
+    { id: 34, name: 'Tejas V', stream: 'B.Com [Accounting & Taxation]', details: 'Placed at Deloitte USI · Transfer Pricing Internship', photo: null, resume: '#' },
+    { id: 35, name: 'Varsha Mohan', stream: 'B.Com [Accounting & Taxation]', details: 'Best Outgoing Student · NSS State-Level Award', photo: null, resume: '#' },
+    { id: 36, name: 'Vidith C C', stream: 'B.Com [Accounting & Taxation]', details: 'Innovation Challenge Winner · Interned at Sundaram Finance', photo: null, resume: '#' },
+    { id: 37, name: 'Vilok Srajan Meda', stream: 'B.Com [Accounting & Taxation]', details: 'Startup Incubation Finalist · Business Model Canvas Winner', photo: null, resume: '#' },
+    { id: 38, name: 'Devika V', stream: 'B.Com [Accounting & Taxation]', details: 'Cultural Ambassador · Placed at IndusInd Bank · CGPA 8.9', photo: null, resume: '#' },
+    { id: 39, name: 'Gaurav M Kashyap', stream: 'B.Com [Accounting & Taxation]', details: 'Finance Hackathon Winner · Internship at Bajaj Finserv', photo: null, resume: '#' },
+    { id: 40, name: 'Shreyas Kashyap', stream: 'B.Com [Accounting & Taxation]', details: 'Best Project Award · Placed at Axis Bank · CGPA 9.1', photo: null, resume: '#' },
+    { id: 41, name: 'Suraj R', stream: 'B.Com [Accounting & Taxation]', details: 'Entrepreneurship Club Head · Campus Innovation Challenge Winner', photo: null, resume: '#' },
+    { id: 42, name: 'Abhinaya R', stream: 'B.Com [Accounting & Taxation]', details: 'Merit Scholarship Awardee · Internship at HDFC Securities', photo: null, resume: '#' },
+    { id: 43, name: 'Anica Kulkarni', stream: 'B.Com [Accounting & Taxation]', details: 'Toastmasters Best Speaker · Placed at Deloitte USI', photo: null, resume: '#' },
+    { id: 44, name: 'Divya Thirumal', stream: 'B.Com [Accounting & Taxation]', details: 'Cultural Fest Co-ordinator · NSS Best Volunteer · CGPA 9.0', photo: null, resume: '#' },
+    { id: 45, name: 'Eshwar H G', stream: 'B.Com [Accounting & Taxation]', details: 'Finance Quiz Champion · Internship at Sundaram Mutual Fund', photo: null, resume: '#' },
+    { id: 46, name: 'Shraavya Cadabam Sreenivas', stream: 'B.Com [Accounting & Taxation]', details: 'Best Paper Presenter · Commerce Olympiad Silver · CGPA 9.2', photo: null, resume: '#' },
+    { id: 47, name: 'Varsha Santhosh', stream: 'B.Com [Accounting & Taxation]', details: 'Class Representative · Placed at KPMG · Dean\'s List', photo: null, resume: '#' },
+    { id: 48, name: 'Karthikeya M A', stream: 'B.Com [Accounting & Taxation]', details: 'Startup Pitch Finalist · Internship at Axis Capital', photo: null, resume: '#' },
+
 ];
 
 const bcomHRMStudents = [
-    { id: 1, name: 'Ananya V Kumar', stream: 'B.Com [HR & MANAGEMENT]', details: 'HR Leadership Award · Internship at Unilever HR Division', photo: null, resume: '#' },
-    { id: 2, name: 'Bhargav Rama', stream: 'B.Com [HR & MANAGEMENT]', details: 'Class Representative · Placed at Accenture · CGPA 9.1', photo: null, resume: '#' },
-    { id: 3, name: 'Chinmay Ganesh Netravali', stream: 'B.Com [HR & MANAGEMENT]', details: 'Debate Champion · Management Conclave Speaker', photo: null, resume: '#' },
-    { id: 4, name: 'Harshitha S', stream: 'B.Com [HR & MANAGEMENT]', details: 'Best Outgoing Student · Toastmasters Club President', photo: null, resume: '#' },
-    { id: 5, name: 'N K Mayur Somanna', stream: 'B.Com [HR & MANAGEMENT]', details: 'Sports Captain · Community Service Award · NSS Leader', photo: null, resume: '#' },
-    { id: 6, name: 'Nagavarsha B N', stream: 'B.Com [HR & MANAGEMENT]', details: 'Cultural Secretary · Internship at TCS HR Division', photo: null, resume: '#' },
-    { id: 7, name: 'R Sharath', stream: 'B.Com [HR & MANAGEMENT]', details: 'Entrepreneurship Award · Startup Incubation Programme Finalist', photo: null, resume: '#' },
-    { id: 8, name: 'Ridhi Shetty', stream: 'B.Com [HR & MANAGEMENT]', details: 'Gold Medalist · Ranked 1st in Batch · Inspiring Minds Awardee', photo: null, resume: '#' },
-    { id: 9, name: 'Saiskandan Sabarinathan', stream: 'B.Com [HR & MANAGEMENT]', details: 'Finance Quiz Runner-Up · Internship at Wipro HR', photo: null, resume: '#' },
-    { id: 10, name: 'Shrujan Shreekanth Prabhu', stream: 'B.Com [HR & MANAGEMENT]', details: "Dean's List · Placed at Infosys · CGPA 9.3", photo: null, resume: '#' },
-    { id: 11, name: 'T Harshith Aryan', stream: 'B.Com [HR & MANAGEMENT]', details: 'TEDx Speaker · Best Paper Presenter · Campus Innovation Winner', photo: null, resume: '#' },
-    { id: 12, name: 'Drishya Aiyyappa', stream: 'B.Com [HR & MANAGEMENT]', details: 'NSS Best Volunteer · Social Impact Project Lead', photo: null, resume: '#' },
-    { id: 13, name: 'Abhijna R Bhat', stream: 'B.Com [HR & MANAGEMENT]', details: 'Merit Scholarship Awardee · Internship at HDFC Bank HR', photo: null, resume: '#' },
-    { id: 14, name: 'B Balaji Ramanathan', stream: 'B.Com [HR & MANAGEMENT]', details: 'Placed at Deloitte · Business Plan Winner · Commerce Society VP', photo: null, resume: '#' },
+    { id: 1, name: 'Ananya V Kumar', stream: 'B.Com [Hr & Management]', details: 'HR Leadership Award · Internship at Unilever HR Division', photo: null, resume: '#' },
+    { id: 2, name: 'Bhargav Rama', stream: 'B.Com [Hr & Management]', details: 'Class Representative · Placed at Accenture · CGPA 9.1', photo: null, resume: '#' },
+    { id: 3, name: 'Chinmay Ganesh Netravali', stream: 'B.Com [Hr & Management]', details: 'Debate Champion · Management Conclave Speaker', photo: null, resume: '#' },
+    { id: 4, name: 'Harshitha S', stream: 'B.Com [Hr & Management]', details: 'Best Outgoing Student · Toastmasters Club President', photo: null, resume: '#' },
+    { id: 5, name: 'N K Mayur Somanna', stream: 'B.Com [Hr & Management]', details: 'Sports Captain · Community Service Award · NSS Leader', photo: null, resume: '#' },
+    { id: 6, name: 'Nagavarsha B N', stream: 'B.Com [Hr & Management]', details: 'Cultural Secretary · Internship at TCS HR Division', photo: null, resume: '#' },
+    { id: 7, name: 'R Sharath', stream: 'B.Com [Hr & Management]', details: 'Entrepreneurship Award · Startup Incubation Programme Finalist', photo: null, resume: '#' },
+    { id: 8, name: 'Ridhi Shetty', stream: 'B.Com [Hr & Management]', details: 'Gold Medalist · Ranked 1st in Batch · Inspiring Minds Awardee', photo: null, resume: '#' },
+    { id: 9, name: 'Saiskandan Sabarinathan', stream: 'B.Com [Hr & Management]', details: 'Finance Quiz Runner-Up · Internship at Wipro HR', photo: null, resume: '#' },
+    { id: 10, name: 'Shrujan Shreekanth Prabhu', stream: 'B.Com [Hr & Management]', details: "Dean's List · Placed at Infosys · CGPA 9.3", photo: null, resume: '#' },
+    { id: 11, name: 'T Harshith Aryan', stream: 'B.Com [Hr & Management]', details: 'TEDx Speaker · Best Paper Presenter · Campus Innovation Winner', photo: null, resume: '#' },
+    { id: 12, name: 'Drishya Aiyyappa', stream: 'B.Com [Hr & Management]', details: 'NSS Best Volunteer · Social Impact Project Lead', photo: null, resume: '#' },
+    { id: 13, name: 'Abhijna R Bhat', stream: 'B.Com [Hr & Management]', details: 'Merit Scholarship Awardee · Internship at HDFC Bank HR', photo: null, resume: '#' },
+    { id: 14, name: 'B Balaji Ramanathan', stream: 'B.Com [Hr & Management]', details: 'Placed at Deloitte · Business Plan Winner · Commerce Society VP', photo: null, resume: '#' },
 ];
 
 const StudentCard = ({ student, index }) => {
@@ -146,13 +147,12 @@ const StudentCard = ({ student, index }) => {
                                 color: hovered ? '#fff' : '#6b7280',
                                 boxShadow: hovered ? '0 8px 24px rgba(67,56,202,0.4)' : 'none',
                             }}
-                        >
-                            view resume
+                            View Resume
                         </Link>
-                    </div>
                 </div>
             </div>
         </div>
+        </div >
     );
 };
 
@@ -221,7 +221,7 @@ const BComStudentDetails = () => {
                 <div>
                     <div className="flex items-center gap-5 mb-10">
                         <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, rgba(99,102,241,0.4), transparent)' }} />
-                        <span className="text-indigo-400 text-base tracking-[0.2em] font-bold uppercase whitespace-nowrap">B.Com [ACCOUNTING &amp; TAXATION]</span>
+                        <span className="text-indigo-400 text-base tracking-[0.2em] font-bold uppercase whitespace-nowrap">B.Com [Accounting & Taxation]</span>
                         <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.4))' }} />
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -235,7 +235,7 @@ const BComStudentDetails = () => {
                 <div className="mt-20">
                     <div className="flex items-center gap-5 mb-10">
                         <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, rgba(99,102,241,0.4), transparent)' }} />
-                        <span className="text-indigo-400 text-base tracking-[0.2em] font-bold uppercase whitespace-nowrap">B.Com [HR &amp; MANAGEMENT]</span>
+                        <span className="text-indigo-400 text-base tracking-[0.2em] font-bold uppercase whitespace-nowrap">B.Com [Hr & Management]</span>
                         <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.4))' }} />
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
