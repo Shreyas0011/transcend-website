@@ -1,6 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+const leadershipTeam = [
+    { id: 1, name: 'CA. PRASANNA KUMAR K', designation: 'Director - Operations', department: 'Leadership', qualification: 'B.Com, (M.Com), CA', expertise: 'Strategic Operations · Finance · Management', photo: 'https://i.pravatar.cc/300?img=11' },
+    { id: 2, name: 'Prof. RAVI KIRAN T N', designation: 'Principal [BOS Member]', department: 'Leadership', qualification: 'B.Com, LLB, MBA, (PhD)', expertise: 'Academic Leadership · Law · Management', photo: 'https://i.pravatar.cc/300?img=13' },
+    { id: 3, name: 'AKSHAY KUMAR KULKARNI', designation: 'Co-ordinator - South Campus', department: 'Leadership', qualification: 'M.A (English), B.Ed', expertise: 'Campus Coordination · Academic Excellence', photo: 'https://i.pravatar.cc/300?img=14' },
+    { id: 4, name: 'AGNEL TRIVIKRAM G', designation: 'Co-ordinator - East Campus', department: 'Leadership', qualification: 'B.Com, PGDCA', expertise: 'Campus Operations · Digital Systems', photo: 'https://i.pravatar.cc/300?img=15' },
+];
+
 const faculty = [
     { id: 1, name: 'CA. Kiran Kumar', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'M.Com, C.A', expertise: 'Financial Accounting · Taxation · Auditing', photo: 'https://i.pravatar.cc/300?img=5' },
     { id: 2, name: 'CA. Reddy Shekar P', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'B.Com, C.A', expertise: 'Corporate Accounting · Direct Tax · GST', photo: 'https://i.pravatar.cc/300?img=12' },
@@ -165,11 +172,11 @@ const AnimatedStat = ({ value, label, delay }) => {
     return (
         <div ref={ref} className="text-center py-6 rounded-2xl"
             style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.12)' }}>
-            <p className="text-3xl font-black mb-1"
+            <p className="text-xl font-black mb-1"
                 style={{ background: 'linear-gradient(135deg,#818cf8,#6366f1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 {count}{suffix}
             </p>
-            <p className="text-gray-500 text-xs font-semibold tracking-wide uppercase">{label}</p>
+            <p className="text-gray-500 text-[10px] font-semibold tracking-wide uppercase">{label}</p>
         </div>
     );
 };
@@ -255,6 +262,33 @@ const OurTeam = () => {
 
                 {/* Stats bar — animated counters */}
                 <StatsBar visible={headerVisible} />
+
+                {/* Section: Leadership Team */}
+                <div className="mb-20">
+                    <div className="flex items-center gap-5 mb-10">
+                        <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, rgba(99,102,241,0.4), transparent)' }} />
+                        <span className="text-indigo-400 text-base tracking-[0.2em] font-bold uppercase whitespace-nowrap">Leadership Team</span>
+                        <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.4))' }} />
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                        {leadershipTeam.map((member, idx) => (
+                            <FacultyCard key={member.id} member={member} index={idx} />
+                        ))}
+                    </div>
+
+                    {/* Message to Students */}
+                    <div className="max-w-4xl mx-auto mb-20 animate-fade-up" style={{ animationDelay: '0.4s' }}>
+                        <div className="glass-card bg-[#2d3e91]/5 border border-indigo-500/10 p-8 rounded-[2rem] relative overflow-hidden">
+                            <div className="absolute top-0 left-0 w-2 h-full bg-[#2d3e91]" />
+                            <h3 className="text-2xl font-black text-white mb-6 flex items-center gap-3">
+                                <span className="bg-[#2d3e91] text-white px-4 py-1.5 rounded-lg text-lg">Message to Students</span>
+                            </h3>
+                            <p className="text-gray-400 text-base leading-relaxed font-medium italic">
+                                "Education is the key to unlocking your potential and achieving your goals. However, education is not just about academic excellence. It is also about developing a well-rounded personality and being an individual who is socially responsible, empathetic, and companionate. At TRANSCEND, we are committed to creating a safe and inclusive environment where you can thrive. We encourage you to participate in extra curricular activities, volunteer in your community and develop your leadership skills. We believe in you, and we are proud to be a part of your journey."
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
                 {/* Section divider */}
                 <div className="flex items-center gap-5 mb-10">
