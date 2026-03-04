@@ -25,6 +25,7 @@ import OurTeam from './components/OurTeam'
 import Differentiators from './components/Differentiators'
 import FloatingElements from './components/FloatingElements'
 import FacilitiesDetail from './components/FacilitiesDetail'
+import ChairmansOffice from './components/ChairmansOffice'
 import CustomCursor from './components/CustomCursor'
 import SmoothScroll from './components/SmoothScroll'
 
@@ -79,6 +80,7 @@ const App = () => {
           <Route path="/our-team" element={<OurTeam />} />
           <Route path="/differentiators" element={<Differentiators />} />
           <Route path="/facilities" element={<FacilitiesDetail />} />
+          <Route path="/chairmans-office" element={<ChairmansOffice />} />
         </Routes>
 
         {/* Footer */}
