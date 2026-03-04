@@ -1,4 +1,4 @@
-/* Custom Cursor Styles */
+/* Simple Custom Cursor Styles */
 
 /* Hide default cursor globally */
 html,
@@ -16,62 +16,37 @@ button,
 
 .custom-cursor-dot {
     position: fixed;
-    width: 8px;
-    height: 8px;
-    background-color: #4f46e5;
-    /* Indigo-600 */
+    width: 10px;
+    height: 10px;
+    background-color: rgba(79, 70, 229, 0.8);
+    /* Indigo with slight transparency */
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+    transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+        height 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.2);
+}
+
+.custom-cursor-dot.hovered {
+    width: 24px;
+    height: 24px;
+    background-color: rgba(79, 70, 229, 0.3);
+    border: 1px solid rgba(79, 70, 229, 0.6);
+    box-shadow: 0 0 15px rgba(79, 70, 229, 0.3);
 }
 
 .custom-cursor-dot.clicked {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     background-color: #4338ca;
-    /* Indigo-700 */
+    transform: translate(-50%, -50%) scale(0.9);
 }
 
+/* Remove or hide the ring styles since we're using a single dot now */
 .custom-cursor-ring {
-    position: fixed;
-    width: 40px;
-    height: 40px;
-    border: 1.5px solid rgba(79, 70, 229, 0.4);
-    /* Faded Indigo */
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-        height 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-        border-color 0.3s ease,
-        background-color 0.3s ease;
-}
-
-.custom-cursor-ring.hovered {
-    width: 60px;
-    height: 60px;
-    border-color: rgba(79, 70, 229, 0.8);
-    background-color: rgba(79, 70, 229, 0.05);
-}
-
-.custom-cursor-ring.clicked {
-    width: 30px;
-    height: 30px;
-    border-color: #4f46e5;
-    border-width: 2px;
-}
-
-/* Interaction with specific page sections or colors */
-@media (prefers-color-scheme: dark) {
-    .custom-cursor-dot {
-        background-color: #818cf8;
-        /* Lighter indigo for dark mode if applicable */
-    }
-
-    .custom-cursor-ring {
-        border-color: rgba(129, 140, 248, 0.4);
-    }
+    display: none;
 }

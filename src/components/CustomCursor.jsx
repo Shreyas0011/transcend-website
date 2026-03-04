@@ -3,7 +3,6 @@ import './CustomCursor.css';
 
 const CustomCursor = () => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
-    const [trailingPosition, setTrailingPosition] = useState({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
 
@@ -40,36 +39,11 @@ const CustomCursor = () => {
         };
     }, []);
 
-    // Trailing effect logic
-    useEffect(() => {
-        let requestId;
-        const updateTrailingPosition = () => {
-            setTrailingPosition((prev) => {
-                const dx = position.x - prev.x;
-                const dy = position.y - prev.y;
-                return {
-                    x: prev.x + dx * 0.15,
-                    y: prev.y + dy * 0.15,
-                };
-            });
-            requestId = requestAnimationFrame(updateTrailingPosition);
-        };
-
-        requestId = requestAnimationFrame(updateTrailingPosition);
-        return () => cancelAnimationFrame(requestId);
-    }, [position]);
-
     return (
-        <>
-            <div
-                className={`custom-cursor-dot ${isClicked ? 'clicked' : ''}`}
-                style={{ left: `${position.x}px`, top: `${position.y}px` }}
-            />
-            <div
-                className={`custom-cursor-ring ${isHovered ? 'hovered' : ''} ${isClicked ? 'clicked' : ''}`}
-                style={{ left: `${trailingPosition.x}px`, top: `${trailingPosition.y}px` }}
-            />
-        </>
+        <div
+            className={`custom-cursor-dot ${isHovered ? 'hovered' : ''} ${isClicked ? 'clicked' : ''}`}
+            style={{ left: `${position.x}px`, top: `${position.y}px` }}
+        />
     );
 };
 
