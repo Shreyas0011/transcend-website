@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import founderSiddharth from '../assets/founder_siddharth.png';
+import founderShwetha from '../assets/founder_shwetha.png';
 
 const FounderMessage = () => {
     const [visible, setVisible] = useState(false);
@@ -15,14 +17,14 @@ const FounderMessage = () => {
 
     const founders = [
         {
-            name: 'Siddharth K.T',
+            name: 'Dr. CA Siddharth KT',
             title: 'Founder',
             qualification: 'CA, MBA, LLB',
             highlights: [
                 'Completed CA, MBA, LLB by Age 26',
                 'Awarded BEST SPEAKER 10 times in a row by Mecon Communication Club',
             ],
-            avatar: 'https://i.pravatar.cc/400?img=33',
+            avatar: founderSiddharth,
         },
         {
             name: 'Dr. Shwetha S',
@@ -32,7 +34,7 @@ const FounderMessage = () => {
                 'Gold Medalist & Best Outgoing Student of RV Dental College in 2009',
                 '1st Rank in Karnataka & 31st Rank in India during CA-IPCC exam Nov 2012',
             ],
-            avatar: 'https://i.pravatar.cc/400?img=47',
+            avatar: founderShwetha,
         },
     ];
 
@@ -97,14 +99,14 @@ const FounderMessage = () => {
 
                                 {/* Photo */}
                                 <div className="relative w-full overflow-hidden"
-                                    style={{ height: '260px', background: 'linear-gradient(145deg, #0d0f20, #181b38)' }}>
+                                    style={{ height: '260px', background: '#ffffff' }}>
                                     <img
                                         src={founder.avatar}
                                         alt={founder.name}
-                                        className="w-full h-full object-cover object-top"
+                                        className="w-full h-full object-contain"
                                     />
                                     <div className="absolute inset-0"
-                                        style={{ background: 'linear-gradient(to bottom, transparent 40%, rgba(12,14,30,0.95) 100%)' }} />
+                                        style={{ background: 'linear-gradient(to bottom, transparent 20%, rgba(12,14,30,0.85) 100%)' }} />
                                     {/* Name on photo */}
                                     <div className="absolute bottom-0 left-0 p-6 z-10">
                                         <p className="text-white text-xl font-black">{founder.name}</p>

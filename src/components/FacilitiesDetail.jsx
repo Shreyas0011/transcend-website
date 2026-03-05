@@ -1,20 +1,33 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import classroom from '../assets/facilities/classroom.png';
+import yoga from '../assets/facilities/yoga.png';
+import library from '../assets/facilities/library.png';
+import auditorium from '../assets/facilities/auditorium.png';
+import reception from '../assets/facilities/reception.png';
+import comp_lab from '../assets/facilities/comp_lab.png';
+import pool from '../assets/facilities/pool.png';
+import av_theatre from '../assets/facilities/av_theatre.png';
+import table_tennis from '../assets/facilities/table_tennis.png';
+import badminton from '../assets/facilities/badminton.png';
+import canteen from '../assets/facilities/canteen.png';
+import basketball from '../assets/facilities/basketball.png';
+
 const facilities = [
-    { title: 'Classroom', image: 'https://images.unsplash.com/photo-1585827367315-9968b19edb6b?auto=format&fit=crop&q=80&w=800', description: 'Modern learning spaces equipped with the latest educational technology.' },
-    { title: 'Yoga Room', image: 'https://images.unsplash.com/photo-1518611012118-283d63c14dcb?auto=format&fit=crop&q=80&w=800', description: 'A peaceful sanctuary for mental and physical well-being.' },
-    { title: 'Library', image: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=800', description: 'Extensive collection of resources to fuel academic curiosity.' },
-    { title: 'Auditorium', image: 'https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&q=80&w=800', description: 'High-capacity venue for events, seminars, and performances.' },
-    { title: 'Conference Room', image: 'https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&q=80&w=800', description: 'Professional setting for meetings and collaborative discussions.' },
-    { title: 'Computer Lab', image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800', description: 'Advanced computing facilities for research and skill development.' },
-    { title: 'Swimming Pool', image: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&q=80&w=800', description: 'Olympic-standard pool for recreation and competitive training.' },
-    { title: 'Table Tennis', image: 'https://images.unsplash.com/photo-1534158914592-062992fbe900?auto=format&fit=crop&q=80&w=800', description: 'Indoor sports facilities for students to unwind and compete.' },
-    { title: 'Basketball Court', image: 'https://images.unsplash.com/photo-1504450758481-7338ebe75224?auto=format&fit=crop&q=80&w=800', description: 'Professional-grade courts for athletic excellence.' },
-    { title: 'AV Theatre Room', image: 'https://images.unsplash.com/photo-1489433390058-2dca2c192c45?auto=format&fit=crop&q=80&w=800', description: 'Dedicated space for multimedia learning and screenings.' },
-    { title: 'Canteen', image: 'https://images.unsplash.com/photo-1555396273-cf921244267c?auto=format&fit=crop&q=80&w=800', description: 'A vibrant hub for nutritious meals and social interaction.' },
-    { title: 'Badminton Court', image: 'https://images.unsplash.com/photo-1626245917822-b19f42531513?auto=format&fit=crop&q=80&w=800', description: 'Well-maintained courts for indoor sports enthusiasts.' },
-    { title: 'Reception', image: 'https://images.unsplash.com/photo-1568992687396-43ac0755cc50?auto=format&fit=crop&q=80&w=800', description: 'Welcoming gateway providing support and information.' }
+    { title: 'Classroom', image: classroom, description: 'Modern learning spaces equipped with the latest educational technology.' },
+    { title: 'Yoga Room', image: yoga, description: 'A peaceful sanctuary for mental and physical well-being.' },
+    { title: 'Library', image: library, description: 'Extensive collection of resources to fuel academic curiosity.' },
+    { title: 'Auditorium', image: auditorium, description: 'High-capacity venue for events, seminars, and performances.' },
+    { title: 'Conference Room', image: reception, description: 'Professional setting for meetings and collaborative discussions.' },
+    { title: 'Computer Lab', image: comp_lab, description: 'Advanced computing facilities for research and skill development.' },
+    { title: 'Swimming Pool', image: pool, description: 'Olympic-standard pool for recreation and competitive training.' },
+    { title: 'Table Tennis', image: table_tennis, description: 'Indoor sports facilities for students to unwind and compete.' },
+    { title: 'Basketball Court', image: basketball, description: 'Professional-grade courts for athletic excellence.' },
+    { title: 'AV Theatre Room', image: av_theatre, description: 'Dedicated space for multimedia learning and screenings.' },
+    { title: 'Canteen', image: canteen, description: 'A vibrant hub for nutritious meals and social interaction.' },
+    { title: 'Badminton Court', image: badminton, description: 'Well-maintained courts for indoor sports enthusiasts.' },
+    { title: 'Reception', image: reception, description: 'Welcoming gateway providing support and information.' }
 ];
 
 const FacilitiesDetail = () => {

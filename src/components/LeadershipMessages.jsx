@@ -5,14 +5,14 @@ const VIDEOS = [
         type: 'gdrive',
         id: '1tFOQr_FW_w5G8_GlubTYD-JDa4Budq-p',
         label: "Chairman's Message",
-        name: 'Siddharth K.T',
+        name: 'Dr. CA Siddharth KT',
         title: 'Chairman, Transcend Group of Institutions',
     },
     {
         type: 'gdrive',
         id: '1tR3bPNv090Qd9JntXn5Qms6Em1VvTHpF',
         label: "Principal's Message",
-        name: 'Dr. Shwetha S',
+        name: 'Prof Ravi Kiran TN',
         title: 'Principal, Transcend Group of Institutions',
     },
 ];
@@ -54,8 +54,8 @@ const VideoCard = ({ video, index, visible }) => {
                 </div>
 
                 {/* Video / Thumbnail */}
-                <div className="relative mx-6 rounded-[16px] overflow-hidden cursor-pointer group"
-                    style={{ aspectRatio: '16/9', background: '#0d0f20' }}
+                <div className="relative aspect-video rounded-xl overflow-hidden group cursor-pointer mb-6"
+                    style={{ background: '#ffffff' }}
                     onClick={() => setPlaying(true)}
                 >
                     {playing ? (
@@ -73,7 +73,7 @@ const VideoCard = ({ video, index, visible }) => {
                                 <img
                                     src={thumbUrl}
                                     alt={video.label}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                                     onError={(e) => { e.target.style.display = 'none'; }}
                                 />
                             ) : (

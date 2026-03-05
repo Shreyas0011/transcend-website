@@ -44,18 +44,37 @@ const Footer = () => {
             </div>
 
             {/* Floating particles background - light theme */}
-            {[...Array(8)].map((_, i) => (
+            {[...Array(20)].map((_, i) => (
                 <div
-                    key={i}
-                    className="absolute rounded-full animate-float-slow opacity-20 pointer-events-none mix-blend-multiply"
+                    key={`particle-${i}`}
+                    className="absolute rounded-full animate-float-slow opacity-30 pointer-events-none mix-blend-multiply"
                     style={{
-                        width: 40 + i * 20,
-                        height: 40 + i * 20,
-                        left: `${10 + i * 12}%`,
-                        top: `${20 + (i % 3) * 30}%`,
-                        background: i % 2 === 0 ? '#fde68a' : '#bfdbfe',
-                        filter: 'blur(30px)',
-                        animationDelay: `${i * 0.7}s`,
+                        width: 40 + (i % 8) * 25,
+                        height: 40 + (i % 8) * 25,
+                        left: `${(i * 12) % 100}%`,
+                        top: `${(i * 17) % 100}%`,
+                        background: i % 4 === 0 ? '#fde68a' : i % 4 === 1 ? '#bfdbfe' : i % 4 === 2 ? '#e0e7ff' : '#ddd6fe',
+                        filter: 'blur(35px)',
+                        animationDelay: `${i * 0.4}s`,
+                        animationDuration: `${12 + (i % 5) * 4}s`,
+                    }}
+                />
+            ))}
+
+            {/* Floating geometric shapes for extra texture - brighter and more dense */}
+            {[...Array(12)].map((_, i) => (
+                <div
+                    key={`geo-${i}`}
+                    className="absolute border border-indigo-400/40 animate-pulse pointer-events-none opacity-20"
+                    style={{
+                        width: 25 + (i % 5) * 15,
+                        height: 25 + (i % 5) * 15,
+                        left: `${(i * 15) % 95}%`,
+                        top: `${(i * 9) % 95}%`,
+                        borderRadius: i % 3 === 0 ? '50%' : i % 3 === 1 ? '4px' : '0',
+                        transform: `rotate(${i * 30}deg)`,
+                        animation: `float-slow ${10 + (i % 4) * 3}s ease-in-out infinite`,
+                        animationDelay: `${i * 0.8}s`,
                     }}
                 />
             ))}
@@ -139,9 +158,9 @@ const Footer = () => {
                                     <li key={i}>
                                         <a
                                             href={link.href}
-                                            className="text-gray-600 text-sm font-medium hover:text-[#2d3e91] transition-colors duration-200 flex items-center gap-2 group"
+                                            className="text-gray-600 text-[15px] font-semibold hover:text-[#2d3e91] transition-colors duration-200 flex items-center gap-2 group"
                                         >
-                                            <span className="w-0 group-hover:w-3 h-px bg-[#2d3e91] transition-all duration-300" />
+                                            <span className="w-0 group-hover:w-4 h-px bg-[#2d3e91] transition-all duration-300" />
                                             {link.label}
                                         </a>
                                     </li>
@@ -152,107 +171,59 @@ const Footer = () => {
                 </div>
 
                 {/* Campus Information */}
-                <div id="contact" className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                    {/* South Bangalore Campus */}
+                <div id="contact" className="mb-12">
+                    {/* Main Campus (Centered/Full Width) */}
                     <div className="glass-card bg-slate-50 border border-gray-100 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300">
                         <div className="flex items-center gap-3 mb-6">
                             <div className="w-12 h-12 rounded-2xl bg-indigo-100 flex items-center justify-center text-2xl">📍</div>
                             <div>
-                                <h4 className="text-[#2d3e91] font-black text-lg uppercase tracking-tight">South Bangalore Campus</h4>
+                                <h4 className="text-[#2d3e91] font-black text-xl uppercase tracking-tight">Bangalore Main Campus</h4>
                                 <p className="text-gray-500 text-xs font-bold uppercase tracking-widest">Since 2015</p>
                             </div>
                         </div>
 
-                        <div className="space-y-4">
-                            <div className="flex items-start gap-4">
-                                <span className="text-gray-400 mt-1">📞</span>
-                                <div>
-                                    <p className="text-xs font-black text-gray-400 uppercase tracking-widest mb-1">Phone</p>
-                                    <p className="text-gray-700 font-bold text-sm">+91 95912 95914</p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div className="space-y-4">
+                                <div className="flex items-start gap-4">
+                                    <span className="text-gray-400 mt-1 text-lg">📞</span>
+                                    <div>
+                                        <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Phone</p>
+                                        <p className="text-gray-700 font-bold text-[15px]">+91 95912 95914</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-start gap-4">
+                                    <span className="text-gray-400 mt-1 text-lg">✉️</span>
+                                    <div>
+                                        <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Email</p>
+                                        <p className="text-gray-700 font-bold text-[15px]">admissions@transcendgroup.org</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="flex items-start gap-4">
-                                <span className="text-gray-400 mt-1">✉️</span>
-                                <div>
-                                    <p className="text-xs font-black text-gray-400 uppercase tracking-widest mb-1">Email</p>
-                                    <p className="text-gray-700 font-bold text-sm">admissions@transcendgroup.org</p>
+                            <div className="space-y-4">
+                                <div className="flex items-start gap-4">
+                                    <span className="text-gray-400 mt-1 text-lg">🏫</span>
+                                    <div>
+                                        <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Programs</p>
+                                        <p className="text-gray-600 text-[13px] font-bold leading-relaxed">
+                                            Pre-School (KG & Mont.) • School (CBSE) • PU College • Degree College
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="flex items-start gap-4">
-                                <span className="text-gray-400 mt-1">🏫</span>
-                                <div>
-                                    <p className="text-xs font-black text-gray-400 uppercase tracking-widest mb-1">Programs</p>
-                                    <p className="text-gray-600 text-xs font-medium leading-relaxed">
-                                        Pre-School (KG & Mont.) • School (CBSE) • PU College • Degree College
+                                <div className="pt-2 flex flex-col gap-2">
+                                    <p className="text-gray-500 text-[13px] font-bold italic">
+                                        <span className="text-indigo-500 not-italic mr-1">🚇</span>
+                                        10-min walk from Yelachenahalli Metro Station
                                     </p>
+                                    <a
+                                        href="https://maps.google.com/?q=Transcend+Group+of+Institutions+South+Campus"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-indigo-600 text-[13px] font-black hover:underline flex items-center gap-1"
+                                    >
+                                        <span>📍 View on Google Maps</span>
+                                        <span className="text-[10px]">↗</span>
+                                    </a>
                                 </div>
-                            </div>
-                            <div className="pt-4 border-t border-gray-100 flex flex-col gap-2">
-                                <p className="text-gray-500 text-xs font-semibold italic">
-                                    <span className="text-indigo-500 not-italic mr-1">🚇</span>
-                                    10-min walk from Yelachenahalli Metro Station
-                                </p>
-                                <a
-                                    href="https://maps.google.com/?q=Transcend+Group+of+Institutions+South+Campus"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-indigo-600 text-xs font-bold hover:underline flex items-center gap-1"
-                                >
-                                    <span>📍 View on Google Maps</span>
-                                    <span className="text-[10px]">↗</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* East Bangalore Campus */}
-                    <div className="glass-card bg-slate-50 border border-gray-100 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300">
-                        <div className="flex items-center gap-3 mb-6">
-                            <div className="w-12 h-12 rounded-2xl bg-indigo-100 flex items-center justify-center text-2xl">📍</div>
-                            <div>
-                                <h4 className="text-[#2d3e91] font-black text-lg uppercase tracking-tight">East Bangalore Campus</h4>
-                                <p className="text-gray-500 text-xs font-bold uppercase tracking-widest">Since 2025</p>
-                            </div>
-                        </div>
-
-                        <div className="space-y-4">
-                            <div className="flex items-start gap-4">
-                                <span className="text-gray-400 mt-1">📞</span>
-                                <div>
-                                    <p className="text-xs font-black text-gray-400 uppercase tracking-widest mb-1">Phone</p>
-                                    <p className="text-gray-700 font-bold text-sm">+91 63644 68131</p>
-                                </div>
-                            </div>
-                            <div className="flex items-start gap-4">
-                                <span className="text-gray-400 mt-1">✉️</span>
-                                <div>
-                                    <p className="text-xs font-black text-gray-400 uppercase tracking-widest mb-1">Email</p>
-                                    <p className="text-gray-700 font-bold text-sm">enquiryhoodi@transcendgroup.org</p>
-                                </div>
-                            </div>
-                            <div className="flex items-start gap-4">
-                                <span className="text-gray-400 mt-1">🏫</span>
-                                <div>
-                                    <p className="text-xs font-black text-gray-400 uppercase tracking-widest mb-1">Programs</p>
-                                    <p className="text-gray-600 text-xs font-medium leading-relaxed">
-                                        PU College • Degree College (Bangalore University)
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="pt-4 border-t border-gray-100 flex flex-col gap-2">
-                                <p className="text-gray-500 text-xs font-semibold italic">
-                                    <span className="text-indigo-500 not-italic mr-1">🚇</span>
-                                    3-min walk from Hoodi Metro Station
-                                </p>
-                                <a
-                                    href="https://maps.google.com/?q=Transcend+Group+of+Institutions+East+Campus+Hoodi"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-indigo-600 text-xs font-bold hover:underline flex items-center gap-1"
-                                >
-                                    <span>📍 View on Google Maps</span>
-                                    <span className="text-[10px]">↗</span>
-                                </a>
                             </div>
                         </div>
                     </div>

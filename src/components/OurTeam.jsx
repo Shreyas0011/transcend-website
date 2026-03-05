@@ -1,25 +1,42 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import prasanna from '../assets/leadership/prasanna.png';
+import ravikiran from '../assets/leadership/ravikiran.png';
+import akshay_leader from '../assets/leadership/akshay.png';
+import agnel from '../assets/leadership/agnel.png';
+
+// Faculty Batch 1
+import kiran_kumar from '../assets/faculty/kiran_kumar.png';
+import reddy_shekar from '../assets/faculty/reddy_shekar.png';
+import varsha_v from '../assets/faculty/varsha_v.png';
+import pratyush from '../assets/faculty/pratyush.png';
+import shashikala from '../assets/faculty/shashikala.png';
+import anusha from '../assets/faculty/anusha.png';
+import shivarama from '../assets/faculty/shivarama.png';
+import soumya from '../assets/faculty/soumya.png';
+import amrutha from '../assets/faculty/amrutha.png';
+import apoorva from '../assets/faculty/apoorva.png';
+import madhuri from '../assets/faculty/madhuri.png';
 
 const leadershipTeam = [
-    { id: 1, name: 'CA. PRASANNA KUMAR K', designation: 'Director - Operations', department: 'Leadership', qualification: 'B.Com, (M.Com), CA', expertise: 'Strategic Operations · Finance · Management', photo: 'https://i.pravatar.cc/300?img=11' },
-    { id: 2, name: 'Prof. RAVI KIRAN T N', designation: 'Principal [BOS Member]', department: 'Leadership', qualification: 'B.Com, LLB, MBA, (PhD)', expertise: 'Academic Leadership · Law · Management', photo: 'https://i.pravatar.cc/300?img=13' },
-    { id: 3, name: 'AKSHAY KUMAR KULKARNI', designation: 'Co-ordinator - South Campus', department: 'Leadership', qualification: 'M.A (English), B.Ed', expertise: 'Campus Coordination · Academic Excellence', photo: 'https://i.pravatar.cc/300?img=14' },
-    { id: 4, name: 'AGNEL TRIVIKRAM G', designation: 'Co-ordinator - East Campus', department: 'Leadership', qualification: 'B.Com, PGDCA', expertise: 'Campus Operations · Digital Systems', photo: 'https://i.pravatar.cc/300?img=15' },
+    { id: 1, name: 'CA. PRASANNA KUMAR K', designation: 'Director - Operations', department: 'Leadership', qualification: 'B.Com, (M.Com), CA', expertise: 'Strategic Operations · Finance · Management', photo: prasanna },
+    { id: 2, name: 'Prof. RAVI KIRAN T N', designation: 'Principal [BOS Member]', department: 'Leadership', qualification: 'B.Com, LLB, MBA, (PhD)', expertise: 'Academic Leadership · Law · Management', photo: ravikiran },
+    { id: 3, name: 'AKSHAY KUMAR KULKARNI', designation: 'Co-ordinator - South Campus', department: 'Leadership', qualification: 'M.A (English), B.Ed', expertise: 'Campus Coordination · Academic Excellence', photo: akshay_leader },
+    { id: 4, name: 'AGNEL TRIVIKRAM G', designation: 'Co-ordinator - East Campus', department: 'Leadership', qualification: 'B.Com, PGDCA', expertise: 'Campus Operations · Digital Systems', photo: agnel },
 ];
 
 const faculty = [
-    { id: 1, name: 'CA. Kiran Kumar', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'M.Com, C.A', expertise: 'Financial Accounting · Taxation · Auditing', photo: 'https://i.pravatar.cc/300?img=5' },
-    { id: 2, name: 'CA. Reddy Shekar P', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'B.Com, C.A', expertise: 'Corporate Accounting · Direct Tax · GST', photo: 'https://i.pravatar.cc/300?img=12' },
-    { id: 3, name: 'CA. Varsha V', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'B.Com, CA, CWA', expertise: 'Cost Accounting · Financial Reporting · CWA', photo: 'https://i.pravatar.cc/300?img=47' },
-    { id: 4, name: 'CA. Pratyush Bhagwani', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'B.Com, C.A', expertise: 'Taxation · Auditing · Financial Analysis', photo: 'https://i.pravatar.cc/300?img=15' },
-    { id: 5, name: 'Dr. K R Shashikala Rao', designation: 'Faculty', department: 'Languages', qualification: 'M.A (Hindi), B.Ed, Ph.D', expertise: 'Hindi Language · Literature · Research', photo: 'https://i.pravatar.cc/300?img=49' },
-    { id: 6, name: 'Anusha Balaji', designation: 'Faculty', department: 'Finance', qualification: 'B.Com, MBA Finance, ICWA', expertise: 'Management Accounting · Finance · ICWA', photo: 'https://i.pravatar.cc/300?img=44' },
-    { id: 7, name: 'Shivarama Guptha B', designation: 'Faculty', department: 'Humanities', qualification: 'M.A (Vedanta), B.Ed', expertise: 'Philosophy · Value Education · Soft Skills', photo: 'https://i.pravatar.cc/300?img=17' },
-    { id: 8, name: 'Soumya D', designation: 'Faculty', department: 'Languages', qualification: 'M.A (Kannada), NET, Ph.D (Pursuing)', expertise: 'Kannada Language · Literature · NET Research', photo: 'https://i.pravatar.cc/300?img=50' },
-    { id: 9, name: 'Amrutha S', designation: 'Faculty', department: 'Languages', qualification: 'M.A (Kannada), B.Ed', expertise: 'Kannada Language · Communication · Education', photo: 'https://i.pravatar.cc/300?img=52' },
-    { id: 10, name: 'Apoorva A Jain', designation: 'Faculty', department: 'Commerce', qualification: 'M.Com', expertise: 'Commerce · Business Studies · Entrepreneurship', photo: 'https://i.pravatar.cc/300?img=55' },
-    { id: 11, name: 'Madhuri K A', designation: 'Faculty', department: 'Finance', qualification: 'M.B.A – Finance', expertise: 'Financial Management · Banking · Investment', photo: 'https://i.pravatar.cc/300?img=57' },
+    { id: 1, name: 'CA. Kiran Kumar', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'M.Com, C.A', expertise: 'Financial Accounting · Taxation · Auditing', photo: kiran_kumar },
+    { id: 2, name: 'CA. Reddy Shekar P', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'B.Com, C.A', expertise: 'Corporate Accounting · Direct Tax · GST', photo: reddy_shekar },
+    { id: 3, name: 'CA. Varsha V', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'B.Com, CA, CWA', expertise: 'Cost Accounting · Financial Reporting · CWA', photo: varsha_v },
+    { id: 4, name: 'CA. Pratyush Bhagwani', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'B.Com, C.A', expertise: 'Taxation · Auditing · Financial Analysis', photo: pratyush },
+    { id: 5, name: 'Dr. K R Shashikala Rao', designation: 'Faculty', department: 'Languages', qualification: 'M.A (Hindi), B.Ed, Ph.D', expertise: 'Hindi Language · Literature · Research', photo: shashikala },
+    { id: 6, name: 'Anusha Balaji', designation: 'Faculty', department: 'Finance', qualification: 'B.Com, MBA Finance, ICWA', expertise: 'Management Accounting · Finance · ICWA', photo: anusha },
+    { id: 7, name: 'Shivarama Guptha B', designation: 'Faculty', department: 'Humanities', qualification: 'M.A (Vedanta), B.Ed', expertise: 'Philosophy · Value Education · Soft Skills', photo: shivarama },
+    { id: 8, name: 'Soumya D', designation: 'Faculty', department: 'Languages', qualification: 'M.A (Kannada), NET, Ph.D (Pursuing)', expertise: 'Kannada Language · Literature · NET Research', photo: soumya },
+    { id: 9, name: 'Amrutha S', designation: 'Faculty', department: 'Languages', qualification: 'M.A (Kannada), B.Ed', expertise: 'Kannada Language · Communication · Education', photo: amrutha },
+    { id: 10, name: 'Apoorva A Jain', designation: 'Faculty', department: 'Commerce', qualification: 'M.Com', expertise: 'Commerce · Business Studies · Entrepreneurship', photo: apoorva },
+    { id: 11, name: 'Madhuri K A', designation: 'Faculty', department: 'Finance', qualification: 'M.B.A – Finance', expertise: 'Financial Management · Banking · Investment', photo: madhuri },
     { id: 12, name: 'Shoba Girish', designation: 'Faculty', department: 'Commerce', qualification: 'M.Com', expertise: 'Accounting · Commerce · Business Law', photo: 'https://i.pravatar.cc/300?img=59' },
     { id: 13, name: 'Sai Kumar Velu C R', designation: 'Faculty', department: 'Management', qualification: 'BA, PGDSM', expertise: 'Sales Management · Retail · Marketing', photo: 'https://i.pravatar.cc/300?img=20' },
     { id: 14, name: 'Ms. Shreenidhi', designation: 'Faculty', department: 'Commerce', qualification: 'B.Com, M.Com, K.SET', expertise: 'Commerce · SET Qualified · Financial Accounting', photo: 'https://i.pravatar.cc/300?img=46' },
@@ -88,11 +105,11 @@ const FacultyCard = ({ member, index }) => {
             >
                 {/* Photo */}
                 <div className="w-full rounded-[14px] overflow-hidden mb-5 relative"
-                    style={{ aspectRatio: '4/3', background: 'linear-gradient(145deg, #0d0f20, #181b38)', border: '1.5px solid rgba(255,255,255,0.07)' }}>
+                    style={{ aspectRatio: '380/460', background: 'white', border: '1.5px solid rgba(255,255,255,0.07)' }}>
                     <img
                         src={member.photo}
                         alt={member.name}
-                        className="w-full h-full object-cover object-top"
+                        className="w-full h-full object-contain"
                     />
                     <div className="absolute inset-0 pointer-events-none"
                         style={{ background: 'linear-gradient(to bottom, transparent 55%, rgba(12,14,30,0.7) 100%)' }} />
