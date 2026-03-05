@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 
 const navLinks = [
     { label: 'Home', href: '/#home', section: 'home' },
@@ -75,15 +76,27 @@ const Navbar = () => {
                 >
                     {navLinks.map((link) => {
                         const isActive = link.section && activeSection === link.section
+                        if (link.href.startsWith('/#')) {
+                            return (
+                                <a
+                                    key={link.label}
+                                    href={link.href}
+                                    className="nav-link-underline px-4 py-1.5 text-[14px] rounded-full transition-all duration-200 hover:bg-indigo-50"
+                                    style={{ fontWeight: isActive ? 700 : 500, color: isActive ? '#2d3e91' : '#374151' }}
+                                >
+                                    {link.label}
+                                </a>
+                            )
+                        }
                         return (
-                            <a
+                            <Link
                                 key={link.label}
-                                href={link.href}
+                                to={link.href}
                                 className="nav-link-underline px-4 py-1.5 text-[14px] rounded-full transition-all duration-200 hover:bg-indigo-50"
                                 style={{ fontWeight: isActive ? 700 : 500, color: isActive ? '#2d3e91' : '#374151' }}
                             >
                                 {link.label}
-                            </a>
+                            </Link>
                         )
                     })}
 
@@ -117,34 +130,34 @@ const Navbar = () => {
                             }}
                         >
                             {studentDropdown.map((item) => (
-                                <a
+                                <Link
                                     key={item.label}
-                                    href={item.href}
+                                    to={item.href}
                                     onClick={() => setDropdownOpen(false)}
                                     className="flex items-center gap-3 px-5 py-3.5 text-[14px] font-semibold text-gray-700 hover:bg-indigo-50 hover:text-[#2d3e91] transition-all duration-150 group"
                                 >
                                     <span className="w-1.5 h-1.5 rounded-full bg-indigo-300 group-hover:bg-indigo-500 transition-colors shrink-0" />
                                     {item.label}
-                                </a>
+                                </Link>
                             ))}
                         </div>
                     </div>
 
                     {/* Our Team */}
-                    <a
-                        href="/our-team"
+                    <Link
+                        to="/our-team"
                         className="nav-link-underline px-4 py-1.5 text-[14px] rounded-full transition-all duration-200 hover:bg-indigo-50 font-medium text-gray-700"
                     >
                         Our Team
-                    </a>
+                    </Link>
 
                     {/* Differentiators */}
-                    <a
-                        href="/differentiators"
+                    <Link
+                        to="/differentiators"
                         className="nav-link-underline px-4 py-1.5 text-[14px] rounded-full transition-all duration-200 hover:bg-indigo-50 font-medium text-gray-700"
                     >
                         Differentiators
-                    </a>
+                    </Link>
                 </nav>
 
                 {/* Apply Now + hamburger */}
@@ -225,37 +238,37 @@ const Navbar = () => {
                         {mobileStudentsOpen && (
                             <div className="pl-4 flex flex-col gap-1 mt-1">
                                 {studentDropdown.map((item) => (
-                                    <a
+                                    <Link
                                         key={item.label}
-                                        href={item.href}
+                                        to={item.href}
                                         onClick={() => { setMenuOpen(false); setMobileStudentsOpen(false); }}
                                         className="flex items-center gap-3 px-5 py-3 rounded-xl text-[14px] font-semibold text-gray-600 hover:bg-indigo-50 hover:text-[#2d3e91] transition-all duration-150"
                                     >
                                         <span className="w-1.5 h-1.5 rounded-full bg-indigo-300 shrink-0" />
                                         {item.label}
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                         )}
                     </div>
 
                     {/* Our Team mobile link */}
-                    <a
-                        href="/our-team"
+                    <Link
+                        to="/our-team"
                         onClick={() => setMenuOpen(false)}
                         className="px-5 py-3.5 rounded-xl text-[15px] font-semibold text-gray-700 hover:bg-indigo-50 hover:text-[#2d3e91] transition-all duration-200"
                     >
                         Our Team
-                    </a>
+                    </Link>
 
                     {/* Differentiators mobile link */}
-                    <a
-                        href="/differentiators"
+                    <Link
+                        to="/differentiators"
                         onClick={() => setMenuOpen(false)}
                         className="px-5 py-3.5 rounded-xl text-[15px] font-semibold text-gray-700 hover:bg-indigo-50 hover:text-[#2d3e91] transition-all duration-200"
                     >
                         Differentiators
-                    </a>
+                    </Link>
 
                     <div className="h-px bg-indigo-50 my-2" />
                     <a
