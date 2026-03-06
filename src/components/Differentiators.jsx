@@ -99,7 +99,7 @@ const FloatingBg = () => {
                 </div>
             ))}
             {/* Dot grid */}
-            <div className="absolute inset-0 opacity-[0.03]"
+            <div className="absolute inset-0 opacity-[0.06]"
                 style={{ backgroundImage: 'radial-gradient(circle, #a5b4fc 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
         </div>
     );
@@ -270,7 +270,7 @@ const DiffSection = ({ section, index }) => {
                 {/* Heading Text */}
                 <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-end gap-4 mb-6">
-                        <div className="font-black leading-none select-none text-[#ffffff18]"
+                        <div className="font-black leading-none select-none text-[#ffffff25]"
                             style={{ fontSize: 'clamp(5rem,12vw,9rem)', letterSpacing: '-0.04em' }}>
                             {section.number}
                         </div>
@@ -283,7 +283,7 @@ const DiffSection = ({ section, index }) => {
                                 style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', letterSpacing: '-0.02em' }}>
                                 {section.emoji} {section.title}
                             </h2>
-                            <p className="font-semibold text-sm mt-1 opacity-60" style={{ color: section.color }}>{section.sub}</p>
+                            <p className="font-semibold text-sm mt-1 opacity-80" style={{ color: section.color }}>{section.sub}</p>
                         </div>
                     </div>
                 </div>
@@ -306,7 +306,7 @@ const DiffSection = ({ section, index }) => {
                 style={{ opacity: visible ? 1 : 0, transform: visible ? 'none' : 'translateY(24px)', transition: 'all 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s' }}>
                 {section.blocks.map((b, i) => (
                     <div key={i} className="rounded-[20px] p-5 transition-all duration-300 cursor-default"
-                        style={{ background: 'rgba(10,12,26,0.9)', border: `1.5px solid ${section.color}18`, backdropFilter: 'blur(12px)' }}
+                        style={{ background: 'rgba(30,41,59,0.5)', border: `1.5px solid ${section.color}30`, backdropFilter: 'blur(20px)' }}
                         onMouseEnter={e => {
                             e.currentTarget.style.border = `1.5px solid ${section.color}55`;
                             e.currentTarget.style.transform = 'translateY(-4px)';
@@ -319,7 +319,7 @@ const DiffSection = ({ section, index }) => {
                         }}>
                         <div className="text-2xl mb-3">{b.icon}</div>
                         <p className="text-white font-black text-base mb-2">{b.heading}</p>
-                        <p className="text-gray-400 text-sm leading-relaxed">{b.body}</p>
+                        <p className="text-slate-200 text-sm leading-relaxed">{b.body}</p>
                     </div>
                 ))}
             </div>
@@ -340,7 +340,7 @@ const DiffSection = ({ section, index }) => {
                             <span className="font-black text-4xl leading-none" style={{ color: section.color }}>{section.stat.value}</span>
                             <div>
                                 <p className="text-white font-black text-base">{section.stat.unit}</p>
-                                <p className="text-gray-400 text-xs font-semibold">{section.stat.note}</p>
+                                <p className="text-slate-300 text-xs font-semibold">{section.stat.note}</p>
                             </div>
                         </div>
                     )}
@@ -378,7 +378,7 @@ const Differentiators = () => {
 
     return (
         <div className="min-h-screen text-white relative overflow-x-hidden"
-            style={{ background: 'linear-gradient(160deg, #04050e 0%, #070918 60%, #04050e 100%)' }}>
+            style={{ background: 'linear-gradient(160deg, #0f172a 0%, #1e1b4b 60%, #0f172a 100%)' }}>
 
             <FloatingBg />
 
@@ -417,7 +417,7 @@ const Differentiators = () => {
                             Difference
                         </h1>
 
-                        <p className="text-gray-400 text-lg font-medium max-w-xl mx-auto leading-relaxed">
+                        <p className="text-slate-200 text-lg font-medium max-w-xl mx-auto leading-relaxed">
                             5 things that make TRANSCEND hit different. No cap. 🔥
                         </p>
 
@@ -444,7 +444,7 @@ const Differentiators = () => {
                     {/* CTA */}
                     <div className="text-center mt-10"
                         style={{ opacity: hv ? 1 : 0, transition: 'opacity 0.7s ease 0.5s' }}>
-                        <p className="text-gray-500 mb-6 font-semibold">Ready to experience the TRANSCEND difference? 🚀</p>
+                        <p className="text-slate-300 mb-6 font-semibold">Ready to experience the TRANSCEND difference? 🚀</p>
                         <a href="/" className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-black text-white text-sm transition-all duration-300 hover:-translate-y-1 hover:scale-105"
                             style={{ background: 'linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%)', boxShadow: '0 12px 40px rgba(99,102,241,0.4)' }}>
                             Apply Now ✨

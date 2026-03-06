@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 
 const navLinks = [
     { label: 'Home', href: '/#home', section: 'home' },
-    { label: 'About', href: '/#about', section: 'about' },
     { label: 'Programs', href: '/#programs', section: 'programs' },
     { label: "Chairman's Office", href: '/chairmans-office' },
     { label: 'Campus', href: '/#campus', section: 'campus' },
@@ -158,6 +157,14 @@ const Navbar = () => {
                     >
                         Differentiators
                     </Link>
+
+                    {/* IQAC */}
+                    <Link
+                        to="/iqac"
+                        className="nav-link-underline px-4 py-1.5 text-[14px] rounded-full transition-all duration-200 hover:bg-indigo-50 font-medium text-gray-700"
+                    >
+                        IQAC
+                    </Link>
                 </nav>
 
                 {/* Apply Now + hamburger */}
@@ -268,6 +275,15 @@ const Navbar = () => {
                         className="px-5 py-3.5 rounded-xl text-[15px] font-semibold text-gray-700 hover:bg-indigo-50 hover:text-[#2d3e91] transition-all duration-200"
                     >
                         Differentiators
+                    </Link>
+
+                    {/* IQAC mobile link */}
+                    <Link
+                        to="/iqac"
+                        onClick={() => setMenuOpen(false)}
+                        className="px-5 py-3.5 rounded-xl text-[15px] font-semibold text-gray-700 hover:bg-indigo-50 hover:text-[#2d3e91] transition-all duration-200"
+                    >
+                        IQAC
                     </Link>
 
                     <div className="h-px bg-indigo-50 my-2" />

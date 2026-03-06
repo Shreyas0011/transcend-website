@@ -26,6 +26,7 @@ import Differentiators from './components/Differentiators'
 import FloatingElements from './components/FloatingElements'
 import FacilitiesDetail from './components/FacilitiesDetail'
 import ChairmansOffice from './components/ChairmansOffice'
+import IQAC from './components/IQAC'
 import CustomCursor from './components/CustomCursor'
 import SmoothScroll from './components/SmoothScroll'
 
@@ -81,6 +82,7 @@ const App = () => {
           <Route path="/differentiators" element={<Differentiators />} />
           <Route path="/facilities" element={<FacilitiesDetail />} />
           <Route path="/chairmans-office" element={<ChairmansOffice />} />
+          <Route path="/iqac" element={<IQAC />} />
         </Routes>
 
         {/* Footer */}
