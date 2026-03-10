@@ -6,6 +6,7 @@ const navLinks = [
     { label: 'Programs', href: '/#programs', section: 'programs' },
     { label: "Chairman's Office", href: '/chairmans-office' },
     { label: 'Campus', href: '/#campus', section: 'campus' },
+    { label: 'Careers', href: '/careers' },
 ]
 
 const studentDropdown = [

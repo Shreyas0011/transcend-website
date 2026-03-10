@@ -187,13 +187,13 @@ const AnimatedStat = ({ value, label, delay }) => {
     }, [started, num, delay]);
 
     return (
-        <div ref={ref} className="text-center py-4 rounded-xl"
+        <div ref={ref} className="text-center py-6 rounded-2xl"
             style={{ background: 'rgba(99,102,241,0.04)', border: '1px solid rgba(99,102,241,0.08)' }}>
-            <p className="text-lg font-black mb-0.5"
+            <p className="text-4xl md:text-5xl font-black mb-1.5"
                 style={{ background: 'linear-gradient(135deg,#818cf8,#6366f1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 {count}{suffix}
             </p>
-            <p className="text-gray-500 text-[9px] font-bold tracking-[0.15em] uppercase">{label}</p>
+            <p className="text-gray-500 text-[11px] font-bold tracking-[0.2em] uppercase">{label}</p>
         </div>
     );
 };

@@ -27,6 +27,7 @@ import FloatingElements from './components/FloatingElements'
 import FacilitiesDetail from './components/FacilitiesDetail'
 import ChairmansOffice from './components/ChairmansOffice'
 import IQAC from './components/IQAC'
+import Careers from './components/Careers'
 import CustomCursor from './components/CustomCursor'
 import SmoothScroll from './components/SmoothScroll'
 
@@ -83,6 +84,7 @@ const App = () => {
           <Route path="/facilities" element={<FacilitiesDetail />} />
           <Route path="/chairmans-office" element={<ChairmansOffice />} />
           <Route path="/iqac" element={<IQAC />} />
+          <Route path="/careers" element={<Careers />} />
         </Routes>
 
         {/* Footer */}

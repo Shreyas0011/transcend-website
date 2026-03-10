@@ -243,6 +243,32 @@ const sections = [
             { icon: '💜', heading: 'The TRANSCEND Community', body: 'Our alumni network spans finance, technology, management, and entrepreneurship — actively mentoring current students. Looking for your first internship, job, or co-founder? The TRANSCEND community has your back, for life.' },
         ],
     },
+    {
+        number: '06', emoji: '✨', title: 'Personality Development',
+        sub: 'Ensuring Overall Growth & Emotional Balance',
+        color: '#fb7185', accent: '#e11d48',
+        tag: 'GROWTH MINDSET ✨',
+        tagColor: '#fb7185',
+        blocks: [
+            { icon: '🧘', heading: 'The Art of Living', body: 'Introducing meditation practices and meaningful conversations that help students develop emotional balance, self-awareness, and inner confidence. These sessions encourage clarity of thought and promote a positive mindset.' },
+            { icon: '🎯', heading: 'MYLC (Make My Life Count)', body: 'Focusing on purpose and direction. Through guided interactions, students set clear goals, strengthen resilience, and develop responsible decision-making skills, building motivation and a growth-oriented attitude.' },
+            { icon: '🤝', heading: 'Professional Etiquette', body: 'Emphasizing communication, body language, and leadership. Students enhance interpersonal skills and time management, while stress management workshops provide practical techniques for mental well-being.' },
+        ],
+        badges: ['Meditation', 'Leadership', 'Emotional Intelligence', 'Time Management', 'Resilience'],
+    },
+    {
+        number: '07', emoji: '👑', title: 'Leadership',
+        sub: 'Leadership Excellence at TRANSCEND: Institution-Crafted Programs',
+        color: '#2dd4bf', accent: '#0d9488',
+        tag: 'LEADERSHIP 👑',
+        tagColor: '#2dd4bf',
+        blocks: [
+            { icon: '⚔️', heading: 'Authentic Leadership Journeys', body: "TRANSCEND's exclusive programs immerse students in authentic leadership journeys—from SWAT coordination to Class and House Leader roles—unlocking collaboration skills beyond classrooms. These courses teach bridging management-student gaps and fostering unity." },
+            { icon: '🌟', heading: 'Transformative Exposure', body: 'Experience narratives spanning student feedback bridges to inter-house competitions, gaining insights into transparent communication and disciplined execution. Students master coordination and event planning in institution-led sessions.' },
+            { icon: '🚀', heading: 'Empower Your Success', body: 'These leadership programs for undergraduates bridge ideas to impact, empowering you to lead from day one. Join Transcend programs to convert coordination challenges into triumphs—master leadership skills and lead confidently.' },
+        ],
+        badges: ['SWAT', 'Class Leaders', 'House Leaders', 'Event Planning', 'Teamwork'],
+    },
 ];
 
 /* ─────────────────────────────────────────────────────────
@@ -418,7 +444,7 @@ const Differentiators = () => {
                         </h1>
 
                         <p className="text-slate-200 text-lg font-medium max-w-xl mx-auto leading-relaxed">
-                            5 things that make TRANSCEND hit different. No cap. 🔥
+                            7 things that make TRANSCEND hit different. No cap. 🔥
                         </p>
 
                         {/* Jump pills */}
