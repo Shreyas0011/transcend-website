@@ -169,7 +169,7 @@ const Testimonials = () => {
         <section
             id="testimonials"
             ref={sectionRef}
-            className="relative py-28 px-6 overflow-hidden bg-[#fafbff]"
+            className="relative section-padding overflow-hidden bg-[#fafbff]"
         >
             <FloatingBg />
 

@@ -17,11 +17,20 @@ import soumya from '../assets/faculty/soumya.png';
 import amrutha from '../assets/faculty/amrutha.png';
 import apoorva from '../assets/faculty/apoorva.png';
 import madhuri from '../assets/faculty/madhuri.png';
+import swathi_k_iyer from '../assets/faculty/swathi_k_iyer.png';
+import deepa_dinakar from '../assets/faculty/deepa_dinakar.png';
+import pradeep_hegade from '../assets/faculty/pradeep_hegade.png';
+import dikshitha_h from '../assets/faculty/dikshitha_h.png';
+import dakshayini from '../assets/faculty/dakshayini.png';
+import bharath_s from '../assets/faculty/bharath_s.png';
+import saikumar_velu from '../assets/faculty/saikumar_velu.png';
+import deepa_venkatesh from '../assets/faculty/deepa_venkatesh.png';
+import shobha_girish from '../assets/faculty/shobha_girish.png';
 
 const leadershipTeam = [
     { id: 1, name: 'CA. PRASANNA KUMAR K', designation: 'Director - Operations', department: 'Leadership', qualification: 'B.Com, (M.Com), CA', expertise: 'Strategic Operations · Finance · Management', photo: prasanna },
-    { id: 2, name: 'Prof. RAVI KIRAN T N', designation: 'Principal [BOS Member]', department: 'Leadership', qualification: 'B.Com, LLB, MBA, (PhD)', expertise: 'Academic Leadership · Law · Management', photo: ravikiran },
-    { id: 3, name: 'AKSHAY KUMAR KULKARNI', designation: 'Co-ordinator - South Campus', department: 'Leadership', qualification: 'M.A (English), B.Ed', expertise: 'Campus Coordination · Academic Excellence', photo: akshay_leader },
+    { id: 2, name: 'Prof. RAVI KIRAN T N', designation: 'Principal TDC & HOD Languages', department: 'Leadership', qualification: 'B.Com, LLB, MBA, (PhD)', expertise: 'Author of 7 Books · BOS & BOE Member (BU) · Vidwath (Vocal/Veena)', photo: ravikiran },
+    { id: 3, name: 'AKSHAY KUMAR KULKARNI', designation: 'Coordinator TDC', department: 'Leadership', qualification: 'M.A (English), B.Ed', expertise: 'Republic Day March (NCC) · Sharp Shooter', photo: akshay_leader },
     { id: 4, name: 'AGNEL TRIVIKRAM G', designation: 'Co-ordinator - East Campus', department: 'Leadership', qualification: 'B.Com, PGDCA', expertise: 'Campus Operations · Digital Systems', photo: agnel },
 ];
 
@@ -30,20 +39,26 @@ const faculty = [
     { id: 2, name: 'CA. Reddy Shekar P', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'B.Com, C.A', expertise: 'Corporate Accounting · Direct Tax · GST', photo: reddy_shekar },
     { id: 3, name: 'CA. Varsha V', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'B.Com, CA, CWA', expertise: 'Cost Accounting · Financial Reporting · CWA', photo: varsha_v },
     { id: 4, name: 'CA. Pratyush Bhagwani', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'B.Com, C.A', expertise: 'Taxation · Auditing · Financial Analysis', photo: pratyush },
-    { id: 5, name: 'Dr. K R Shashikala Rao', designation: 'Faculty', department: 'Languages', qualification: 'M.A (Hindi), B.Ed, Ph.D', expertise: 'Hindi Language · Literature · Research', photo: shashikala },
-    { id: 6, name: 'Anusha Balaji', designation: 'Faculty', department: 'Finance', qualification: 'B.Com, MBA Finance, ICWA', expertise: 'Management Accounting · Finance · ICWA', photo: anusha },
+    { id: 5, name: 'Dr. Shashikala Rao KR', designation: 'Principal TECC & HOD Languages', department: 'Languages', qualification: 'M.A (Hindi), B.Ed, Ph.D', expertise: 'Author of 15 Books (Hindi) · Translator · BOS & BOE Member (BU)', photo: shashikala },
+    { id: 6, name: 'Anusha Balaji', designation: 'HOD Department of Management Studies', department: 'Management', qualification: 'B.Com, MBA Finance, ICWA', expertise: 'ICWAI · Anna University 11th Rank (MBA) · PhD (Pursuing, Christ Univ)', photo: anusha },
     { id: 7, name: 'Shivarama Guptha B', designation: 'Faculty', department: 'Humanities', qualification: 'M.A (Vedanta), B.Ed', expertise: 'Philosophy · Value Education · Soft Skills', photo: shivarama },
-    { id: 8, name: 'Soumya D', designation: 'Faculty', department: 'Languages', qualification: 'M.A (Kannada), NET, Ph.D (Pursuing)', expertise: 'Kannada Language · Literature · NET Research', photo: soumya },
+    { id: 8, name: 'Soumya D', designation: 'Faculty Kannada', department: 'Languages', qualification: 'M.A (Kannada), Ph.D (Pursuing)', expertise: 'Author · Translator · BOS Member (BU) · BOE Member (RNS)', photo: soumya },
     { id: 9, name: 'Amrutha S', designation: 'Faculty', department: 'Languages', qualification: 'M.A (Kannada), B.Ed', expertise: 'Kannada Language · Communication · Education', photo: amrutha },
     { id: 10, name: 'Apoorva A Jain', designation: 'Faculty', department: 'Commerce', qualification: 'M.Com', expertise: 'Commerce · Business Studies · Entrepreneurship', photo: apoorva },
-    { id: 11, name: 'Madhuri K A', designation: 'Faculty', department: 'Finance', qualification: 'M.B.A – Finance', expertise: 'Financial Management · Banking · Investment', photo: madhuri },
-    { id: 12, name: 'Shoba Girish', designation: 'Faculty', department: 'Commerce', qualification: 'M.Com', expertise: 'Accounting · Commerce · Business Law', photo: 'https://i.pravatar.cc/300?img=59' },
-    { id: 13, name: 'Sai Kumar Velu C R', designation: 'Faculty', department: 'Management', qualification: 'BA, PGDSM', expertise: 'Sales Management · Retail · Marketing', photo: 'https://i.pravatar.cc/300?img=20' },
+    { id: 11, name: 'Madhuri Ajay', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: 'M.B.A – Finance', expertise: 'Financial Management · Banking · Investment', photo: madhuri },
+    { id: 12, name: 'Shobha Girish', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: 'M.Com', expertise: 'Highest Scorer M.Com (MGU) · 23+ Years Exp · Social Service', photo: shobha_girish },
+    { id: 13, name: 'Saikumar Velu C R', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: 'BA, PGDSM', expertise: 'Microsoft Certified Professional (Excel) · Pursuing Linux Cert', photo: saikumar_velu },
     { id: 14, name: 'Ms. Shreenidhi', designation: 'Faculty', department: 'Commerce', qualification: 'B.Com, M.Com, K.SET', expertise: 'Commerce · SET Qualified · Financial Accounting', photo: 'https://i.pravatar.cc/300?img=46' },
     { id: 15, name: 'Akshay Champak', designation: 'Faculty', department: 'Commerce', qualification: 'B.Com, M.Com', expertise: 'Commerce · Business Economics · Statistics', photo: 'https://i.pravatar.cc/300?img=22' },
     { id: 16, name: 'Mr. Subramanian V Iyer', designation: 'Faculty', department: 'Management', qualification: 'B.Com, MBA', expertise: 'Business Management · Strategy · Marketing', photo: 'https://i.pravatar.cc/300?img=25' },
-    { id: 17, name: 'Ms. Deepa Venkatesh', designation: 'Faculty', department: 'Commerce', qualification: 'B.Com, M.Com', expertise: 'Financial Accounting · Tally · Commerce', photo: 'https://i.pravatar.cc/300?img=51' },
+    { id: 17, name: 'Deepa Venkatesh', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: 'B.Com, M.Com', expertise: '28 Years Exp · NSS Volunteer (NIC 2000 Karnataka)', photo: deepa_venkatesh },
     { id: 18, name: 'Mukunda K M', designation: 'Faculty', department: 'Languages', qualification: 'B.A, M.A, Sanskritam', expertise: 'Sanskrit · Classical Languages · Literature', photo: 'https://i.pravatar.cc/300?img=27' },
+    { id: 19, name: 'Swathi K Iyer', designation: 'HOD Department of Commerce', department: 'Commerce', qualification: 'Univ 2nd Rank, State 1st Rank', expertise: 'Commercial Practice · Bharat Natyam Vidhwat 2nd Rank · BOE Member', photo: swathi_k_iyer },
+    { id: 20, name: 'Deepa Dinakar', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: '', expertise: 'Certificate Course in Counselling Skills for Teachers', photo: deepa_dinakar },
+    { id: 21, name: 'Pradeep Hegade', designation: 'Faculty Kannada', department: 'Languages', qualification: '', expertise: '1st Prize Veda Exam 2024 · Best All-rounder State Level Kabaddi', photo: pradeep_hegade },
+    { id: 22, name: 'Dikshitha H', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: '', expertise: 'Advanced Excel · 4+ Years Exp · 5+ Papers Published', photo: dikshitha_h },
+    { id: 23, name: 'Dakshayini', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: '', expertise: 'DTP (Desktop Publishing) Training Program Topper', photo: dakshayini },
+    { id: 24, name: 'BHARATH S', designation: 'Faculty', department: 'TBD', qualification: 'TBD', expertise: 'TBD', photo: bharath_s },
 ];
 
 const resourcePersonnel = [
@@ -104,15 +119,16 @@ const FacultyCard = ({ member, index }) => {
                 }}
             >
                 {/* Photo */}
-                <div className="w-full rounded-[14px] overflow-hidden mb-5 relative"
-                    style={{ aspectRatio: '380/460', background: 'white', border: '1.5px solid rgba(255,255,255,0.07)' }}>
+                <div className="w-full overflow-hidden mb-5 relative mx-auto"
+                    style={{ aspectRatio: '1/1', width: '75%', borderRadius: '50%', background: 'rgba(20,22,45,0.9)' }}>
                     <img
                         src={member.photo}
                         alt={member.name}
-                        className="w-full h-full object-contain"
+                        style={{ transform: 'scale(1.33)', transformOrigin: 'center center' }}
+                        className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 pointer-events-none"
-                        style={{ background: 'linear-gradient(to bottom, transparent 55%, rgba(12,14,30,0.7) 100%)' }} />
+                        style={{ background: 'linear-gradient(to bottom, transparent 60%, rgba(12,14,30,0.5) 100%)' }} />
                     {/* Department tag */}
                     <div className="absolute top-3 right-3 px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase"
                         style={{ background: 'rgba(99,102,241,0.85)', color: '#e0e7ff', backdropFilter: 'blur(8px)' }}>
@@ -229,7 +245,7 @@ const OurTeam = () => {
     }, []);
 
     return (
-        <div className="min-h-screen text-white pt-28 pb-24 px-6 md:px-12 relative overflow-hidden"
+        <div className="min-h-screen text-white section-padding relative overflow-hidden"
             style={{ background: 'linear-gradient(160deg, #05060f 0%, #080b1a 60%, #05060f 100%)' }}>
 
             {/* Background glows */}
@@ -242,7 +258,7 @@ const OurTeam = () => {
                     style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '36px 36px' }} />
             </div>
 
-            <div className="max-w-[1400px] mx-auto relative z-10">
+            <div className="container-standard relative z-10">
                 {/* Header */}
                 <div ref={headerRef} className="mb-16 text-center"
                     style={{

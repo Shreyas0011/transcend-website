@@ -23,7 +23,7 @@ const StudentResume = () => {
     const chips = student.details ? student.details.split('·').map(s => s.trim()).filter(Boolean) : [];
 
     return (
-        <div className="min-h-screen text-white pt-24 pb-20 px-6 md:px-12 relative overflow-hidden"
+        <div className="min-h-screen text-white section-padding pt-24 relative overflow-hidden"
             style={{ background: 'linear-gradient(160deg, #05060f 0%, #080b1a 60%, #05060f 100%)' }}>
 
             {/* Background glows */}
@@ -36,7 +36,7 @@ const StudentResume = () => {
                     style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '36px 36px' }} />
             </div>
 
-            <div className="max-w-3xl mx-auto relative z-10"
+            <div className="container-standard relative z-10"
                 style={{
                     opacity: visible ? 1 : 0,
                     transform: visible ? 'translateY(0)' : 'translateY(30px)',

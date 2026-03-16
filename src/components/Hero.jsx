@@ -2,41 +2,19 @@ import React from 'react'
 
 const Hero = () => {
     return (
-        <section id="home" className="relative w-full h-[85vh] bg-[#0b0c15] flex items-center justify-center overflow-hidden">
-            {/* Background Video Container */}
+        <section id="home" className="relative w-full h-screen bg-[#0b0c15] flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 w-full h-full overflow-hidden">
-                {/* 
-                  Instructions for User:
-                  1. Place your video file (e.g., hero-bg.mp4) in the /public folder.
-                  2. Update the src attribute below to matching the filename.
-                */}
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="absolute min-w-full min-h-full object-cover opacity-60"
-                    src=""
-                >
-                    {/* <source src="/hero-video.mp4" type="video/mp4" /> */}
-                    Your browser does not support the video tag.
-                </video>
-
-                {/* Gradient Overlay for Cinematic Feel */}
-                <div className="absolute inset-0 bg-gradient-to-b from-[#0b0c15]/40 via-transparent to-[#0b0c15]/80 pointer-events-none"></div>
+                <iframe
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-[177.77777778vh] h-[56.25vw] pointer-events-none opacity-100"
+                    src="https://www.youtube.com/embed/o6IqDVyOAbA?autoplay=1&mute=1&loop=1&playlist=o6IqDVyOAbA&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&playsinline=1"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                ></iframe>
             </div>
 
-            {/* Content Overlay (Currently Empty as requested) */}
-            <div className="relative z-20 text-center px-4 max-w-5xl mx-auto">
-                {/* Content can be added here later */}
-            </div>
-
-            {/* Scroll indicator */}
-            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-white opacity-40 animate-bounce pointer-events-none">
-                <span className="text-[10px] tracking-[0.4em] uppercase font-bold">Scroll</span>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
-                </svg>
+            {/* Content Overlay - Empty for minimalist video look */}
+            <div className="relative z-20 w-full h-full flex flex-col items-center justify-center pointer-events-none">
             </div>
         </section>
     )

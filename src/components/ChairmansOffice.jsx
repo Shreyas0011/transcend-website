@@ -63,12 +63,12 @@ const ChairmansOffice = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-50 relative overflow-x-hidden pt-36 pb-24">
+        <div className="min-h-screen bg-slate-50 relative overflow-x-hidden section-padding pt-36">
             {/* Background Accents */}
             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-indigo-50/50 rounded-full blur-[120px] -mr-96 -mt-96 pointer-events-none"></div>
             <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-[100px] -ml-64 -mb-64 pointer-events-none"></div>
 
-            <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+            <div className="container-standard relative z-10">
                 {/* Header Section */}
                 <div className="max-w-3xl mb-16">
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-indigo-100 shadow-sm mb-6">

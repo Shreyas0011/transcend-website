@@ -226,12 +226,12 @@ const Stats = () => {
         <section
             id="stats"
             ref={sectionRef}
-            className="relative py-28 px-6 overflow-hidden"
+            className="relative section-padding overflow-hidden"
             style={{ background: 'linear-gradient(135deg, #f0f4ff 0%, #f8faff 100%)' }}
         >
             <FloatingBg />
 
-            <div className="relative z-10 max-w-6xl mx-auto">
+            <div className="relative z-10 container-standard">
                 {/* Header */}
                 <div className="text-center mb-16"
                     style={{

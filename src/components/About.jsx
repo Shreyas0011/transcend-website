@@ -22,7 +22,7 @@ const About = () => {
     const rightRef = useReveal()
 
     return (
-        <section id="about" className="py-28 px-6 md:px-12 bg-white relative overflow-hidden">
+        <section id="about" className="section-padding bg-white relative overflow-hidden">
             {/* Floating decorative gradients */}
             <div className="absolute top-[-80px] right-[-120px] w-[500px] h-[500px] rounded-full pointer-events-none"
                 style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%)' }} />
@@ -35,7 +35,7 @@ const About = () => {
             <div className="absolute top-16 right-24 w-32 h-32 rounded-full border border-indigo-100/60 pointer-events-none animate-float-slow opacity-60" />
             <div className="absolute bottom-24 left-16 w-20 h-20 rounded-full border border-indigo-200/40 pointer-events-none animate-float-medium opacity-60" style={{ animationDelay: '2s' }} />
 
-            <div className="max-w-7xl mx-auto relative z-10">
+            <div className="container-standard relative z-10">
                 {/* Section label */}
                 <div ref={sectionRef} className="reveal flex justify-center mb-16">
                     <span className="section-badge">

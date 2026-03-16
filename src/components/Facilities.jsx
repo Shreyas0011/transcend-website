@@ -54,7 +54,7 @@ const Facilities = () => {
     return (
         <section
             id="campus"
-            className="py-28 overflow-hidden relative group/section"
+            className="section-padding overflow-hidden relative group/section"
             style={{ background: 'linear-gradient(160deg, #0f0c29 0%, #302b63 50%, #0f0c29 100%)' }}
         >
             {/* Dot grid */}
@@ -82,7 +82,7 @@ const Facilities = () => {
             `}</style>
 
             {/* Header */}
-            <div ref={headerRef} className="max-w-[1400px] mx-auto px-6 mb-16">
+            <div ref={headerRef} className="container-standard mb-16">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div style={{
                         opacity: headerVisible ? 1 : 0,

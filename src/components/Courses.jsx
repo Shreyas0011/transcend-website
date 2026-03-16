@@ -159,14 +159,14 @@ const Courses = () => {
         : coursesData.filter(c => c.stream === activeFilter);
 
     return (
-        <section id="programs" ref={sectionRef} className="py-28 px-6 md:px-12 bg-white relative overflow-hidden">
+        <section id="programs" ref={sectionRef} className="section-padding bg-white relative overflow-hidden">
             {/* Background decoratives */}
             <div className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none opacity-40"
                 style={{ background: 'radial-gradient(circle at top right, rgba(99,102,241,0.06) 0%, transparent 60%)' }} />
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] pointer-events-none opacity-40"
                 style={{ background: 'radial-gradient(circle at bottom left, rgba(45,62,145,0.05) 0%, transparent 60%)' }} />
 
-            <div className="max-w-7xl mx-auto relative z-10">
+            <div className="container-standard relative z-10">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
                     <div

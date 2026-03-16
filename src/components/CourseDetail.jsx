@@ -2,7 +2,7 @@ import React from 'react';
 
 const CourseDetail = () => {
     return (
-        <main className="relative z-10 flex-grow py-24 px-6 md:px-12 bg-white max-w-7xl mx-auto mt-20 text-center">
+        <main className="relative z-10 flex-grow section-padding bg-white container-standard mt-20 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-8 text-[#2d3e91]" style={{ fontFamily: 'Georgia, serif' }}>
                 Course Details
             </h1>

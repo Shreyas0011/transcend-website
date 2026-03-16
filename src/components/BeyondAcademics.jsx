@@ -120,10 +120,10 @@ const BeyondAcademics = () => {
     }, []);
 
     return (
-        <section className="py-28 px-6 md:px-12 bg-[#fafbff] relative overflow-hidden" id="events" ref={sectionRef}>
+        <section className="section-padding bg-[#fafbff] relative overflow-hidden" id="events" ref={sectionRef}>
             <FloatingBg />
 
-            <div className="max-w-[1400px] mx-auto relative z-10">
+            <div className="container-standard relative z-10">
                 {/* Header */}
                 <div className="text-center mb-20"
                     style={{

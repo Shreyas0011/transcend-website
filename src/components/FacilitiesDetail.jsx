@@ -36,8 +36,8 @@ const FacilitiesDetail = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-slate-50 pt-32 pb-24 px-6">
-            <div className="max-w-7xl mx-auto">
+        <div className="min-h-screen bg-slate-50 section-padding pt-32 px-6">
+            <div className="container-standard">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-16">
                     <div>
                         <Link

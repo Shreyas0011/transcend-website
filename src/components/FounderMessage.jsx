@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import founderSiddharth from '../assets/founder_siddharth.png';
-import founderShwetha from '../assets/founder_shwetha.png';
+import founderSiddharth from '../assets/siddharth_kt_white.png';
+import founderShwetha from '../assets/shwetha_s_white.png';
 
 const FounderMessage = () => {
     const [visible, setVisible] = useState(false);
@@ -53,7 +53,7 @@ const FounderMessage = () => {
     return (
         <section
             ref={ref}
-            className="relative overflow-hidden py-24 px-6 md:px-12"
+            className="relative overflow-hidden section-padding"
             style={{ background: 'linear-gradient(160deg, #05060f 0%, #080b1a 60%, #05060f 100%)' }}
         >
             {/* Background glows */}
@@ -66,7 +66,7 @@ const FounderMessage = () => {
                     style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '36px 36px' }} />
             </div>
 
-            <div className="max-w-6xl mx-auto relative z-10">
+            <div className="container-standard relative z-10">
 
                 {/* Section header */}
                 <div className="text-center mb-14" style={anim(0)}>
@@ -99,14 +99,14 @@ const FounderMessage = () => {
 
                                 {/* Photo */}
                                 <div className="relative w-full overflow-hidden"
-                                    style={{ height: '260px', background: '#ffffff' }}>
+                                    style={{ height: '320px', background: '#ffffff' }}>
                                     <img
                                         src={founder.avatar}
                                         alt={founder.name}
                                         className="w-full h-full object-contain"
                                     />
                                     <div className="absolute inset-0"
-                                        style={{ background: 'linear-gradient(to bottom, transparent 20%, rgba(12,14,30,0.85) 100%)' }} />
+                                        style={{ background: 'linear-gradient(to bottom, transparent 40%, rgba(12,14,30,0.95) 100%)' }} />
                                     {/* Name on photo */}
                                     <div className="absolute bottom-0 left-0 p-6 z-10">
                                         <p className="text-white text-xl font-black">{founder.name}</p>

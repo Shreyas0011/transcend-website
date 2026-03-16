@@ -21,7 +21,7 @@ const Vision = () => {
     };
 
     return (
-        <section id="vision" ref={sectionRef} className="relative text-white py-28 px-6 md:px-12 overflow-hidden"
+        <section id="vision" ref={sectionRef} className="relative text-white section-padding overflow-hidden"
             style={{ background: 'linear-gradient(160deg, #0a0c1b 0%, #0d1130 50%, #0a0c1b 100%)' }}>
 
             {/* Dot grid */}

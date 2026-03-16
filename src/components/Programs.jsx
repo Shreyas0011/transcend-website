@@ -147,12 +147,12 @@ const Programs = () => {
         <section
             id="programs"
             ref={sectionRef}
-            className="relative py-24 px-6 overflow-hidden bg-white"
+            className="relative section-padding overflow-hidden bg-white"
         >
             {/* Animated hexagon accent - light theme */}
             <div className="absolute right-0 top-0 opacity-5 text-blue-200 animate-spin-slow pointer-events-none" style={{ fontSize: 400, lineHeight: 1 }}>⬡</div>
 
-            <div className="relative z-10 max-w-6xl mx-auto">
+            <div className="relative z-10 container-standard">
                 {/* Header */}
                 <div className="text-center mb-16">
                     <span className="text-amber-500 text-sm font-bold tracking-widest uppercase mb-3 block">Academic Programs</span>

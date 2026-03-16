@@ -138,20 +138,27 @@ const VideoSlot = ({ url, label, color, isPlaceholder }) => {
                 background: `linear-gradient(135deg, rgba(12,14,30,0.95) 0%, ${color}12 100%)`,
                 '--vscolor': color,
                 '--vsglow': `${color}80`,
-                transition: 'all 0.4s cubic-bezier(0.16,1,0.3,1)',
-                boxShadow: hovered ? `0 12px 40px ${color}25, inset 0 0 40px ${color}08` : `0 4px 32px rgba(0,0,0,0.4)`,
-                border: `1.5px solid ${color}${hovered ? '60' : '15'}`,
+                transition: 'all 0.5s cubic-bezier(0.16,1,0.3,1)',
+                boxShadow: hovered ? `0 20px 50px ${color}40, inset 0 0 60px ${color}15` : `0 8px 32px rgba(0,0,0,0.4)`,
+                border: `1.5px solid ${color}${hovered ? '80' : '25'}`,
+                transform: hovered ? 'translateY(-6px)' : 'translateY(0)',
             }}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >
             {!isPlaceholder ? (
-                <iframe
-                    src={url}
-                    className="absolute inset-0 w-full h-full border-none"
-                    allow="autoplay; fullscreen"
-                    title={label}
-                />
+                <div className="w-full h-full transition-all duration-700 ease-out" 
+                    style={{ 
+                        transform: hovered ? 'scale(1.05)' : 'scale(1)',
+                        filter: hovered ? 'brightness(1.15) contrast(1.1) saturate(1.1)' : 'brightness(1.08) contrast(1.02) saturate(1.05)',
+                    }}>
+                    <iframe
+                        src={url}
+                        className="absolute inset-0 w-full h-full border-none"
+                        allow="autoplay; fullscreen"
+                        title={label}
+                    />
+                </div>
             ) : (
                 <div className="flex flex-col items-center gap-3 z-10 relative">
                     <div className="vs-play w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg"
@@ -204,6 +211,7 @@ const sections = [
             { icon: '🌟', heading: 'Launch into the Corporate World', body: 'TRANSCEND Career Services emphasises sustained industry engagement. Guaranteed 100-hour internships + visual CV mastery = an unmatched competitive edge for finance, tech, and management roles.' },
         ],
         stat: { value: '100', unit: 'Hours', note: 'Per Semester · Guaranteed' },
+        videoUrl: "https://drive.google.com/file/d/1qql8-p0e-RDRTW9dR4h7fogrUJtlKV3i/preview",
     },
     {
         number: '03', emoji: '🚀', title: 'Value Added Programs',
@@ -230,6 +238,7 @@ const sections = [
             { icon: '🏆', heading: 'Global Leaders from TRANSCEND', body: 'Students serve in prestigious leadership roles in the Toastmasters India & USA networks — Area Directors, Division Directors. Our clubs don\'t just teach speaking; they create world-class communicators.' },
         ],
         highlight: 'Alumni as Area & Division Directors — India & USA 🌎',
+        videoUrl: "https://drive.google.com/file/d/10sVFxjPUXvBVZGaQtcAJI-929caOARoI/preview",
     },
     {
         number: '05', emoji: '🎉', title: 'Fun & Networking',
@@ -242,6 +251,7 @@ const sections = [
             { icon: '🎊', heading: 'Events, Fests & Competitions', body: 'Annual cultural fests, business plan competitions, sports tournaments, and tech expos — every semester is packed with opportunities to showcase talents, build your brand, and connect with people who shape your future.' },
             { icon: '💜', heading: 'The TRANSCEND Community', body: 'Our alumni network spans finance, technology, management, and entrepreneurship — actively mentoring current students. Looking for your first internship, job, or co-founder? The TRANSCEND community has your back, for life.' },
         ],
+        videoUrl: "https://drive.google.com/file/d/1vcu5EzsDVZxhpzegWwhTwAgdhQlEx-Qp/preview",
     },
     {
         number: '06', emoji: '✨', title: 'Personality Development',
@@ -255,6 +265,7 @@ const sections = [
             { icon: '🤝', heading: 'Professional Etiquette', body: 'Emphasizing communication, body language, and leadership. Students enhance interpersonal skills and time management, while stress management workshops provide practical techniques for mental well-being.' },
         ],
         badges: ['Meditation', 'Leadership', 'Emotional Intelligence', 'Time Management', 'Resilience'],
+        videoUrl: "https://drive.google.com/file/d/1dTg4LdoDqZVTaQO7y98to5zluyoTPVyf/preview",
     },
     {
         number: '07', emoji: '👑', title: 'Leadership',
@@ -268,6 +279,77 @@ const sections = [
             { icon: '🚀', heading: 'Empower Your Success', body: 'These leadership programs for undergraduates bridge ideas to impact, empowering you to lead from day one. Join Transcend programs to convert coordination challenges into triumphs—master leadership skills and lead confidently.' },
         ],
         badges: ['SWAT', 'Class Leaders', 'House Leaders', 'Event Planning', 'Teamwork'],
+        videoUrl: "https://drive.google.com/file/d/19YyglVsgqR7bPJOh7osS7lfibcY-D09J/preview",
+    },
+    {
+        number: '08', emoji: '🏫', title: 'Campus',
+        sub: 'Where Excellence Meets Holistic Living',
+        color: '#38bdf8', accent: '#0ea5e9',
+        tag: 'VIBE CHECK 🏫',
+        tagColor: '#38bdf8',
+        blocks: [
+            { icon: '🏯', heading: 'Serene & Welcoming', body: 'The campus environment is designed to create a calm atmosphere. At the entrance stands a serene Buddha statue, which quietly sets a peaceful tone for the day even before students step into their academic responsibilities.' },
+            { icon: '🏊', heading: 'Sports & Fitness', body: 'The campus offers a well-equipped swimming pool for both training and recreation, along with an indoor badminton court. A modern two-level turf ground further supports sports activities and inter-house events.' },
+            { icon: '🏠', heading: 'Holistic Student Living', body: 'Equipped with smart classrooms for interactive learning and dedicated activity spaces. Includes a revel room for relaxation and secure, comfortable hostel facilities for a supportive living environment.' },
+        ],
+        badges: ['Buddha Statue', 'Swimming Pool', 'Badminton Court', 'Turf Ground', 'Revel Room', 'Hostels'],
+        videoUrl: "https://drive.google.com/file/d/1aKy-gOitWtFq3yjr3YKK0qmKzE50Hoik/preview",
+    },
+    {
+        number: '09', emoji: '🎯', title: 'Professional Coaching',
+        sub: 'Integrated Learning for Global Success',
+        color: '#f97316', accent: '#ea580c',
+        tag: 'MAIN CHARACTER ENERGY 🎯',
+        tagColor: '#f97316',
+        blocks: [
+            { icon: '🤝', heading: 'JK Shah Collaboration', body: 'Pursue global certifications like CA, ACCA, and US CMA alongside your degree. Partnered with JK Shah Classes for specialized coaching and experienced mentorship within the campus environment.' },
+            { icon: '📅', heading: 'Integrated Structure', body: 'Our ecosystem enables students to manage both academic and career-oriented goals efficiently. Receive exam-focused preparation that aligns professional training with your undergraduate education.' },
+            { icon: '📊', heading: 'Academic Monitoring', body: 'Regular mock tests, detailed performance evaluations, and continuous mentoring ensure conceptual clarity. We track progress consistently to keep students well-prepared for international exams.' },
+        ],
+        badges: ['JK Shah', 'CA', 'ACCA', 'US CMA', 'Mock Tests', 'Mentoring'],
+        videoUrl: "https://drive.google.com/file/d/1CX6XucWydMbsvVmZGZi3HblrFBWN4Wu-/preview",
+    },
+    {
+        number: '10', emoji: '💼', title: 'Facilitators',
+        sub: 'Expert-Led Practical Learning',
+        color: '#8b5cf6', accent: '#7c3aed',
+        tag: 'PROFESSIONAL ERA 💼',
+        tagColor: '#8b5cf6',
+        blocks: [
+            { icon: '👨‍🏫', heading: 'Chartered Accountant Faculty', body: 'Subjects like Taxation, Audit, and Financial Accounting are taught by qualified CAs. They bring years of industry exposure and practical expertise directly into the classroom.' },
+            { icon: '🔍', heading: 'Beyond Textbooks', body: 'Learn through real-world examples: tax filings, audit procedures, and corporate compliance. Our faculty explains how theoretical principles are applied in actual business environments.' },
+            { icon: '🏢', heading: 'Industry-Oriented', body: 'Heavy focus on applying concepts practically—preparing financial statements, interpreting audit reports, and analyzing cost structures. Build the confidence needed for high-stakes professional roles.' },
+        ],
+        badges: ['CA Faculty', 'Taxation', 'Audit', 'Practical Case Studies', 'Guest Lectures'],
+        videoUrl: "https://drive.google.com/file/d/1OZEWapCt5jcdIdbvzFBRnkZzBF67M9HC/preview",
+    },
+    {
+        number: '11', emoji: '🌍', title: 'Global Exposure',
+        sub: 'Expanding Horizons Beyond the Classroom',
+        color: '#10b981', accent: '#059669',
+        tag: 'WORLDWIDE 🌍',
+        tagColor: '#10b981',
+        blocks: [
+            { icon: '🇱🇰', heading: 'Sri Lanka Visit', body: 'Students experience different academic cultures firsthand. From university visits to delivering presentations at the YMCA, these trips build coordination and international communication skills.' },
+            { icon: '🏙️', heading: 'Dubai Excursion', body: 'Exposure to one of the world’s most diverse cities. Observing multicultural nations living and working together offers a practical understanding of global connectivity and professional diversity.' },
+            { icon: '🚀', heading: 'International Mindset', body: 'These experiences encourage independence and adaptability. We help students expand their outlook from a local perspective to a broader, global understanding of the professional world.' },
+        ],
+        badges: ['Sri Lanka', 'Dubai', 'University Visits', 'Presentation Skills', 'Cultural Diversity'],
+        videoUrl: "https://drive.google.com/file/d/16lJW5SxY98m8eqhsfJCWWdrdxdvfpnGe/preview",
+    },
+    {
+        number: '12', emoji: '📜', title: 'International Certifications',
+        sub: 'Building Industry-Relevant Expertise',
+        color: '#ec4899', accent: '#db2777',
+        tag: 'CERTIFIED 📜',
+        tagColor: '#ec4899',
+        blocks: [
+            { icon: '💡', heading: 'Design-Led Strategy', body: 'Introduction to design thinking for business strategy and entrepreneurship. Use real-world case studies of global companies to understand modern strategic decision-making.' },
+            { icon: '🛡️', heading: 'Tech & AI Security', body: 'Strengthen industry knowledge with certifications in AI Security Essentials, Business Development for Startups, and Branding. Align your skills with current global industry expectations.' },
+            { icon: '📈', heading: 'Career Advantage', body: 'In a competitive environment, a degree is just the start. Our online and international certification programs ensure students possess the practical skills employers increasingly look for.' },
+        ],
+        badges: ['Design Thinking', 'AI Security', 'Business Development', 'Branding', 'Entrepreneurship'],
+        videoUrl: "https://drive.google.com/file/d/1utARNPgln5mr56fQANP-dcqiwxzGqr_W/preview",
     },
 ];
 
@@ -408,8 +490,8 @@ const Differentiators = () => {
 
             <FloatingBg />
 
-            <div className="relative z-10 pt-28 pb-32 px-6 md:px-12">
-                <div className="max-w-6xl mx-auto">
+            <div className="relative z-10 section-padding">
+                <div className="container-standard">
 
                     {/* Back */}
                     <Link to="/" className="inline-flex items-center gap-2 text-gray-600 hover:text-purple-400 transition-colors group mb-10">
@@ -444,7 +526,7 @@ const Differentiators = () => {
                         </h1>
 
                         <p className="text-slate-200 text-lg font-medium max-w-xl mx-auto leading-relaxed">
-                            7 things that make TRANSCEND hit different. No cap. 🔥
+                            12 things that make TRANSCEND hit different. No cap. 🔥
                         </p>
 
                         {/* Jump pills */}

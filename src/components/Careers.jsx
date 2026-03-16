@@ -139,7 +139,7 @@ const Careers = () => {
             </section>
 
             {/* 2. CULTURE SECTION */}
-            <section ref={revealCulture} className="reveal py-20 px-6 relative z-10 bg-indigo-50/30">
+            <section ref={revealCulture} className="reveal section-padding relative z-10 bg-indigo-50/30">
                 <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-16">
                         <span className="section-badge mb-4">Our Ethos</span>
@@ -172,7 +172,7 @@ const Careers = () => {
             </section>
 
             {/* 3. FORM SECTION */}
-            <section ref={revealForm} className="reveal py-24 px-6 relative z-10">
+            <section ref={revealForm} className="reveal section-padding relative z-10">
                 <div className="max-w-4xl mx-auto">
                     <div className="glass-card rounded-[3rem] p-8 md:p-16 relative overflow-hidden shadow-2xl shadow-indigo-100">
                         {/* Blob accent */}

@@ -171,7 +171,7 @@ const BComStudentDetails = () => {
     }, []);
 
     return (
-        <div className="min-h-screen text-white pt-28 pb-24 px-6 md:px-12 relative overflow-hidden"
+        <div className="min-h-screen text-white section-padding pt-28 relative overflow-hidden"
             style={{ background: 'linear-gradient(160deg, #05060f 0%, #080b1a 60%, #05060f 100%)' }}>
 
             <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -183,7 +183,7 @@ const BComStudentDetails = () => {
                     style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '36px 36px' }} />
             </div>
 
-            <div className="max-w-[1400px] mx-auto relative z-10">
+            <div className="container-standard relative z-10">
                 {/* Header */}
                 <div ref={headerRef} className="mb-16 text-center"
                     style={{

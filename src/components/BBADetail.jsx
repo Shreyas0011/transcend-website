@@ -2,7 +2,7 @@ import React from 'react';
 
 const BBADetail = () => {
     return (
-        <main className="relative z-10 flex-grow py-24 px-6 md:px-12 bg-white max-w-7xl mx-auto mt-20">
+        <main className="relative z-10 flex-grow section-padding bg-white container-standard mt-20">
             <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
                 {/* Main Content */}
                 <div className="lg:w-2/3">

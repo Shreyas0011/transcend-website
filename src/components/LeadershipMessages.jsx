@@ -1,4 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
+import prasanna from '../assets/leadership/prasanna.png';
+import ravikiran from '../assets/leadership/ravikiran.png';
+import siddharth from '../assets/siddharth_kt_white.png';
 
 const VIDEOS = [
     {
@@ -22,7 +25,7 @@ const VideoCard = ({ video, index, visible }) => {
 
     // YouTube / GDrive URL logic
     const isGDrive = video.type === 'gdrive';
-    const thumbUrl = isGDrive ? '' : `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
+    const thumbUrl = video.thumbnail || (isGDrive ? `https://drive.google.com/thumbnail?id=${video.id}&sz=w1000` : `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`);
     const embedUrl = isGDrive
         ? `https://drive.google.com/file/d/${video.id}/preview`
         : `https://www.youtube.com/embed/${video.id}?autoplay=1&rel=0`;
@@ -55,7 +58,7 @@ const VideoCard = ({ video, index, visible }) => {
 
                 {/* Video / Thumbnail */}
                 <div className="relative aspect-video rounded-xl overflow-hidden group cursor-pointer mb-6"
-                    style={{ background: '#ffffff' }}
+                    style={{ background: '#0a0c1a' }}
                     onClick={() => setPlaying(true)}
                 >
                     {playing ? (
@@ -68,21 +71,27 @@ const VideoCard = ({ video, index, visible }) => {
                         />
                     ) : (
                         <>
-                            {/* Thumbnail / Fallback */}
-                            {thumbUrl ? (
+                            {/* Thumbnail */}
+                            {thumbUrl && (
                                 <img
                                     src={thumbUrl}
                                     alt={video.label}
                                     className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                                     onError={(e) => { e.target.style.display = 'none'; }}
                                 />
-                            ) : (
-                                <div className="w-full h-full flex flex-col items-center justify-center bg-indigo-900/20">
-                                    <svg className="w-12 h-12 text-indigo-400 opacity-50 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            )}
+
+                            {/* External Link Icon */}
+                            <div className="absolute top-4 right-4 z-20">
+                                <div className="p-2 rounded-lg bg-black/40 backdrop-blur-md border border-white/10 text-white/70 hover:text-white transition-colors">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
                                     </svg>
                                 </div>
-                            )}
+                            </div>
+
                             {/* Dark overlay */}
                             <div
                                 className="absolute inset-0 transition-opacity duration-300 group-hover:opacity-60"
@@ -91,25 +100,27 @@ const VideoCard = ({ video, index, visible }) => {
                             {/* Play button */}
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <div
-                                    className="flex items-center justify-center w-16 h-16 rounded-full transition-all duration-300 group-hover:scale-110"
+                                    className="flex items-center justify-center w-20 h-20 rounded-full transition-all duration-500 group-hover:scale-110 group-hover:rotate-[360deg]"
                                     style={{
-                                        background: 'linear-gradient(135deg, #2d3e91, #4338ca)',
-                                        boxShadow: '0 8px 32px rgba(67,56,202,0.6)',
+                                        background: 'rgba(255,255,255,0.15)',
+                                        backdropFilter: 'blur(12px)',
+                                        border: '1.5px solid rgba(255,255,255,0.3)',
+                                        boxShadow: '0 0 40px rgba(0,0,0,0.3)',
                                     }}
                                 >
                                     {/* Triangle play icon */}
-                                    <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-8 h-8 text-white ml-1 filter drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M8 5v14l11-7z" />
                                     </svg>
                                 </div>
                             </div>
                             {/* "Click to play" label */}
-                            <div className="absolute bottom-3 left-1/2 -translate-x-1/2">
+                            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:bottom-8">
                                 <span
-                                    className="text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full text-white/70"
-                                    style={{ background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(8px)' }}
+                                    className="text-[11px] font-black tracking-[0.2em] uppercase px-5 py-2 rounded-full text-white"
+                                    style={{ background: 'rgba(99,102,241,0.4)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.2)' }}
                                 >
-                                    Click to play
+                                    Play Message
                                 </span>
                             </div>
                         </>
@@ -142,7 +153,7 @@ const LeadershipMessages = () => {
     return (
         <section
             ref={ref}
-            className="relative overflow-hidden py-24 px-6 md:px-12"
+            className="relative overflow-hidden section-padding"
             style={{ background: 'linear-gradient(160deg, #080b1a 0%, #05060f 60%, #080b1a 100%)' }}
         >
             {/* Background glows */}
@@ -155,7 +166,7 @@ const LeadershipMessages = () => {
                     style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '36px 36px' }} />
             </div>
 
-            <div className="max-w-6xl mx-auto relative z-10">
+            <div className="container-standard relative z-10">
 
                 {/* Header */}
                 <div

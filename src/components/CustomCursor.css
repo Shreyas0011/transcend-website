@@ -1,52 +1,50 @@
-/* Simple Custom Cursor Styles */
+/* Premium Custom Cursor Styles */
 
-/* Hide default cursor globally */
 html,
-body {
-    cursor: none !important;
-}
-
-/* Ensure links and buttons don't show the pointer cursor */
-a,
-button,
-[role="button"],
-.interactive {
+body,
+* {
     cursor: none !important;
 }
 
 .custom-cursor-dot {
     position: fixed;
-    width: 10px;
-    height: 10px;
-    background-color: rgba(79, 70, 229, 0.8);
-    /* Indigo with slight transparency */
+    width: 12px;
+    height: 12px;
+    background-color: #ffffff;
     border-radius: 50%;
     pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1),
-        height 0.3s cubic-bezier(0.23, 1, 0.32, 1),
-        background-color 0.3s ease,
-        box-shadow 0.3s ease;
-    box-shadow: 0 0 10px rgba(79, 70, 229, 0.2);
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    transform: translate3d(calc(var(--cursor-x, -100px) - 50%), calc(var(--cursor-y, -100px) - 50%), 0);
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4), 
+                0 0 20px 5px rgba(139, 92, 246, 0.5); /* subtle purple glow from theme */
+    
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.3s ease,
+                box-shadow 0.3s ease,
+                border 0.3s ease,
+                backdrop-filter 0.3s ease;
+    will-change: transform, width, height;
 }
 
 .custom-cursor-dot.hovered {
-    width: 24px;
-    height: 24px;
-    background-color: rgba(79, 70, 229, 0.3);
-    border: 1px solid rgba(79, 70, 229, 0.6);
-    box-shadow: 0 0 15px rgba(79, 70, 229, 0.3);
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* glassmorphism shadow */
+    backdrop-filter: blur(4px);
 }
 
 .custom-cursor-dot.clicked {
     width: 8px;
     height: 8px;
-    background-color: #4338ca;
-    transform: translate(-50%, -50%) scale(0.9);
+    background-color: #ffffff;
+    box-shadow: 0 0 15px 5px rgba(236, 72, 153, 0.7); /* brief pink burst on click */
 }
 
-/* Remove or hide the ring styles since we're using a single dot now */
 .custom-cursor-ring {
     display: none;
-}
+}

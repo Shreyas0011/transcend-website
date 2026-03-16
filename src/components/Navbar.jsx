@@ -6,7 +6,6 @@ const navLinks = [
     { label: 'Programs', href: '/#programs', section: 'programs' },
     { label: "Chairman's Office", href: '/chairmans-office' },
     { label: 'Campus', href: '/#campus', section: 'campus' },
-    { label: 'Careers', href: '/careers' },
 ]
 
 const studentDropdown = [
@@ -67,11 +66,11 @@ const Navbar = () => {
                 <nav
                     className="pointer-events-auto hidden lg:flex items-center gap-0.5 px-5 h-12 rounded-full"
                     style={{
-                        background: 'rgba(255,255,255,0.75)',
-                        backdropFilter: 'blur(20px)',
-                        WebkitBackdropFilter: 'blur(20px)',
-                        border: '1px solid rgba(255,255,255,0.65)',
-                        boxShadow: '0 6px 28px rgba(45,62,145,0.10), 0 1px 6px rgba(0,0,0,0.05)',
+                        background: 'rgba(255,255,255,0.88)',
+                        backdropFilter: 'blur(24px)',
+                        WebkitBackdropFilter: 'blur(24px)',
+                        border: '1px solid rgba(255,255,255,0.7)',
+                        boxShadow: '0 8px 32px rgba(45,62,145,0.15), 0 0 0 1px rgba(99,102,241,0.05)',
                     }}
                 >
                     {navLinks.map((link) => {
@@ -168,8 +167,15 @@ const Navbar = () => {
                     </Link>
                 </nav>
 
-                {/* Apply Now + hamburger */}
+                {/* Action Buttons + hamburger */}
                 <div className="pointer-events-auto flex items-center gap-3">
+                    <Link
+                        to="/careers"
+                        className="hidden lg:flex items-center gap-2 px-5 py-2.5 rounded-full text-[13px] font-bold text-[#2d3e91] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/80 border border-indigo-100 bg-white/50 backdrop-blur-sm shadow-sm"
+                    >
+                        <span>Careers@TDC</span>
+                    </Link>
+
                     <a
                         href="#contact"
                         className="hidden lg:flex items-center gap-2 px-5 py-2.5 rounded-full text-[13px] font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 overflow-hidden relative group"
@@ -288,17 +294,26 @@ const Navbar = () => {
                     </Link>
 
                     <div className="h-px bg-indigo-50 my-2" />
-                    <a
-                        href="#contact"
-                        onClick={() => setMenuOpen(false)}
-                        className="flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl text-[15px] font-bold text-white"
-                        style={{ background: 'linear-gradient(135deg, #2d3e91, #4338ca)' }}
-                    >
-                        Apply Now
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </a>
+                    <div className="flex flex-col gap-2">
+                        <Link
+                            to="/careers"
+                            onClick={() => setMenuOpen(false)}
+                            className="flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl text-[15px] font-bold text-[#2d3e91] bg-indigo-50 border border-indigo-100"
+                        >
+                            Careers@TDC
+                        </Link>
+                        <a
+                            href="#contact"
+                            onClick={() => setMenuOpen(false)}
+                            className="flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl text-[15px] font-bold text-white shadow-lg"
+                            style={{ background: 'linear-gradient(135deg, #2d3e91, #4338ca)' }}
+                        >
+                            Apply Now
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </>
