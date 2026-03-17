@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import prasanna from '../assets/leadership/prasanna.png';
 import ravikiran from '../assets/leadership/ravikiran.png';
-import akshay_leader from '../assets/leadership/akshay.png';
+import akshay_leader from '../assets/leadership/akshay_leader.png';
 import agnel from '../assets/leadership/agnel.png';
 
 // Faculty Batch 1
@@ -26,6 +26,19 @@ import bharath_s from '../assets/faculty/bharath_s.png';
 import saikumar_velu from '../assets/faculty/saikumar_velu.png';
 import deepa_venkatesh from '../assets/faculty/deepa_venkatesh.png';
 import shobha_girish from '../assets/faculty/shobha_girish.png';
+// Staff Photos
+import vani_rao from '../assets/staff/vani_rao.png';
+import bharathi_srikanth from '../assets/staff/bharathi_srikanth.png';
+import shravana_kumar from '../assets/staff/shravana_kumar.png';
+import sampath_kumar from '../assets/staff/sampath_kumar.png';
+import reshma_belagaje from '../assets/staff/reshma_belagaje.png';
+import padma_latha from '../assets/staff/padma_latha.png';
+import prasad_k from '../assets/staff/prasad_k.png';
+import roopa_kambam from '../assets/staff/roopa_kambam.png';
+import jessy_mathew from '../assets/staff/jessy_mathew.png';
+import padmaja_ravi from '../assets/staff/padmaja_ravi.png';
+import pankaj_matta from '../assets/staff/pankaj_matta.png';
+import niranjan_dg from '../assets/staff/niranjan_dg.png'; 
 
 const leadershipTeam = [
     { id: 1, name: 'CA. PRASANNA KUMAR K', designation: 'Director - Operations', department: 'Leadership', qualification: 'B.Com, (M.Com), CA', expertise: 'Strategic Operations · Finance · Management', photo: prasanna },
@@ -62,18 +75,18 @@ const faculty = [
 ];
 
 const resourcePersonnel = [
-    { id: 1, name: 'Vani S R Rao', designation: 'Admin Executive', department: 'Administration', qualification: 'B.Com, ICWAI (Inter)', expertise: 'Administration · Office Management · Accounts', photo: 'https://i.pravatar.cc/300?img=45' },
-    { id: 2, name: 'Bharathi Srikanth', designation: 'Admin Executive', department: 'Administration', qualification: 'Bachelors in HR', expertise: 'HR Administration · Office Coordination', photo: 'https://i.pravatar.cc/300?img=48' },
-    { id: 3, name: 'Shravana Kumar', designation: 'Admin Executive', department: 'Administration', qualification: 'B.Com', expertise: 'Administration · Operations · Coordination', photo: 'https://i.pravatar.cc/300?img=8' },
-    { id: 4, name: 'A P Sampath Kumar', designation: 'Physical Education Trainer', department: 'Sports', qualification: 'B.A, B.P.Ed, M.P.Ed', expertise: 'Physical Training · Sports · Fitness', photo: 'https://i.pravatar.cc/300?img=3' },
-    { id: 5, name: 'Reshma Belagaje', designation: 'HR & PR Co-ordinator', department: 'HR & PR', qualification: '', expertise: 'Human Resources · Public Relations · Coordination', photo: 'https://i.pravatar.cc/300?img=53' },
-    { id: 6, name: 'Padma Latha Paluri', designation: 'Senior Accountant', department: 'Accounts', qualification: 'M.Com', expertise: 'Accounting · Finance · Reporting', photo: 'https://i.pravatar.cc/300?img=62' },
-    { id: 7, name: 'Prasad K', designation: 'Facility Head', department: 'Facilities', qualification: '', expertise: 'Facility Management · Operations · Infrastructure', photo: 'https://i.pravatar.cc/300?img=13' },
-    { id: 8, name: 'Roopa Kambam', designation: 'Admission Counsellor', department: 'Admissions', qualification: 'B.Com', expertise: 'Admissions · Student Counselling · Outreach', photo: 'https://i.pravatar.cc/300?img=60' },
-    { id: 9, name: 'Jessy Mathew', designation: 'Stores In-charge', department: 'Stores', qualification: 'B.Com', expertise: 'Inventory Management · Procurement · Stores', photo: 'https://i.pravatar.cc/300?img=64' },
-    { id: 10, name: 'Padmaja Ravi', designation: 'Admin Executive', department: 'Administration', qualification: '', expertise: 'Administration · Records Management', photo: 'https://i.pravatar.cc/300?img=54' },
-    { id: 11, name: 'Pankaj R Matta', designation: 'Data & Technology Head', department: 'Technology', qualification: '', expertise: 'Data Management · Technology · Digital Systems', photo: 'https://i.pravatar.cc/300?img=28' },
-    { id: 12, name: 'Niranjan D G', designation: 'Facility Executive', department: 'Facilities', qualification: '', expertise: 'Facility Operations · Maintenance · Support', photo: 'https://i.pravatar.cc/300?img=30' },
+    { id: 1, name: 'Vani S R Rao', designation: 'Admin Executive', department: 'Administration', qualification: 'B.Com, ICWAI (Inter)', expertise: 'Administration · Office Management · Accounts', photo: vani_rao },
+    { id: 2, name: 'Bharathi Srikanth', designation: 'Admin Executive', department: 'Administration', qualification: 'Bachelors in HR', expertise: 'HR Administration · Office Coordination', photo: bharathi_srikanth },
+    { id: 3, name: 'Shravana Kumar', designation: 'Admin Executive', department: 'Administration', qualification: 'B.Com', expertise: 'Administration · Operations · Coordination', photo: shravana_kumar },
+    { id: 4, name: 'A P Sampath Kumar', designation: 'Physical Education Trainer', department: 'Sports', qualification: 'B.A, B.P.Ed, M.P.Ed', expertise: 'Physical Training · Sports · Fitness', photo: sampath_kumar },
+    { id: 5, name: 'Reshma Belagaje', designation: 'HR & PR Co-ordinator', department: 'HR & PR', qualification: '', expertise: 'Human Resources · Public Relations · Coordination', photo: reshma_belagaje },
+    { id: 6, name: 'Padma Latha Paluri', designation: 'Senior Accountant', department: 'Accounts', qualification: 'M.Com', expertise: 'Accounting · Finance · Reporting', photo: padma_latha },
+    { id: 7, name: 'Prasad K', designation: 'Facility Head', department: 'Facilities', qualification: '', expertise: 'Facility Management · Operations · Infrastructure', photo: prasad_k },
+    { id: 8, name: 'Roopa Kambam', designation: 'Admission Counsellor', department: 'Admissions', qualification: 'B.Com', expertise: 'Admissions · Student Counselling · Outreach', photo: roopa_kambam },
+    { id: 9, name: 'Jessy Mathew', designation: 'Stores In-charge', department: 'Stores', qualification: 'B.Com', expertise: 'Inventory Management · Procurement · Stores', photo: jessy_mathew },
+    { id: 10, name: 'Padmaja Ravi', designation: 'Admin Executive', department: 'Administration', qualification: '', expertise: 'Administration · Records Management', photo: padmaja_ravi },
+    { id: 11, name: 'Pankaj R Matta', designation: 'Data & Technology Head', department: 'Technology', qualification: '', expertise: 'Data Management · Technology · Digital Systems', photo: pankaj_matta },
+    { id: 12, name: 'Niranjan D G', designation: 'Facility Executive', department: 'Facilities', qualification: '', expertise: 'Facility Operations · Maintenance · Support', photo: niranjan_dg },
 ];
 
 const FacultyCard = ({ member, index }) => {
@@ -118,19 +131,22 @@ const FacultyCard = ({ member, index }) => {
                         : '0 4px 24px rgba(0,0,0,0.5)',
                 }}
             >
-                {/* Photo */}
                 <div className="w-full overflow-hidden mb-5 relative mx-auto"
-                    style={{ aspectRatio: '1/1', width: '75%', borderRadius: '50%', background: 'rgba(20,22,45,0.9)' }}>
+                    style={{ aspectRatio: '1/1', width: '75%', borderRadius: '24px', background: 'rgba(20,22,45,0.9)' }}>
                     <img
                         src={member.photo}
                         alt={member.name}
-                        style={{ transform: 'scale(1.33)', transformOrigin: 'center center' }}
+                        style={{ 
+                            transform: `scale(${member.scale || 1.05})`, 
+                            transformOrigin: 'center center',
+                            objectPosition: member.objectPosition || 'center center',
+                        }}
                         className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 pointer-events-none"
                         style={{ background: 'linear-gradient(to bottom, transparent 60%, rgba(12,14,30,0.5) 100%)' }} />
                     {/* Department tag */}
-                    <div className="absolute top-3 right-3 px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase"
+                    <div className="absolute top-3 right-3 px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase shadow-lg"
                         style={{ background: 'rgba(99,102,241,0.85)', color: '#e0e7ff', backdropFilter: 'blur(8px)' }}>
                         {member.department}
                     </div>
