@@ -25,6 +25,7 @@ const FounderMessage = () => {
                 'Awarded BEST SPEAKER 10 times in a row by Mecon Communication Club',
             ],
             avatar: founderSiddharth,
+            pos: 'center 5%',
         },
         {
             name: 'Dr. Shwetha S',
@@ -35,6 +36,7 @@ const FounderMessage = () => {
                 '1st Rank in Karnataka & 31st Rank in India during CA-IPCC exam Nov 2012',
             ],
             avatar: founderShwetha,
+            pos: 'top center',
         },
     ];
 
@@ -104,7 +106,7 @@ const FounderMessage = () => {
                                         src={founder.avatar}
                                         alt={founder.name}
                                         className="w-full h-full object-cover"
-                                        style={{ objectPosition: 'center 10%' }}
+                                        style={{ objectPosition: founder.pos || 'center center' }}
                                     />
                                     <div className="absolute inset-0"
                                         style={{ background: 'linear-gradient(to bottom, transparent 40%, rgba(12,14,30,0.95) 100%)' }} />
@@ -168,7 +170,7 @@ const FounderMessage = () => {
                                 <div key={f.name} className="flex items-center gap-3">
                                     <img src={f.avatar} alt={f.name}
                                         className="w-9 h-9 rounded-full object-cover"
-                                        style={{ border: '1.5px solid rgba(99,102,241,0.4)' }} />
+                                        style={{ border: '1.5px solid rgba(99,102,241,0.4)', objectPosition: f.pos || 'center center' }} />
                                     <div>
                                         <p className="text-white text-sm font-bold leading-tight">{f.name}</p>
                                         <p className="text-indigo-400 text-[10px] font-bold tracking-widest uppercase">{f.title} · {f.qualification}</p>
