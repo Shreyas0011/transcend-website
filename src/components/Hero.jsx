@@ -6,7 +6,7 @@ const Hero = () => {
             <div className="absolute inset-0 w-full h-full overflow-hidden">
                 <iframe
                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-[177.77777778vh] h-[56.25vw] pointer-events-none opacity-80 scale-[1.1]"
-                    src="https://drive.google.com/file/d/1i83S1ZEE6IFMYgr9AU7GQjuE7YiAKq5g/preview"
+                    src="https://drive.google.com/file/d/1i83S1ZEE6IFMYgr9AU7GQjuE7YiAKq5g/preview?autoplay=1&mute=1"
                     frameBorder="0"
                     allow="autoplay; encrypted-media; picture-in-picture"
                     allowFullScreen

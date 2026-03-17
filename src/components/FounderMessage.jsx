@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import founderSiddharth from '../assets/siddharth_kt_white.png';
-import founderShwetha from '../assets/shwetha_s_white.png';
+import founderShwetha from '../assets/shwetha_new.jpg';
 
 const FounderMessage = () => {
     const [visible, setVisible] = useState(false);
@@ -103,7 +103,8 @@ const FounderMessage = () => {
                                     <img
                                         src={founder.avatar}
                                         alt={founder.name}
-                                        className="w-full h-full object-contain"
+                                        className="w-full h-full object-cover"
+                                        style={{ objectPosition: 'center 10%' }}
                                     />
                                     <div className="absolute inset-0"
                                         style={{ background: 'linear-gradient(to bottom, transparent 40%, rgba(12,14,30,0.95) 100%)' }} />
