@@ -111,21 +111,21 @@ body {
 
 /* ── Glass cards ── */
 .glass-card {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(99, 102, 241, 0.08);
     border-radius: 20px;
-    box-shadow: 0 4px 24px rgba(45, 62, 145, 0.06);
+    box-shadow: 0 4px 20px rgba(45, 62, 145, 0.05);
 }
 
 .glass-card-indigo {
-    background: rgba(238, 242, 255, 0.7);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: rgba(238, 242, 255, 0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(99, 102, 241, 0.15);
     border-radius: 20px;
-    box-shadow: 0 4px 30px rgba(45, 62, 145, 0.08);
+    box-shadow: 0 4px 24px rgba(45, 62, 145, 0.06);
 }
 
 /* ── Glow border ── */
@@ -470,46 +470,57 @@ body {
 /* ── Animation utility classes ── */
 .animate-float-slow {
     animation: float-slow 8s ease-in-out infinite;
+    will-change: transform;
 }
 
 .animate-float-medium {
     animation: float-medium 6s ease-in-out infinite;
+    will-change: transform;
 }
 
 .animate-float-fast {
     animation: float-fast 4s ease-in-out infinite;
+    will-change: transform;
 }
 
 .animate-float-extra-slow {
     animation: float-extra-slow 25s ease-in-out infinite;
+    will-change: transform;
 }
 
 .animate-drift {
     animation: drift 15s linear infinite;
+    will-change: transform;
 }
 
 .animate-pulse-glow {
     animation: pulse-glow 3s ease-in-out infinite;
+    will-change: opacity, transform;
 }
 
 .animate-spin-slow {
     animation: spin-slow 20s linear infinite;
+    will-change: transform;
 }
 
 .animate-morph {
     animation: morph 8s ease-in-out infinite;
+    will-change: border-radius;
 }
 
 .animate-wave {
     animation: wave-scroll 20s linear infinite;
+    will-change: transform;
 }
 
 .animate-streak {
     animation: streak-drift 20s linear infinite;
+    will-change: transform;
 }
 
 .animate-scroll-down {
     animation: scroll-down 2.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+    will-change: transform, opacity;
 }
 
 .animate-fade-up {

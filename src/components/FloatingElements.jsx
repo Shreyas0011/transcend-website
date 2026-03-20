@@ -121,7 +121,7 @@ const FloatingElements = () => {
         window.addEventListener('mouseleave', onMouseLeave)
 
         const isMobile = window.innerWidth < 768
-        const COUNT = isMobile ? 3 : 5
+        const COUNT = isMobile ? 2 : 3
         const circles = Array.from({ length: COUNT }, (_, i) => {
             const style = CIRCLE_STYLES[i % CIRCLE_STYLES.length]
             // Spread across grid so they start well-distributed
@@ -214,7 +214,7 @@ const FloatingElements = () => {
         resize()
         window.addEventListener('resize', resize)
 
-        const COUNT = isMobile ? 30 : 60
+        const COUNT = isMobile ? 15 : 35
         const dots = Array.from({ length: COUNT }, () => ({
             x: Math.random() * window.innerWidth,
             y: Math.random() * window.innerHeight,
@@ -223,42 +223,50 @@ const FloatingElements = () => {
             r: 1.5 + Math.random() * 1.5,
         }))
 
-        const draw = () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height)
-            const DOT_COLOR = 'rgba(91,75,220,0.15)'
-            const LINE_COLOR = 'rgba(61,47,150,'
-            const DIST = 120
+            // Skip every other frame for performance on heavy constellation logic
+            let frameCount = 0;
+            const draw = () => {
+                frameCount++;
+                if (frameCount % 2 !== 0) {
+                    animId = requestAnimationFrame(draw);
+                    return;
+                }
+                
+                ctx.clearRect(0, 0, canvas.width, canvas.height)
+                const DOT_COLOR = 'rgba(91,75,220,0.12)'
+                const LINE_COLOR = 'rgba(61,47,150,'
+                const DIST = isMobile ? 80 : 100
 
-            dots.forEach(d => {
-                d.x += d.vx
-                d.y += d.vy
-                if (d.x < 0 || d.x > canvas.width) d.vx *= -1
-                if (d.y < 0 || d.y > canvas.height) d.vy *= -1
+                dots.forEach(d => {
+                    d.x += d.vx
+                    d.y += d.vy
+                    if (d.x < 0 || d.x > canvas.width) d.vx *= -1
+                    if (d.y < 0 || d.y > canvas.height) d.vy *= -1
 
-                ctx.beginPath()
-                ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2)
-                ctx.fillStyle = DOT_COLOR
-                ctx.fill()
-            })
+                    ctx.beginPath()
+                    ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2)
+                    ctx.fillStyle = DOT_COLOR
+                    ctx.fill()
+                })
 
-            for (let i = 0; i < dots.length; i++) {
-                for (let j = i + 1; j < dots.length; j++) {
-                    const dx = dots[i].x - dots[j].x
-                    const dy = dots[i].y - dots[j].y
-                    const dist = Math.sqrt(dx * dx + dy * dy)
-                    if (dist < DIST) {
-                        const alpha = (1 - dist / DIST) * 0.12
-                        ctx.beginPath()
-                        ctx.moveTo(dots[i].x, dots[i].y)
-                        ctx.lineTo(dots[j].x, dots[j].y)
-                        ctx.strokeStyle = `${LINE_COLOR}${alpha.toFixed(3)})`
-                        ctx.lineWidth = 0.6
-                        ctx.stroke()
+                for (let i = 0; i < dots.length; i++) {
+                    for (let j = i + 1; j < dots.length; j++) {
+                        const dx = dots[i].x - dots[j].x
+                        const dy = dots[i].y - dots[j].y
+                        const dist = Math.sqrt(dx * dx + dy * dy)
+                        if (dist < DIST) {
+                            const alpha = (1 - dist / DIST) * 0.08
+                            ctx.beginPath()
+                            ctx.moveTo(dots[i].x, dots[i].y)
+                            ctx.lineTo(dots[j].x, dots[j].y)
+                            ctx.strokeStyle = `${LINE_COLOR}${alpha.toFixed(3)})`
+                            ctx.lineWidth = 0.5
+                            ctx.stroke()
+                        }
                     }
                 }
+                animId = requestAnimationFrame(draw)
             }
-            animId = requestAnimationFrame(draw)
-        }
         draw()
 
         return () => {

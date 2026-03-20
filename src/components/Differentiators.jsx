@@ -526,7 +526,7 @@ const Differentiators = () => {
                         </h1>
 
                         <p className="text-slate-200 text-lg font-medium max-w-xl mx-auto leading-relaxed">
-                            12 things that make TRANSCEND hit different. No cap. 🔥
+                            12 key pillars of excellence that define the TRANSCEND experience.
                         </p>
 
                         {/* Jump pills */}
@@ -553,7 +553,7 @@ const Differentiators = () => {
                     <div className="text-center mt-10"
                         style={{ opacity: hv ? 1 : 0, transition: 'opacity 0.7s ease 0.5s' }}>
                         <p className="text-slate-300 mb-6 font-semibold">Ready to experience the TRANSCEND difference? 🚀</p>
-                        <a href="/" className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-black text-white text-sm transition-all duration-300 hover:-translate-y-1 hover:scale-105"
+                        <a href="https://transcenddegree.campuselement.in/enquiries" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-black text-white text-sm transition-all duration-300 hover:-translate-y-1 hover:scale-105"
                             style={{ background: 'linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%)', boxShadow: '0 12px 40px rgba(99,102,241,0.4)' }}>
                             Apply Now ✨
                             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

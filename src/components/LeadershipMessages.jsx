@@ -1,14 +1,23 @@
 import React, { useState, useRef, useEffect } from 'react';
-import prasanna from '../assets/leadership/prasanna.png';
-import ravikiran from '../assets/leadership/ravikiran.png';
+import prasanna from '../assets/faculty/prasanna.png';
+import ravikiran from '../assets/leadership/ravikiran_v2.png';
 import siddharth from '../assets/siddharth_kt_white.png';
+
+const CA_Underlined = () => (
+    <u className="decoration-indigo-500 decoration-2 underline-offset-4">CA</u>
+);
+
 
 const VIDEOS = [
     {
         type: 'gdrive',
         id: '1tFOQr_FW_w5G8_GlubTYD-JDa4Budq-p',
         label: "Chairman's Message",
-        name: 'Dr. CA Siddharth KT',
+        name: (
+            <span>
+                Dr. <CA_Underlined /> Siddharth KT
+            </span>
+        ),
         title: 'Chairman, Transcend Group of Institutions',
     },
     {
@@ -76,6 +85,7 @@ const VideoCard = ({ video, index, visible }) => {
                                 <img
                                     src={thumbUrl}
                                     alt={video.label}
+                                    loading="lazy"
                                     className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                                     onError={(e) => { e.target.style.display = 'none'; }}
                                 />
@@ -182,7 +192,7 @@ const LeadershipMessages = () => {
                         <span className="text-indigo-400 text-xs tracking-[0.3em] font-bold uppercase">Words of Wisdom</span>
                         <div className="w-10 h-[2px]" style={{ background: 'linear-gradient(90deg, #6366f1, #4338ca)' }} />
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+                    <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
                         Leadership{' '}
                         <span style={{
                             background: 'linear-gradient(135deg, #818cf8, #6366f1)',

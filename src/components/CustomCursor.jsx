@@ -17,28 +17,24 @@ const CustomCursor = () => {
         const onMouseDown = () => setIsClicked(true);
         const onMouseUp = () => setIsClicked(false);
 
-        const handleHoverStart = () => setIsHovered(true);
-        const handleHoverEnd = () => setIsHovered(false);
+        // Optimized event delegation for hover states
+        const onMouseOver = (e) => {
+            const target = e.target.closest('a, button, [role="button"], .interactive');
+            if (target) setIsHovered(true);
+            else setIsHovered(false);
+        };
 
-        window.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('mousemove', onMouseMove, { passive: true });
         window.addEventListener('mousedown', onMouseDown);
         window.addEventListener('mouseup', onMouseUp);
-
-        const interactiveElements = document.querySelectorAll('a, button, [role="button"], .interactive');
-        interactiveElements.forEach((el) => {
-            el.addEventListener('mouseenter', handleHoverStart);
-            el.addEventListener('mouseleave', handleHoverEnd);
-        });
+        window.addEventListener('mouseover', onMouseOver, { passive: true });
 
         return () => {
             window.removeEventListener('mousemove', onMouseMove);
             window.removeEventListener('mousedown', onMouseDown);
             window.removeEventListener('mouseup', onMouseUp);
+            window.removeEventListener('mouseover', onMouseOver);
             cancelAnimationFrame(rafId);
-            interactiveElements.forEach((el) => {
-                el.removeEventListener('mouseenter', handleHoverStart);
-                el.removeEventListener('mouseleave', handleHoverEnd);
-            });
         };
     }, []);
 

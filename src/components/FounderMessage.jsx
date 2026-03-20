@@ -1,6 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import founderSiddharth from '../assets/siddharth_kt_white.png';
-import founderShwetha from '../assets/shwetha_new.jpg';
+import founderShwetha from '../assets/shwetha_v2.png';
+
+const CA_Underlined = () => (
+    <u className="decoration-indigo-500 decoration-2 underline-offset-4">CA</u>
+);
+
+const BDS_Underlined = () => (
+    <u className="decoration-indigo-500 decoration-2 underline-offset-4">BDS</u>
+);
+
 
 const FounderMessage = () => {
     const [visible, setVisible] = useState(false);
@@ -17,22 +26,34 @@ const FounderMessage = () => {
 
     const founders = [
         {
-            name: 'Dr. CA Siddharth KT',
+            name: (
+                <span>
+                    Dr. <CA_Underlined /> Siddharth KT
+                </span>
+            ),
             title: 'Founder',
-            qualification: 'CA, MBA, LLB',
+            qualification: (
+                <span>
+                    <CA_Underlined />, MBA, LLB
+                </span>
+            ),
             highlights: [
-                'Completed CA, MBA, LLB by Age 26',
+                <span>Completed <CA_Underlined />, MBA, LLB by Age 26</span>,
                 'Awarded BEST SPEAKER 10 times in a row by Mecon Communication Club',
             ],
             avatar: founderSiddharth,
         },
         {
             name: 'Dr. Shwetha S',
-            title: 'Co-Founder',
-            qualification: 'BDS, CA',
+            title: 'General Secretary',
+            qualification: (
+                <span>
+                    <BDS_Underlined />, <CA_Underlined />
+                </span>
+            ),
             highlights: [
                 'Gold Medalist & Best Outgoing Student of RV Dental College in 2009',
-                '1st Rank in Karnataka & 31st Rank in India during CA-IPCC exam Nov 2012',
+                <span>1st Rank in Karnataka & 31st Rank in India during <CA_Underlined />-IPCC exam Nov 2012</span>,
             ],
             avatar: founderShwetha,
         },
@@ -75,7 +96,7 @@ const FounderMessage = () => {
                         <span className="text-indigo-400 text-xs tracking-[0.3em] font-bold uppercase">Vision & Leadership</span>
                         <div className="w-10 h-[2px]" style={{ background: 'linear-gradient(90deg, #6366f1, #4338ca)' }} />
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+                    <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
                         Founder Couple{' '}
                         <span style={{
                             background: 'linear-gradient(135deg, #818cf8, #6366f1)',
@@ -103,6 +124,7 @@ const FounderMessage = () => {
                                     <img
                                         src={founder.avatar}
                                         alt={founder.name}
+                                        loading="lazy"
                                         className="w-full h-full object-contain"
                                     />
                                     <div className="absolute inset-0"

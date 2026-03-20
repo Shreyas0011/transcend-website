@@ -19,7 +19,7 @@ const facilities = [
     { title: 'Yoga Room', image: yoga, description: 'A peaceful sanctuary for mental and physical well-being.' },
     { title: 'Library', image: library, description: 'Extensive collection of resources to fuel academic curiosity.' },
     { title: 'Auditorium', image: auditorium, description: 'High-capacity venue for events, seminars, and performances.' },
-    { title: 'Conference Room', image: reception, description: 'Professional setting for meetings and collaborative discussions.' },
+    { title: 'Conference Room', image: 'https://images.unsplash.com/photo-1431540015161-0bf868a2d407?q=80&w=1000&auto=format&fit=crop', description: 'Professional setting for meetings and collaborative discussions.' },
     { title: 'Computer Lab', image: comp_lab, description: 'Advanced computing facilities for research and skill development.' },
     { title: 'Swimming Pool', image: pool, description: 'Olympic-standard pool for recreation and competitive training.' },
     { title: 'Table Tennis', image: table_tennis, description: 'Indoor sports facilities for students to unwind and compete.' },

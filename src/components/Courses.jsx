@@ -21,7 +21,13 @@ const coursesData = [
         badge: 'Industry-Ready',
         icon: '💼',
         duration: '3 Years',
-        description: 'Designed for students aiming for professional certifications like CA, CMA alongside their degree.',
+        description: (
+            <span>
+                Designed for students aiming for professional certifications like{' '}
+                <u className="decoration-indigo-500 decoration-2 underline-offset-4">CA</u>, CMA alongside
+                their degree.
+            </span>
+        ),
         path: '/bcom-professional',
     },
     {
@@ -180,7 +186,7 @@ const Courses = () => {
                             <span className="w-1.5 h-1.5 rounded-full bg-[#2d3e91] inline-block"></span>
                             Academic Programs
                         </span>
-                        <h2 className="text-5xl md:text-[3.2rem] font-black leading-[1.05] tracking-tight"
+                        <h2 className="text-3xl md:text-[2.8rem] font-black leading-[1.05] tracking-tight"
                             style={{ color: '#1e2a6b' }}>
                             Courses We Offer
                         </h2>

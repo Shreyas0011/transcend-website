@@ -1,93 +1,61 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import prasanna from '../assets/leadership/prasanna.png';
-import ravikiran from '../assets/leadership/ravikiran.png';
-import akshay_leader from '../assets/leadership/akshay_leader.png';
-import agnel from '../assets/leadership/agnel.png';
 
-// Faculty Batch 1
-import kiran_kumar from '../assets/faculty/kiran_kumar.png';
-import reddy_shekar from '../assets/faculty/reddy_shekar.png';
-import varsha_v from '../assets/faculty/varsha_v.png';
-import pratyush from '../assets/faculty/pratyush.png';
-import shashikala from '../assets/faculty/shashikala.png';
-import anusha from '../assets/faculty/anusha.png';
-import shivarama from '../assets/faculty/shivarama.png';
-import soumya from '../assets/faculty/soumya.png';
-import amrutha from '../assets/faculty/amrutha.png';
-import apoorva from '../assets/faculty/apoorva.png';
-import madhuri from '../assets/faculty/madhuri.png';
-import swathi_k_iyer from '../assets/faculty/swathi_k_iyer.png';
-import deepa_dinakar from '../assets/faculty/deepa_dinakar.png';
-import pradeep_hegade from '../assets/faculty/pradeep_hegade.png';
-import dikshitha_h from '../assets/faculty/dikshitha_h.png';
-import dakshayini from '../assets/faculty/dakshayini.png';
-import bharath_s from '../assets/faculty/bharath_s.png';
-import saikumar_velu from '../assets/faculty/saikumar_velu.png';
-import deepa_venkatesh from '../assets/faculty/deepa_venkatesh.png';
-import shobha_girish from '../assets/faculty/shobha_girish.png';
-// Staff Photos
-import vani_rao from '../assets/staff/vani_rao.png';
-import bharathi_srikanth from '../assets/staff/bharathi_srikanth.png';
-import shravana_kumar from '../assets/staff/shravana_kumar.png';
-import sampath_kumar from '../assets/staff/sampath_kumar.png';
-import reshma_belagaje from '../assets/staff/reshma_belagaje.png';
-import padma_latha from '../assets/staff/padma_latha.png';
-import prasad_k from '../assets/staff/prasad_k.png';
-import roopa_kambam from '../assets/staff/roopa_kambam.png';
-import jessy_mathew from '../assets/staff/jessy_mathew.png';
-import padmaja_ravi from '../assets/staff/padmaja_ravi.png';
-import pankaj_matta from '../assets/staff/pankaj_matta.png';
-import niranjan_dg from '../assets/staff/niranjan_dg.png'; 
+// Leadership & Faculty Photos (New Grid)
+const CA_Underlined = () => (
+    <u className="decoration-indigo-500 decoration-2 underline-offset-4">CA</u>
+);
 
-const leadershipTeam = [
-    { id: 1, name: 'CA. PRASANNA KUMAR K', designation: 'Director - Operations', department: 'Leadership', qualification: 'B.Com, (M.Com), CA', expertise: 'Strategic Operations · Finance · Management', photo: prasanna },
-    { id: 2, name: 'Prof. RAVI KIRAN T N', designation: 'Principal TDC & HOD Languages', department: 'Leadership', qualification: 'B.Com, LLB, MBA, (PhD)', expertise: 'Author of 7 Books · BOS & BOE Member (BU) · Vidwath (Vocal/Veena)', photo: ravikiran },
-    { id: 3, name: 'AKSHAY KUMAR KULKARNI', designation: 'Coordinator TDC', department: 'Leadership', qualification: 'M.A (English), B.Ed', expertise: 'Republic Day March (NCC) · Sharp Shooter', photo: akshay_leader },
-    { id: 4, name: 'AGNEL TRIVIKRAM G', designation: 'Co-ordinator - East Campus', department: 'Leadership', qualification: 'B.Com, PGDCA', expertise: 'Campus Operations · Digital Systems', photo: agnel },
-];
+const BDS_Underlined = () => (
+    <u className="decoration-indigo-500 decoration-2 underline-offset-4">BDS</u>
+);
+
+
+import ravikiran_new from '../assets/faculty/ravikiran_new.png';
+import shashikala_final from '../assets/faculty/shashikala_final.jpg';
+import akshay_final from '../assets/faculty/akshay_final.jpg';
+import anusha_final from '../assets/faculty/anusha_final.jpg';
+import swathi_final from '../assets/faculty/swathi_final.jpg';
+import agnel_final from '../assets/faculty/agnel_final.png';
+import soumya_final from '../assets/faculty/soumya_final.png';
+import saikumar_final from '../assets/faculty/saikumar_final.png';
+import deepa_v_final from '../assets/faculty/deepa_v_final.png';
+import deepa_d_final from '../assets/faculty/deepa_d_final.jpg';
+import dikshitha_final from '../assets/faculty/dikshitha_final.png';
+import pradeep_final from '../assets/faculty/pradeep_final.png';
+import dakshayini_final from '../assets/faculty/dakshayini_final.png';
+import sampath_final from '../assets/faculty/sampath_final.png';
+import bharath_final from '../assets/faculty/bharath_enhanced.png';
+import shravan_final from '../assets/faculty/shravan_final.jpg';
+import vani_final from '../assets/faculty/vani_final.png';
 
 const faculty = [
-    { id: 1, name: 'CA. Kiran Kumar', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'M.Com, C.A', expertise: 'Financial Accounting · Taxation · Auditing', photo: kiran_kumar },
-    { id: 2, name: 'CA. Reddy Shekar P', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'B.Com, C.A', expertise: 'Corporate Accounting · Direct Tax · GST', photo: reddy_shekar },
-    { id: 3, name: 'CA. Varsha V', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'B.Com, CA, CWA', expertise: 'Cost Accounting · Financial Reporting · CWA', photo: varsha_v },
-    { id: 4, name: 'CA. Pratyush Bhagwani', designation: 'Faculty', department: 'Accounts & Finance', qualification: 'B.Com, C.A', expertise: 'Taxation · Auditing · Financial Analysis', photo: pratyush },
-    { id: 5, name: 'Dr. Shashikala Rao KR', designation: 'Principal TECC & HOD Languages', department: 'Languages', qualification: 'M.A (Hindi), B.Ed, Ph.D', expertise: 'Author of 15 Books (Hindi) · Translator · BOS & BOE Member (BU)', photo: shashikala },
-    { id: 6, name: 'Anusha Balaji', designation: 'HOD Department of Management Studies', department: 'Management', qualification: 'B.Com, MBA Finance, ICWA', expertise: 'ICWAI · Anna University 11th Rank (MBA) · PhD (Pursuing, Christ Univ)', photo: anusha },
-    { id: 7, name: 'Shivarama Guptha B', designation: 'Faculty', department: 'Humanities', qualification: 'M.A (Vedanta), B.Ed', expertise: 'Philosophy · Value Education · Soft Skills', photo: shivarama },
-    { id: 8, name: 'Soumya D', designation: 'Faculty Kannada', department: 'Languages', qualification: 'M.A (Kannada), Ph.D (Pursuing)', expertise: 'Author · Translator · BOS Member (BU) · BOE Member (RNS)', photo: soumya },
-    { id: 9, name: 'Amrutha S', designation: 'Faculty', department: 'Languages', qualification: 'M.A (Kannada), B.Ed', expertise: 'Kannada Language · Communication · Education', photo: amrutha },
-    { id: 10, name: 'Apoorva A Jain', designation: 'Faculty', department: 'Commerce', qualification: 'M.Com', expertise: 'Commerce · Business Studies · Entrepreneurship', photo: apoorva },
-    { id: 11, name: 'Madhuri Ajay', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: 'M.B.A – Finance', expertise: 'Financial Management · Banking · Investment', photo: madhuri },
-    { id: 12, name: 'Shobha Girish', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: 'M.Com', expertise: 'Highest Scorer M.Com (MGU) · 23+ Years Exp · Social Service', photo: shobha_girish },
-    { id: 13, name: 'Saikumar Velu C R', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: 'BA, PGDSM', expertise: 'Microsoft Certified Professional (Excel) · Pursuing Linux Cert', photo: saikumar_velu },
-    { id: 14, name: 'Ms. Shreenidhi', designation: 'Faculty', department: 'Commerce', qualification: 'B.Com, M.Com, K.SET', expertise: 'Commerce · SET Qualified · Financial Accounting', photo: 'https://i.pravatar.cc/300?img=46' },
-    { id: 15, name: 'Akshay Champak', designation: 'Faculty', department: 'Commerce', qualification: 'B.Com, M.Com', expertise: 'Commerce · Business Economics · Statistics', photo: 'https://i.pravatar.cc/300?img=22' },
-    { id: 16, name: 'Mr. Subramanian V Iyer', designation: 'Faculty', department: 'Management', qualification: 'B.Com, MBA', expertise: 'Business Management · Strategy · Marketing', photo: 'https://i.pravatar.cc/300?img=25' },
-    { id: 17, name: 'Deepa Venkatesh', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: 'B.Com, M.Com', expertise: '28 Years Exp · NSS Volunteer (NIC 2000 Karnataka)', photo: deepa_venkatesh },
-    { id: 18, name: 'Mukunda K M', designation: 'Faculty', department: 'Languages', qualification: 'B.A, M.A, Sanskritam', expertise: 'Sanskrit · Classical Languages · Literature', photo: 'https://i.pravatar.cc/300?img=27' },
-    { id: 19, name: 'Swathi K Iyer', designation: 'HOD Department of Commerce', department: 'Commerce', qualification: 'Univ 2nd Rank, State 1st Rank', expertise: 'Commercial Practice · Bharat Natyam Vidhwat 2nd Rank · BOE Member', photo: swathi_k_iyer },
-    { id: 20, name: 'Deepa Dinakar', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: '', expertise: 'Certificate Course in Counselling Skills for Teachers', photo: deepa_dinakar },
-    { id: 21, name: 'Pradeep Hegade', designation: 'Faculty Kannada', department: 'Languages', qualification: '', expertise: '1st Prize Veda Exam 2024 · Best All-rounder State Level Kabaddi', photo: pradeep_hegade },
-    { id: 22, name: 'Dikshitha H', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: '', expertise: 'Advanced Excel · 4+ Years Exp · 5+ Papers Published', photo: dikshitha_h },
-    { id: 23, name: 'Dakshayini', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: '', expertise: 'DTP (Desktop Publishing) Training Program Topper', photo: dakshayini },
-    { id: 24, name: 'BHARATH S', designation: 'Faculty', department: 'TBD', qualification: 'TBD', expertise: 'TBD', photo: bharath_s },
+    { id: 1, name: 'Prof. RAVI KIRAN T N', designation: 'Principal TDC & HOD for Languages', department: 'Leadership', qualification: 'B.Com, LLB, MBA, (PhD)', expertise: 'Author of 7 Books in Commerce & Management · BOS & BOE Member (Bangalore University) · Vidwath (Vocal & Veena)', photo: ravikiran_new, scale: 1, objectPosition: 'center 15%' },
+    { id: 2, name: 'Dr. Shashikala Rao KR', designation: 'Principal TECC & HOD for Languages', department: 'Languages', qualification: 'M.A (Hindi), B.Ed, Ph.D', expertise: 'Author of 15 Books in Hindi · Translator (Articles to Hindi) · BOS Member (Bangalore University) · BOE Member (Bangalore University)', photo: shashikala_final, scale: 1, objectPosition: 'center top' },
+    { id: 3, name: 'AKSHAY KUMAR KULKARNI', designation: 'Coordinator TDC', department: 'Leadership', qualification: 'M.A (English), B.Ed', expertise: 'NCC Cadet (Republic Day March) · Sharp Shooter', photo: akshay_final, scale: 1, objectPosition: 'center top' },
+    { id: 4, name: 'Anusha Balaji', designation: 'HOD Department of Management Studies', department: 'Management', qualification: 'B.Com, MBA Finance, ICWAI', expertise: 'Completed ICWAI · Anna University 11th Rank (MBA) · PhD in Management Studies (Pursuing, Christ University)', photo: anusha_final, scale: 1, objectPosition: 'center top' },
+    { id: 5, name: 'Swathi K Iyer', designation: 'HOD Department of Commerce', department: 'Commerce', qualification: 'Univ 2nd Rank (Grad & PG), State 1st Rank (Diploma)', expertise: 'University 2nd Rank Holder · State 1st Rank (Commercial Practice) · Bharat Natyam Vidhwat 2nd Rank · BOE Member (MLACW & BMSCW)', photo: swathi_final, scale: 1, objectPosition: 'center top' },
+
+
+
+    { id: 6, name: 'AGNEL TRIVIKRAM G', designation: 'Co-ordinator - East Campus', department: 'Leadership', qualification: 'B.Com, PGDCA', expertise: 'Campus Operations · Digital Systems', photo: agnel_final, scale: 1, objectPosition: 'center top' },
+    { id: 7, name: 'Soumya D', designation: 'Faculty Kannada', department: 'Languages', qualification: 'M.A (Kannada), Ph.D (Pursuing)', expertise: 'Author · Translator · BOS Member (BU) · BOE Member (RNS)', photo: soumya_final, scale: 1, objectPosition: 'center top' },
+    { id: 8, name: 'Shobha Girish', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: 'M.Com', expertise: 'Highest Scorer M.Com (MGU) · 23+ Years Exp · Social Service', photo: null },
+    { id: 9, name: 'Madhuri Ajay', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: 'M.B.A – Finance', expertise: 'Financial Management · Banking · Investment', photo: null },
+    { id: 10, name: 'Saikumar Velu C R', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: 'BA, PGDSM', expertise: 'Microsoft Certified Professional (Excel) · Pursuing Linux Cert', photo: saikumar_final, scale: 1, objectPosition: 'center top' },
+    { id: 11, name: 'Deepa Venkatesh', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: 'B.Com, M.Com', expertise: '28 Years Exp · NSS Volunteer (NIC 2000 Karnataka)', photo: deepa_v_final, scale: 1, objectPosition: 'center top' },
+    { id: 12, name: 'Deepa Dinakar', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: '', expertise: 'Certificate Course in Counselling Skills for Teachers', photo: deepa_d_final, scale: 1, objectPosition: 'center 15%' },
+    { id: 13, name: 'Pradeep Hegde', designation: 'Faculty Kannada', department: 'Languages', qualification: '', expertise: '1st Prize Veda Exam 2024 · Best All-rounder State Level Kabaddi', photo: pradeep_final, scale: 1, objectPosition: 'center 10%' },
+    { id: 14, name: 'Dikshitha', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: '', expertise: 'Advanced Excel · 4+ Years Exp · 5+ Papers Published', photo: dikshitha_final, scale: 1, objectPosition: 'center top' },
+    { id: 15, name: 'Dakshayini', designation: 'Faculty of Commerce and Management', department: 'Commerce', qualification: '', expertise: 'DTP (Desktop Publishing) Training Program Topper', photo: dakshayini_final, scale: 1, objectPosition: 'center top' },
+    { id: 16, name: 'A P Sampath Kumar', designation: 'Physical Education Trainer', department: 'Sports', qualification: 'B.A, B.P.Ed, M.P.Ed', expertise: 'Physical Training · Sports · Fitness', photo: sampath_final, scale: 1, objectPosition: 'center top' },
+    { id: 17, name: 'BHARATH S', designation: 'Faculty', department: 'TBD', qualification: 'TBD', expertise: 'TBD', photo: bharath_final, scale: 1, objectPosition: 'center 10%' },
+    { id: 18, name: 'Vani S Rao', designation: 'Admin Executive', department: 'Administration', qualification: 'B.Com, ICWAI (Inter)', expertise: 'Administration · Office Management · Accounts', photo: vani_final, scale: 1, objectPosition: 'center top' },
+    { id: 19, name: 'Shravana Kumar', designation: 'Admin Executive', department: 'Administration', qualification: 'B.Com', expertise: 'Administration · Operations · Coordination', photo: shravan_final, scale: 1, objectPosition: 'center top' },
 ];
 
-const resourcePersonnel = [
-    { id: 1, name: 'Vani S R Rao', designation: 'Admin Executive', department: 'Administration', qualification: 'B.Com, ICWAI (Inter)', expertise: 'Administration · Office Management · Accounts', photo: vani_rao },
-    { id: 2, name: 'Bharathi Srikanth', designation: 'Admin Executive', department: 'Administration', qualification: 'Bachelors in HR', expertise: 'HR Administration · Office Coordination', photo: bharathi_srikanth },
-    { id: 3, name: 'Shravana Kumar', designation: 'Admin Executive', department: 'Administration', qualification: 'B.Com', expertise: 'Administration · Operations · Coordination', photo: shravana_kumar },
-    { id: 4, name: 'A P Sampath Kumar', designation: 'Physical Education Trainer', department: 'Sports', qualification: 'B.A, B.P.Ed, M.P.Ed', expertise: 'Physical Training · Sports · Fitness', photo: sampath_kumar },
-    { id: 5, name: 'Reshma Belagaje', designation: 'HR & PR Co-ordinator', department: 'HR & PR', qualification: '', expertise: 'Human Resources · Public Relations · Coordination', photo: reshma_belagaje },
-    { id: 6, name: 'Padma Latha Paluri', designation: 'Senior Accountant', department: 'Accounts', qualification: 'M.Com', expertise: 'Accounting · Finance · Reporting', photo: padma_latha },
-    { id: 7, name: 'Prasad K', designation: 'Facility Head', department: 'Facilities', qualification: '', expertise: 'Facility Management · Operations · Infrastructure', photo: prasad_k },
-    { id: 8, name: 'Roopa Kambam', designation: 'Admission Counsellor', department: 'Admissions', qualification: 'B.Com', expertise: 'Admissions · Student Counselling · Outreach', photo: roopa_kambam },
-    { id: 9, name: 'Jessy Mathew', designation: 'Stores In-charge', department: 'Stores', qualification: 'B.Com', expertise: 'Inventory Management · Procurement · Stores', photo: jessy_mathew },
-    { id: 10, name: 'Padmaja Ravi', designation: 'Admin Executive', department: 'Administration', qualification: '', expertise: 'Administration · Records Management', photo: padmaja_ravi },
-    { id: 11, name: 'Pankaj R Matta', designation: 'Data & Technology Head', department: 'Technology', qualification: '', expertise: 'Data Management · Technology · Digital Systems', photo: pankaj_matta },
-    { id: 12, name: 'Niranjan D G', designation: 'Facility Executive', department: 'Facilities', qualification: '', expertise: 'Facility Operations · Maintenance · Support', photo: niranjan_dg },
-];
+
+
 
 const FacultyCard = ({ member, index }) => {
     const [visible, setVisible] = useState(false);
@@ -133,16 +101,26 @@ const FacultyCard = ({ member, index }) => {
             >
                 <div className="w-full overflow-hidden mb-5 relative mx-auto"
                     style={{ aspectRatio: '1/1', width: '75%', borderRadius: '24px', background: 'rgba(20,22,45,0.9)' }}>
-                    <img
-                        src={member.photo}
-                        alt={member.name}
-                        style={{ 
-                            transform: `scale(${member.scale || 1.05})`, 
-                            transformOrigin: 'center center',
-                            objectPosition: member.objectPosition || 'center center',
-                        }}
-                        className="w-full h-full object-cover"
-                    />
+                    {member.photo ? (
+                        <img
+                            src={member.photo}
+                            alt={member.name}
+                            loading="lazy"
+                            style={{
+                                transform: `scale(${member.scale || 1})`,
+                                transformOrigin: 'center center',
+                                objectPosition: member.objectPosition || 'center center',
+                                imageRendering: 'auto',
+                            }}
+                            className="w-full h-full object-cover"
+                        />
+                    ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-indigo-500/10">
+                            <svg className="w-12 h-12 text-indigo-400/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        </div>
+                    )}
                     <div className="absolute inset-0 pointer-events-none"
                         style={{ background: 'linear-gradient(to bottom, transparent 60%, rgba(12,14,30,0.5) 100%)' }} />
                     {/* Department tag */}
@@ -232,10 +210,10 @@ const AnimatedStat = ({ value, label, delay }) => {
 
 const StatsBar = ({ visible }) => {
     const stats = [
-        { value: '18', label: 'Teaching Faculty' },
-        { value: '4', label: 'Chartered Accountants' },
+        { value: '19', label: 'Teaching Faculty' },
         { value: '2+', label: 'Ph.D. Holders' },
         { value: '100%', label: 'Industry Experienced' },
+        { value: '25+', label: 'Years of Excellence' },
     ];
     return (
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-16"
@@ -309,78 +287,20 @@ const OurTeam = () => {
                     </p>
                 </div>
 
-                {/* Stats bar — animated counters */}
+                {/* Statistics Bar */}
                 <StatsBar visible={headerVisible} />
 
-                {/* Section: Leadership Team */}
+                {/* Section: Teaching Faculty */}
                 <div className="mb-20">
                     <div className="flex items-center gap-5 mb-10">
                         <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, rgba(99,102,241,0.4), transparent)' }} />
-                        <span className="text-indigo-400 text-base tracking-[0.2em] font-bold uppercase whitespace-nowrap">Leadership Team</span>
+                        <span className="text-indigo-400 text-base tracking-[0.2em] font-bold uppercase whitespace-nowrap">Teaching Faculty</span>
                         <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.4))' }} />
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                        {leadershipTeam.map((member, idx) => (
-                            <FacultyCard key={member.id} member={member} index={idx} />
-                        ))}
-                    </div>
 
-                    {/* Message to Students */}
-                    <div className="max-w-4xl mx-auto mb-20 animate-fade-up" style={{ animationDelay: '0.4s' }}>
-                        <div className="relative p-10 rounded-[2.5rem] overflow-hidden group">
-                            {/* Decorative background */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#2d3e91]/10 to-transparent opacity-50" />
-                            <div className="absolute -top-24 -right-24 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl group-hover:scale-110 transition-transform duration-700" />
-
-                            {/* Quote icon */}
-                            <div className="absolute top-8 left-8 text-indigo-500/20 select-none pointer-events-none">
-                                <svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V12C14.017 12.5523 13.5693 13 13.017 13H11.017C10.4647 13 10.017 12.5523 10.017 12V9C10.017 7.34315 11.3601 6 13.017 6H19.017C20.6739 6 22.017 7.34315 22.017 9V15C22.017 16.6569 20.6739 18 19.017 18H17.017L17.017 21H14.017ZM3.017 21L3.017 18C3.017 16.8954 3.91243 16 5.017 16H8.017C8.56928 16 9.017 15.5523 9.017 15V9C9.017 8.44772 8.56928 8 8.017 8H4.017C3.46472 8 3.017 8.44772 3.017 9V12C3.017 12.5523 2.56928 13 2.017 13H0.017C-0.535282 13 -1.017 12.5523 -1.017 12V9C-1.017 7.34315 0.326142 6 2.017 6H8.017C9.67386 6 11.017 7.34315 11.017 9V15C11.017 16.6569 9.67386 18 8.017 18H6.017L6.017 21H3.017Z" />
-                                </svg>
-                            </div>
-
-                            <div className="relative z-10 text-center px-4">
-                                <h3 className="text-xs font-black tracking-[0.4em] uppercase text-indigo-400 mb-8 px-6 py-2 rounded-full border border-indigo-500/20 inline-block bg-indigo-500/5">
-                                    Message to Students
-                                </h3>
-
-                                <blockquote className="text-gray-300 text-lg md:text-xl font-medium leading-relaxed italic max-w-3xl mx-auto">
-                                    "Education is the key to unlocking your potential and achieving your goals. However, education is not just about academic excellence. It is also about developing a well-rounded personality and being an individual who is socially responsible, empathetic, and companionate."
-                                </blockquote>
-
-                                <div className="mt-8 pt-8 border-t border-indigo-500/10 flex flex-col items-center">
-                                    <p className="text-gray-400 text-sm leading-relaxed max-w-2xl mx-auto">
-                                        At <span className="text-indigo-400 font-bold">TRANSCEND</span>, we are committed to creating a safe and inclusive environment where you can thrive. We encourage you to participate in extra curricular activities, volunteer in your community and develop your leadership skills. We believe in you, and we are proud to be a part of your journey.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Section divider */}
-                <div className="flex items-center gap-5 mb-10">
-                    <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, rgba(99,102,241,0.4), transparent)' }} />
-                    <span className="text-indigo-400 text-base tracking-[0.2em] font-bold uppercase whitespace-nowrap">Teaching Faculty</span>
-                    <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.4))' }} />
-                </div>
-
-                {/* Faculty grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {faculty.map((member, idx) => (
-                        <FacultyCard key={member.id} member={member} index={idx} />
-                    ))}
-                </div>
-
-                {/* Section: Resource Personnel */}
-                <div className="mt-20">
-                    <div className="flex items-center gap-5 mb-10">
-                        <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, rgba(99,102,241,0.4), transparent)' }} />
-                        <span className="text-indigo-400 text-base tracking-[0.2em] font-bold uppercase whitespace-nowrap">Resource Personnel</span>
-                        <div className="h-[1.5px] flex-1 rounded-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.4))' }} />
-                    </div>
+                    {/* Faculty grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        {resourcePersonnel.map((member, idx) => (
+                        {faculty.map((member, idx) => (
                             <FacultyCard key={member.id} member={member} index={idx} />
                         ))}
                     </div>

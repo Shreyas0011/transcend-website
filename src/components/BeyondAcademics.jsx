@@ -135,7 +135,7 @@ const BeyondAcademics = () => {
                         <span className="w-1.5 h-1.5 rounded-full bg-[#2d3e91] inline-block"></span>
                         SEAK Framework
                     </span>
-                    <h2 className="text-5xl md:text-[3.5rem] font-black text-[#1e2a6b] mt-5 leading-tight tracking-tight">
+                    <h2 className="text-3xl md:text-[2.8rem] font-black text-[#1e2a6b] mt-5 leading-tight tracking-tight">
                         Beyond Academics
                     </h2>
                     <p className="mt-5 text-gray-500 max-w-2xl mx-auto text-lg font-medium">
@@ -250,7 +250,7 @@ const BeyondAcademics = () => {
 
                     <div className="relative z-10">
                         <p className="text-indigo-300 text-sm font-bold tracking-[0.25em] uppercase mb-4">Start Your Journey</p>
-                        <h3 className="text-4xl md:text-5xl font-black text-white mb-5 leading-tight tracking-tight">
+                        <h3 className="text-2xl md:text-5xl font-black text-white mb-5 leading-tight tracking-tight">
                             Ready to Transcend<br />Your Potential?
                         </h3>
                         <p className="text-indigo-200 text-lg font-medium mb-10 max-w-xl mx-auto leading-relaxed">
@@ -258,7 +258,9 @@ const BeyondAcademics = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <a
-                                href="#contact"
+                                href="https://transcenddegree.campuselement.in/enquiries"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="group inline-flex items-center gap-3 px-10 py-4 rounded-full font-bold text-[#1e2a6b] text-[15px] transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
                                 style={{
                                     background: '#fff',

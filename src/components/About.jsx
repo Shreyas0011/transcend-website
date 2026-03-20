@@ -47,8 +47,8 @@ const About = () => {
                 <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
 
                     {/* Left Column - Text Content */}
-                    <div ref={leftRef} className="reveal-left lg:w-3/5">
-                        <h2 className="text-5xl md:text-[3.5rem] font-black mb-8 leading-[1.08] tracking-tight"
+                    <div ref={leftRef} className="reveal-left lg:w-[58%]">
+                        <h2 className="text-3xl md:text-[3.2rem] font-black mb-8 leading-[1.08] tracking-tight"
                             style={{ color: '#1e2a6b' }}>
                             About{' '}
                             <span className="relative inline-block">
@@ -163,7 +163,7 @@ const About = () => {
                                         </div>
                                         <div>
                                             <div
-                                                className="text-[2.4rem] font-black leading-tight transition-all duration-300 group-hover/stat:translate-x-1"
+                                                className="text-[1.8rem] md:text-[2.4rem] font-black leading-tight transition-all duration-300 group-hover/stat:translate-x-1"
                                                 style={{
                                                     background: 'linear-gradient(135deg, #1e2a6b, #4338ca)',
                                                     WebkitBackgroundClip: 'text',

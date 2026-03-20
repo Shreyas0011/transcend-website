@@ -1,35 +1,32 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Courses from './components/Courses'
-import Stats from './components/Stats'
-import Vision from './components/Vision'
-import FounderMessage from './components/FounderMessage'
-import LeadershipMessages from './components/LeadershipMessages'
-import BeyondAcademics from './components/BeyondAcademics'
-import Testimonials from './components/Testimonials'
-import Facilities from './components/Facilities'
-import Footer from './components/Footer'
-import AboutDetail from './components/AboutDetail'
-import CourseDetail from './components/CourseDetail'
-import BComHolisticDetail from './components/BComHolisticDetail'
-import BComProfessionalDetail from './components/BComProfessionalDetail'
-import BComEveningDetail from './components/BComEveningDetail'
-import BBADetail from './components/BBADetail'
-import StudentDetails from './components/StudentDetails'
-import BComStudentDetails from './components/BComStudentDetails'
-import StudentResume from './components/StudentResume'
-import OurTeam from './components/OurTeam'
-import Differentiators from './components/Differentiators'
-import FloatingElements from './components/FloatingElements'
-import FacilitiesDetail from './components/FacilitiesDetail'
-import ChairmansOffice from './components/ChairmansOffice'
-import IQAC from './components/IQAC'
-import Careers from './components/Careers'
-import CustomCursor from './components/CustomCursor'
-import SmoothScroll from './components/SmoothScroll'
+
+// Lazy Loading Components for better Performance
+const Navbar = lazy(() => import('./components/Navbar'))
+const Hero = lazy(() => import('./components/Hero'))
+const About = lazy(() => import('./components/About'))
+const Courses = lazy(() => import('./components/Courses'))
+const Stats = lazy(() => import('./components/Stats'))
+const Vision = lazy(() => import('./components/Vision'))
+const FounderMessage = lazy(() => import('./components/FounderMessage'))
+const LeadershipMessages = lazy(() => import('./components/LeadershipMessages'))
+const BeyondAcademics = lazy(() => import('./components/BeyondAcademics'))
+const Testimonials = lazy(() => import('./components/Testimonials'))
+const Facilities = lazy(() => import('./components/Facilities'))
+const Footer = lazy(() => import('./components/Footer'))
+const AboutDetail = lazy(() => import('./components/AboutDetail'))
+const CourseDetail = lazy(() => import('./components/CourseDetail'))
+const BComHolisticDetail = lazy(() => import('./components/BComHolisticDetail'))
+const BComProfessionalDetail = lazy(() => import('./components/BComProfessionalDetail'))
+const BComEveningDetail = lazy(() => import('./components/BComEveningDetail'))
+const BBADetail = lazy(() => import('./components/BBADetail'))
+const OurTeam = lazy(() => import('./components/OurTeam'))
+const Differentiators = lazy(() => import('./components/Differentiators'))
+const FloatingElements = lazy(() => import('./components/FloatingElements'))
+const FacilitiesDetail = lazy(() => import('./components/FacilitiesDetail'))
+const Careers = lazy(() => import('./components/Careers'))
+const CustomCursor = lazy(() => import('./components/CustomCursor'))
+const SmoothScroll = lazy(() => import('./components/SmoothScroll'))
 
 
 
@@ -52,43 +49,37 @@ const App = () => {
   return (
     <Router>
       <div className="relative min-h-screen bg-white text-gray-900 flex flex-col" style={{ fontFamily: "'Poppins', sans-serif" }}>
-        {/* Smooth Scrolling */}
-        <SmoothScroll />
+        <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center bg-white z-[9999] font-bold text-[#2d3e91]">Loading...</div>}>
+          {/* Smooth Scrolling */}
+          <SmoothScroll />
 
-        {/* Intro Preloader */}
+          {/* Custom creative cursor */}
+          <CustomCursor />
 
+          {/* Floating background elements */}
+          <FloatingElements />
 
-        {/* Custom creative cursor */}
-        <CustomCursor />
+          {/* Navbar */}
+          <Navbar />
 
-        {/* Floating background elements */}
-        <FloatingElements />
+          {/* Page sections */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about-detail" element={<AboutDetail />} />
+            <Route path="/course-detail" element={<CourseDetail />} />
+            <Route path="/bcom-holistic" element={<BComHolisticDetail />} />
+            <Route path="/bcom-professional" element={<BComProfessionalDetail />} />
+            <Route path="/bcom-evening" element={<BComEveningDetail />} />
+            <Route path="/bba" element={<BBADetail />} />
+            <Route path="/our-team" element={<OurTeam />} />
+            <Route path="/differentiators" element={<Differentiators />} />
+            <Route path="/facilities" element={<FacilitiesDetail />} />
+            <Route path="/careers" element={<Careers />} />
+          </Routes>
 
-        {/* Navbar */}
-        <Navbar />
-
-        {/* Page sections */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about-detail" element={<AboutDetail />} />
-          <Route path="/course-detail" element={<CourseDetail />} />
-          <Route path="/bcom-holistic" element={<BComHolisticDetail />} />
-          <Route path="/bcom-professional" element={<BComProfessionalDetail />} />
-          <Route path="/bcom-evening" element={<BComEveningDetail />} />
-          <Route path="/bba" element={<BBADetail />} />
-          <Route path="/student-details" element={<StudentDetails />} />
-          <Route path="/bcom-students" element={<BComStudentDetails />} />
-          <Route path="/student-resume" element={<StudentResume />} />
-          <Route path="/our-team" element={<OurTeam />} />
-          <Route path="/differentiators" element={<Differentiators />} />
-          <Route path="/facilities" element={<FacilitiesDetail />} />
-          <Route path="/chairmans-office" element={<ChairmansOffice />} />
-          <Route path="/iqac" element={<IQAC />} />
-          <Route path="/careers" element={<Careers />} />
-        </Routes>
-
-        {/* Footer */}
-        <Footer />
+          {/* Footer */}
+          <Footer />
+        </Suspense>
       </div>
     </Router>
   )

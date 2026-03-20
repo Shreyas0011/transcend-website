@@ -19,7 +19,7 @@ const facilities = [
     { title: 'Yoga Room', image: yoga },
     { title: 'Library', image: library },
     { title: 'Auditorium', image: auditorium },
-    { title: 'Conference Room', image: reception }, // Using corridor/reception as a high-quality substitute
+    { title: 'Conference Room', image: 'https://images.unsplash.com/photo-1431540015161-0bf868a2d407?q=80&w=1000&auto=format&fit=crop' }, // Fixed image for Conference Room
     { title: 'Computer Lab', image: comp_lab },
     { title: 'Swimming Pool', image: pool },
     { title: 'Table Tennis', image: table_tennis },
@@ -168,6 +168,7 @@ const Facilities = () => {
                                     <img
                                         src={item.image}
                                         alt={item.title}
+                                        loading="lazy"
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
                                         onError={(e) => {
                                             e.target.src = `https://images.unsplash.com/photo-1541339907198-e08756ebafe3?q=80&w=800&auto=format&fit=crop`;

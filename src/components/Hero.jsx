@@ -4,16 +4,22 @@ const Hero = () => {
     return (
         <section id="home" className="relative w-full h-screen bg-[#05060f] flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 w-full h-full overflow-hidden">
-                <iframe
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-[177.77777778vh] h-[56.25vw] pointer-events-none opacity-80 scale-[1.1]"
-                    src="https://drive.google.com/file/d/1i83S1ZEE6IFMYgr9AU7GQjuE7YiAKq5g/preview?autoplay=1&mute=1"
-                    frameBorder="0"
-                    allow="autoplay; encrypted-media; picture-in-picture"
-                    allowFullScreen
-                    title="Hero Video"
-                ></iframe>
+                <video
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover opacity-80 z-10"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                >
+                    <source 
+                        src="/hero_video.mp4" 
+                        type="video/mp4" 
+                    />
+                </video>
+                {/* Fallback gradient if video fails or is loading */}
+                <div className="absolute inset-0 bg-[#05060f] z-0" />
                 {/* Dark overlay for contrast */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#05060f]/20 to-[#05060f]" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#05060f]/20 to-[#05060f] z-20" />
             </div>
 
             {/* Content Overlay */}

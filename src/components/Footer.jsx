@@ -12,15 +12,13 @@ const footerLinks = {
     'Programs': [
         { label: 'B.Com', href: '/bcom-holistic' },
         { label: 'BBA', href: '/bba' },
-        { label: 'BCA', href: '/course-detail' },
-        { label: 'Science & Arts', href: '/#programs' },
         { label: 'Executive Education', href: '/#programs' }
     ],
     'Support': [
-        { label: 'Enquire Now', href: '/#contact' },
+        { label: 'Enquire Now', href: 'https://transcenddegree.campuselement.in/enquiries' },
         { label: 'Admission Process', href: '/#about' },
         { label: 'Scholarships', href: '/#about' },
-        { label: 'Contact Us', href: '/#contact' },
+        { label: 'Contact Us', href: 'https://transcenddegree.campuselement.in/enquiries' },
         { label: 'Careers@TDC', href: '/careers' },
     ],
 }
@@ -121,7 +119,7 @@ const Footer = () => {
                         </div>
 
                         <p className="text-gray-600 text-sm leading-relaxed mb-6 max-w-sm font-medium">
-                            Empowering minds, fostering innovation, and building tomorrow's leaders through quality education since 2000.
+                            Empowering minds, fostering innovation, and building tomorrow's leaders through quality education since 2015.
                         </p>
 
                         {/* Social links */}
@@ -187,6 +185,8 @@ const Footer = () => {
                                     <li key={i}>
                                         <a
                                             href={link.href}
+                                            target={link.href.startsWith('http') ? '_blank' : undefined}
+                                            rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                                             className="text-gray-600 text-[15px] font-semibold hover:text-[#2d3e91] transition-colors duration-200 flex items-center gap-2 group"
                                         >
                                             <span className="w-0 group-hover:w-4 h-px bg-[#2d3e91] transition-all duration-300" />
