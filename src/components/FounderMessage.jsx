@@ -2,12 +2,16 @@ import React, { useState, useRef, useEffect } from 'react';
 import founderSiddharth from '../assets/siddharth_kt_white.png';
 import founderShwetha from '../assets/shwetha_v2.png';
 
-const CA_Underlined = () => (
-    <u className="decoration-indigo-500 decoration-2 underline-offset-4">CA</u>
+const CA_Normal = () => (
+    <span>CA</span>
 );
 
-const BDS_Underlined = () => (
-    <u className="decoration-indigo-500 decoration-2 underline-offset-4">BDS</u>
+const BDS_Normal = () => (
+    <span>BDS</span>
+);
+
+const CA_Highlighted = () => (
+    <u className="decoration-indigo-500 decoration-2 underline-offset-4">CA</u>
 );
 
 
@@ -28,17 +32,17 @@ const FounderMessage = () => {
         {
             name: (
                 <span>
-                    Dr. <CA_Underlined /> Siddharth KT
+                    Dr. <CA_Normal /> Siddharth KT
                 </span>
             ),
             title: 'Founder',
             qualification: (
                 <span>
-                    <CA_Underlined />, MBA, LLB
+                    <CA_Normal />, MBA, LLB
                 </span>
             ),
             highlights: [
-                <span>Completed <CA_Underlined />, MBA, LLB by Age 26</span>,
+                <span>Completed <CA_Normal />, MBA, LLB by Age 26</span>,
                 'Awarded BEST SPEAKER 10 times in a row by Mecon Communication Club',
             ],
             avatar: founderSiddharth,
@@ -48,12 +52,12 @@ const FounderMessage = () => {
             title: 'General Secretary',
             qualification: (
                 <span>
-                    <BDS_Underlined />, <CA_Underlined />
+                    <BDS_Normal />, <CA_Highlighted />
                 </span>
             ),
             highlights: [
                 'Gold Medalist & Best Outgoing Student of RV Dental College in 2009',
-                <span>1st Rank in Karnataka & 31st Rank in India during <CA_Underlined />-IPCC exam Nov 2012</span>,
+                <span>1st Rank in Karnataka & 31st Rank in India during <CA_Normal />-IPCC exam Nov 2012</span>,
             ],
             avatar: founderShwetha,
         },

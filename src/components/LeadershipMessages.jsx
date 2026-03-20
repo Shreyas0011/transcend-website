@@ -4,7 +4,7 @@ import ravikiran from '../assets/leadership/ravikiran_v2.png';
 import siddharth from '../assets/siddharth_kt_white.png';
 
 const CA_Underlined = () => (
-    <u className="decoration-indigo-500 decoration-2 underline-offset-4">CA</u>
+    <span>CA</span>
 );
 
 

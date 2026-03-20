@@ -24,7 +24,7 @@ const coursesData = [
         description: (
             <span>
                 Designed for students aiming for professional certifications like{' '}
-                <u className="decoration-indigo-500 decoration-2 underline-offset-4">CA</u>, CMA alongside
+                CA, CMA alongside
                 their degree.
             </span>
         ),

@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom';
 
 // Leadership & Faculty Photos (New Grid)
 const CA_Underlined = () => (
-    <u className="decoration-indigo-500 decoration-2 underline-offset-4">CA</u>
+    <span>CA</span>
 );
 
 const BDS_Underlined = () => (
-    <u className="decoration-indigo-500 decoration-2 underline-offset-4">BDS</u>
+    <span>BDS</span>
 );
 
 
+import prasanna_final from '../assets/faculty/prasanna.png';
 import ravikiran_new from '../assets/faculty/ravikiran_new.png';
 import shashikala_final from '../assets/faculty/shashikala_final.jpg';
 import akshay_final from '../assets/faculty/akshay_final.jpg';
@@ -30,6 +31,7 @@ import shravan_final from '../assets/faculty/shravan_final.jpg';
 import vani_final from '../assets/faculty/vani_final.png';
 
 const faculty = [
+    { id: 0, name: 'CA. PRASANNA KUMAR K', designation: 'Director - Operations', department: 'Leadership', qualification: 'B.Com, (M.Com), CA', expertise: 'Strategic Operations · Financial Management · Institutional Growth', photo: prasanna_final, scale: 1, objectPosition: 'center top' },
     { id: 1, name: 'Prof. RAVI KIRAN T N', designation: 'Principal TDC & HOD for Languages', department: 'Leadership', qualification: 'B.Com, LLB, MBA, (PhD)', expertise: 'Author of 7 Books in Commerce & Management · BOS & BOE Member (Bangalore University) · Vidwath (Vocal & Veena)', photo: ravikiran_new, scale: 1, objectPosition: 'center 15%' },
     { id: 2, name: 'Dr. Shashikala Rao KR', designation: 'Principal TECC & HOD for Languages', department: 'Languages', qualification: 'M.A (Hindi), B.Ed, Ph.D', expertise: 'Author of 15 Books in Hindi · Translator (Articles to Hindi) · BOS Member (Bangalore University) · BOE Member (Bangalore University)', photo: shashikala_final, scale: 1, objectPosition: 'center top' },
     { id: 3, name: 'AKSHAY KUMAR KULKARNI', designation: 'Coordinator TDC', department: 'Leadership', qualification: 'M.A (English), B.Ed', expertise: 'NCC Cadet (Republic Day March) · Sharp Shooter', photo: akshay_final, scale: 1, objectPosition: 'center top' },

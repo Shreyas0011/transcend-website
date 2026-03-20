@@ -13,13 +13,13 @@ const BComProfessionalDetail = () => {
 
                     <div className="space-y-6 text-[#52525c] text-lg leading-relaxed font-medium">
                         <p>
-                            The <strong>B.Com Professional Program</strong> is specially designed for students aspiring to become Chartered Accountants (<u className="decoration-[#6366f1] decoration-2 underline-offset-4">CA</u>) and other finance professionals.
+                            The <strong>B.Com Professional Program</strong> is specially designed for students aspiring to become Chartered Accountants (CA) and other finance professionals.
                         </p>
                         <p>
-                            Understanding the rigorous journey of <u className="decoration-[#6366f1] decoration-2 underline-offset-4">CA</u> preparation, this program provides academic flexibility, attendance support, and internal assessment considerations to help students balance professional studies with degree education.
+                            Understanding the rigorous journey of CA preparation, this program provides academic flexibility, attendance support, and internal assessment considerations to help students balance professional studies with degree education.
                         </p>
                         <p>
-                            It seamlessly integrates B.Com coursework as a strong academic foundation while supporting <u className="decoration-[#6366f1] decoration-2 underline-offset-4">CA</u> preparation.
+                            It seamlessly integrates B.Com coursework as a strong academic foundation while supporting CA preparation.
                         </p>
 
                         <div className="bg-indigo-50 p-8 rounded-xl mt-12 border-l-4 border-[#2d3e91]">
@@ -29,7 +29,7 @@ const BComProfessionalDetail = () => {
                             <ul className="space-y-4">
                                 <li className="flex items-start">
                                     <span className="text-green-600 mr-3 text-xl">✔</span>
-                                    <span><u className="decoration-[#6366f1] decoration-2 underline-offset-4">CA</u> aspirants seeking flexibility and support</span>
+                                    <span>CA aspirants seeking flexibility and support</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="text-green-600 mr-3 text-xl">✔</span>
