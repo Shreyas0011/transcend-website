@@ -197,7 +197,7 @@ const sections = [
             { icon: '📈', heading: 'Real-World Edge', body: 'Programs like Udemy\'s "Complete Investment Banking Course," Coursera\'s "Entrepreneurship Strategy," and Wharton\'s "Business Strategy" build elite skills. Emotional intelligence, Six Sigma, data-driven decision making — all covered.' },
         ],
         badges: ['Udemy', 'Coursera', 'Harvard', 'Yale', 'Wharton', 'Google Cloud'],
-        videoUrl: "https://drive.google.com/file/d/1OZEWapCt5jcdIdbvzFBRnkZzBF67M9HC/preview",
+        videoUrl: "https://drive.google.com/file/d/1w1jBHmgloEZhY-ojctUhIoWc6qHR8gTw/preview",
     },
     {
         number: '02', emoji: '🏢', title: 'Corporate Exposure',
