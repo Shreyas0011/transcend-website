@@ -114,6 +114,7 @@ const Footer = () => {
                             <img
                                 src="/logo.png"
                                 alt="Transcend Group of Institutions"
+                                loading="lazy"
                                 className="h-28 object-contain"
                             />
                         </div>

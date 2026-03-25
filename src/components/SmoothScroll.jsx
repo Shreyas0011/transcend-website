@@ -1,7 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
+import { useLocation } from 'react-router-dom'
 import Lenis from 'lenis'
 
 const SmoothScroll = () => {
+    const { pathname } = useLocation();
+    const lenisRef = useRef(null);
+
     useEffect(() => {
         const lenis = new Lenis({
             duration: 0.8,
@@ -15,6 +19,8 @@ const SmoothScroll = () => {
             infinite: false,
         })
 
+        lenisRef.current = lenis;
+
         function raf(time) {
             lenis.raf(time)
             requestAnimationFrame(raf)
@@ -24,8 +30,27 @@ const SmoothScroll = () => {
 
         return () => {
             lenis.destroy()
+            lenisRef.current = null;
         }
     }, [])
+
+    useEffect(() => {
+        // Reset scroll position on route change
+        const resetScroll = () => {
+            if (lenisRef.current) {
+                lenisRef.current.scrollTo(0, { immediate: true });
+            }
+            window.scrollTo(0, 0);
+        };
+
+        // Immediate reset
+        resetScroll();
+
+        // Delayed reset as a safety measure for lazy-loaded content
+        const timeoutId = setTimeout(resetScroll, 50);
+
+        return () => clearTimeout(timeoutId);
+    }, [pathname]);
 
     return null
 }

@@ -6,45 +6,83 @@ body,
     cursor: none !important;
 }
 
-.custom-cursor-dot {
+/* Base properties for both elements */
+.custom-cursor-dot,
+.custom-cursor-ring {
     position: fixed;
-    width: 12px;
-    height: 12px;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 999999;
+    translate: -50% -50%;
+    opacity: 0;
+    transition: opacity 0.3s ease, width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, border 0.3s ease;
+    will-change: transform, width, height, opacity;
+}
+
+.custom-cursor-dot.visible,
+.custom-cursor-ring.visible {
+    opacity: 1;
+}
+
+/* The central core dot - Instant movement */
+.custom-cursor-dot {
+    width: 6px;
+    height: 6px;
     background-color: #ffffff;
     border-radius: 50%;
-    pointer-events: none;
-    z-index: 99999;
-    left: 0;
-    top: 0;
-    transform: translate3d(calc(var(--cursor-x, -100px) - 50%), calc(var(--cursor-y, -100px) - 50%), 0);
-    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4), 
-                0 0 20px 5px rgba(139, 92, 246, 0.5); /* subtle purple glow from theme */
-    
-    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                background-color 0.3s ease,
-                box-shadow 0.3s ease,
-                border 0.3s ease,
-                backdrop-filter 0.3s ease;
-    will-change: transform, width, height;
 }
 
+/* The trailing ring - Smooth follow */
+.custom-cursor-ring {
+    width: 30px;
+    height: 30px;
+    border: 1.5px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    /* This transition creates the "smooth follow" effect without JS lag */
+    transition: opacity 0.3s ease, 
+                width 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                height 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.15s cubic-bezier(0.17, 0.67, 0.83, 1), /* Slight lag for organic feel */
+                border 0.3s ease,
+                background-color 0.3s ease;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+}
+
+/* Hover States */
 .custom-cursor-dot.hovered {
+    width: 4px;
+    height: 4px;
+    background-color: #818cf8;
+}
+
+.custom-cursor-ring.hovered {
     width: 60px;
     height: 60px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* glassmorphism shadow */
-    backdrop-filter: blur(4px);
+    background-color: rgba(129, 140, 248, 0.1);
+    border: 1px solid rgba(129, 140, 248, 0.5);
+    backdrop-filter: blur(2px);
 }
 
+/* Click States */
 .custom-cursor-dot.clicked {
-    width: 8px;
-    height: 8px;
-    background-color: #ffffff;
-    box-shadow: 0 0 15px 5px rgba(236, 72, 153, 0.7); /* brief pink burst on click */
+    transform: scale(0.5) !important;
 }
 
-.custom-cursor-ring {
-    display: none;
+.custom-cursor-ring.clicked {
+    width: 20px;
+    height: 20px;
+    border-color: #ec4899;
+    background-color: rgba(236, 72, 153, 0.1);
+}
+
+/* Hide cursor on mobile/touch */
+@media (hover: none) and (pointer: coarse) {
+    .custom-cursor-dot,
+    .custom-cursor-ring {
+        display: none;
+    }
+    * {
+        cursor: auto !important;
+    }
 }

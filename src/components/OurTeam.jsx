@@ -173,7 +173,7 @@ const AnimatedStat = ({ value, label, delay }) => {
     useEffect(() => {
         const obs = new IntersectionObserver(
             ([entry]) => { if (entry.isIntersecting) setStarted(true); },
-            { threshold: 0.5 }
+            { threshold: 0.15 }
         );
         if (ref.current) obs.observe(ref.current);
         return () => obs.disconnect();
@@ -181,22 +181,19 @@ const AnimatedStat = ({ value, label, delay }) => {
 
     useEffect(() => {
         if (!started) return;
-        const duration = 1400;
-        const startTime = performance.now() + delay;
-        let raf;
-        const tick = (now) => {
-            if (now < startTime) { raf = requestAnimationFrame(tick); return; }
-            const elapsed = now - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            // easeOutExpo
-            const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-            setCount(Math.floor(ease * num));
-            if (progress < 1) raf = requestAnimationFrame(tick);
+        const duration = 2500;
+        let startTime = null;
+        const animate = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            // easeOutCubic (matching Stats.jsx)
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.floor(eased * num));
+            if (progress < 1) requestAnimationFrame(animate);
             else setCount(num);
         };
-        raf = requestAnimationFrame(tick);
-        return () => cancelAnimationFrame(raf);
-    }, [started, num, delay]);
+        requestAnimationFrame(animate);
+    }, [started, num]);
 
     return (
         <div ref={ref} className="text-center py-6 rounded-2xl"

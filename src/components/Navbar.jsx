@@ -32,7 +32,7 @@ const Navbar = () => {
     useEffect(() => {
         const handler = (e) => {
             if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-                setDropdownOpen(false)
+                setMenuOpen(false)
             }
         }
         document.addEventListener('mousedown', handler)
@@ -49,6 +49,7 @@ const Navbar = () => {
                     <img
                         src="/logo.png"
                         alt="Transcend Group of Institutions"
+                        loading="lazy"
                         className="h-12 md:h-16 object-contain group-hover:scale-105 transition-transform duration-300"
                     />
                 </a>
