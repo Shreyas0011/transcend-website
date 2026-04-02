@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import AcademicBatchStats from './AcademicBatchStats';
 
 const coursesData = [
     {
@@ -232,6 +233,9 @@ const Courses = () => {
                         <CourseCard key={course.id} course={course} index={i} visible={visible} />
                     ))}
                 </div>
+                
+                {/* Academic Results Statistics */}
+                <AcademicBatchStats />
 
                 {/* Bottom CTA */}
                 <div
