@@ -76,6 +76,18 @@ const coursesData = [
         path: '/bba',
     },
     {
+        id: 'bca',
+        title: 'BCA',
+        subtitle: 'Computer Applications',
+        stream: 'Technology',
+        badge: 'High Demand',
+        icon: '💻',
+        duration: '3 Years',
+        ctc: '4L - 10L PA',
+        description: 'Comprehensive tech program focusing on Full-stack development, AI/ML, and cloud computing pathways.',
+        path: '/bca',
+    },
+    {
         id: 'bcom-evening',
         title: 'B.Com Evening',
         subtitle: 'Bachelor of Commerce',
@@ -89,7 +101,7 @@ const coursesData = [
     },
 ];
 
-const filters = ['All', 'Commerce', 'Management'];
+const filters = ['All', 'Commerce', 'Management', 'Technology'];
 
 const CourseCard = ({ course, index, visible }) => {
     const cardRef = useRef(null);

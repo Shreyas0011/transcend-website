@@ -22,6 +22,7 @@ const BComEveningDetail = lazy(() => import('./components/BComEveningDetail'))
 const BComCADetail = lazy(() => import('./components/BComCADetail'))
 const BComACCADetail = lazy(() => import('./components/BComACCADetail'))
 const BComUSCMADetail = lazy(() => import('./components/BComUSCMADetail'))
+const BCADetail = lazy(() => import('./components/BCADetail'))
 const BBADetail = lazy(() => import('./components/BBADetail'))
 const OurTeam = lazy(() => import('./components/OurTeam'))
 const Differentiators = lazy(() => import('./components/Differentiators'))
@@ -73,6 +74,7 @@ const App = () => {
             <Route path="/bcom-ca" element={<BComCADetail />} />
             <Route path="/acca" element={<BComACCADetail />} />
             <Route path="/us-cma" element={<BComUSCMADetail />} />
+            <Route path="/bca" element={<BCADetail />} />
             <Route path="/bcom-evening" element={<BComEveningDetail />} />
             <Route path="/bba" element={<BBADetail />} />
             <Route path="/our-team" element={<OurTeam />} />
@@ -80,6 +82,7 @@ const App = () => {
             <Route path="/facilities" element={<FacilitiesDetail />} />
             <Route path="/careers" element={<Careers />} />
           </Routes>
+
 
 
           {/* Footer */}
