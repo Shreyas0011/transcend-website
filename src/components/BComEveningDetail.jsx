@@ -62,17 +62,26 @@ const BComEveningDetail = () => {
                     </div>
                 </div>
 
-                {/* Sidebar Image / Placeholder */}
-                <div className="lg:w-1/3 flex justify-center lg:mt-0 relative">
-                    <div className="absolute bg-[#6366f1] w-full h-96 rounded-2xl top-4 -right-4 opacity-10"></div>
-
-                    <div className="relative w-full h-96 bg-gray-100 rounded-2xl overflow-hidden shadow-xl border-4 border-white flex flex-col items-center justify-center z-10 p-6 text-center">
-                        {/* Placeholder graphic */}
-                        <svg className="w-16 h-16 mb-4 text-[#cfd1fe]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                        </svg>
-                        <span className="font-semibold text-lg text-gray-500">Program Image</span>
-                        <span className="text-sm text-gray-400 mt-2">Upload a relevant picture of the B.Com Evening program</span>
+                {/* Sidebar */}
+                <div className="lg:w-1/3">
+                    <div className="sticky top-24 space-y-6">
+                        <div className="p-8 rounded-3xl border border-gray-100 bg-white shadow-xl">
+                            <h5 className="font-bold text-[#2d3e91] mb-4 text-xs uppercase tracking-widest">Program Overview</h5>
+                            <div className="space-y-4">
+                                <div className="flex justify-between items-center pb-4 border-b border-gray-50">
+                                    <span className="text-sm text-gray-500">Starting CTC</span>
+                                    <span className="font-bold text-indigo-600">₹3L PA</span>
+                                </div>
+                                <div className="flex justify-between items-center pb-4 border-b border-gray-50">
+                                    <span className="text-sm text-gray-500">Highest CTC</span>
+                                    <span className="font-bold text-indigo-600">₹6L PA</span>
+                                </div>
+                                <div className="flex justify-between items-center">
+                                    <span className="text-sm text-gray-500">Convenience</span>
+                                    <span className="font-bold text-gray-900">Evening Classes</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

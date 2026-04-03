@@ -19,6 +19,9 @@ const CourseDetail = lazy(() => import('./components/CourseDetail'))
 const BComHolisticDetail = lazy(() => import('./components/BComHolisticDetail'))
 const BComProfessionalDetail = lazy(() => import('./components/BComProfessionalDetail'))
 const BComEveningDetail = lazy(() => import('./components/BComEveningDetail'))
+const BComCADetail = lazy(() => import('./components/BComCADetail'))
+const BComACCADetail = lazy(() => import('./components/BComACCADetail'))
+const BComUSCMADetail = lazy(() => import('./components/BComUSCMADetail'))
 const BBADetail = lazy(() => import('./components/BBADetail'))
 const OurTeam = lazy(() => import('./components/OurTeam'))
 const Differentiators = lazy(() => import('./components/Differentiators'))
@@ -27,8 +30,6 @@ const FacilitiesDetail = lazy(() => import('./components/FacilitiesDetail'))
 const Careers = lazy(() => import('./components/Careers'))
 const CustomCursor = lazy(() => import('./components/CustomCursor'))
 const SmoothScroll = lazy(() => import('./components/SmoothScroll'))
-
-
 
 const Home = () => (
   <main className="relative z-10 flex-grow">
@@ -69,6 +70,9 @@ const App = () => {
             <Route path="/course-detail" element={<CourseDetail />} />
             <Route path="/bcom-holistic" element={<BComHolisticDetail />} />
             <Route path="/bcom-professional" element={<BComProfessionalDetail />} />
+            <Route path="/bcom-ca" element={<BComCADetail />} />
+            <Route path="/acca" element={<BComACCADetail />} />
+            <Route path="/us-cma" element={<BComUSCMADetail />} />
             <Route path="/bcom-evening" element={<BComEveningDetail />} />
             <Route path="/bba" element={<BBADetail />} />
             <Route path="/our-team" element={<OurTeam />} />
@@ -76,6 +80,7 @@ const App = () => {
             <Route path="/facilities" element={<FacilitiesDetail />} />
             <Route path="/careers" element={<Careers />} />
           </Routes>
+
 
           {/* Footer */}
           <Footer />
