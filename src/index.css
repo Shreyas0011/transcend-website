@@ -11,10 +11,16 @@
     --font-main: 'Poppins', sans-serif;
     
     /* Spacing System */
-    --section-py: 7rem; /* 112px */
-    --section-px: 1.5rem; /* 24px */
+    --section-py: 4rem; /* 64px on mobile */
+    --section-px: 1.25rem; /* 20px */
     --section-px-md: 3rem; /* 48px */
     --container-max-w: 80rem; /* 1280px */
+}
+
+@media (min-width: 768px) {
+    :root {
+        --section-py: 7rem; /* 112px on desktop */
+    }
 }
 
 /* ── Base ── */

@@ -144,8 +144,8 @@ const BeyondAcademics = () => {
                 </div>
 
                 {/* SEAK Grid */}
-                <div className="w-full max-w-[900px] mx-auto relative flex justify-center items-center py-10">
-                    <div className="relative w-full aspect-square flex items-center justify-center">
+                <div className="w-full max-w-[1000px] mx-auto relative flex justify-center items-center py-10 md:py-16">
+                    <div className="relative w-full aspect-[4/5] sm:aspect-square flex items-center justify-center">
 
                         {/* SVG connecting lines */}
                         <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 100 100">
@@ -168,7 +168,7 @@ const BeyondAcademics = () => {
                         </svg>
 
                         {/* Central Core */}
-                        <div className="absolute z-30 w-36 h-36 md:w-48 md:h-48 rounded-full flex items-center justify-center transition-all duration-700 shadow-2xl"
+                        <div className="absolute z-30 w-28 h-28 xs:w-32 xs:h-32 md:w-48 md:h-48 rounded-full flex items-center justify-center transition-all duration-700 shadow-2xl"
                             style={{
                                 top: '50%',
                                 left: '50%',
@@ -178,18 +178,18 @@ const BeyondAcademics = () => {
                                 transform: `translate(-50%, -50%) scale(${hoveredNode ? 1.07 : 1})`,
                             }}>
                             <div className="absolute inset-4 border-2 border-dashed border-indigo-100 rounded-full animate-spin-slow pointer-events-none" />
-                            <div className="text-center relative z-10">
-                                <span className="text-4xl md:text-5xl font-black text-[#1e2a6b] tracking-tighter block leading-none">SEAK</span>
+                            <div className="text-center relative z-10 px-2">
+                                <span className="text-2xl xs:text-3xl md:text-5xl font-black text-[#1e2a6b] tracking-tighter block leading-none">SEAK</span>
                                 <span className="text-[10px] uppercase font-bold text-indigo-300 tracking-[0.2em] mt-1 block">Framework</span>
                             </div>
                         </div>
 
                         {/* Node Cards */}
-                        <div className="grid grid-cols-2 gap-x-28 gap-y-28 sm:gap-x-44 sm:gap-y-44 w-full h-full p-4 relative z-20">
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-16 xs:gap-x-8 xs:gap-y-24 sm:gap-x-44 sm:gap-y-44 md:gap-x-56 w-full h-full p-2 xs:p-4 relative z-20">
                             {seakNodes.map((node, idx) => (
                                 <div
                                     key={node.id}
-                                    className="relative rounded-[20px] p-6 sm:p-8 flex flex-col items-center text-center transition-all duration-500 ease-out cursor-default"
+                                    className="relative rounded-[16px] xs:rounded-[20px] p-3 xs:p-5 sm:p-8 flex flex-col items-center text-center transition-all duration-500 ease-out cursor-default overflow-visible min-h-[140px] xs:min-h-[180px] sm:min-h-0"
                                     style={{
                                         background: hoveredNode === node.id ? node.hoverGradient : node.gradient,
                                         border: `1px solid ${hoveredNode === node.id ? node.borderActive : 'rgba(99,102,241,0.1)'}`,
@@ -206,7 +206,7 @@ const BeyondAcademics = () => {
                                 >
                                     {/* Letter tag */}
                                     <div
-                                        className={`absolute ${idx % 2 === 0 ? '-right-4' : '-left-4'} -top-4 w-11 h-11 rounded-xl flex items-center justify-center text-white font-black text-lg shadow-lg transition-all duration-500`}
+                                        className={`absolute ${idx % 2 === 0 ? '-right-2 xs:-right-4' : '-left-2 xs:-left-4'} -top-3 xs:-top-4 w-8 h-8 xs:w-11 xs:h-11 rounded-lg xs:rounded-xl flex items-center justify-center text-white font-black text-sm xs:text-lg shadow-lg transition-all duration-500`}
                                         style={{
                                             background: 'linear-gradient(135deg, #2d3e91, #4338ca)',
                                             transform: hoveredNode === node.id ? 'rotate(12deg) scale(1.1)' : 'rotate(0deg) scale(1)',
@@ -215,11 +215,11 @@ const BeyondAcademics = () => {
                                         {node.letter}
                                     </div>
 
-                                    <h3 className="text-[#1e2a6b] font-black text-lg md:text-xl mb-4 tracking-wide">{node.title}</h3>
-                                    <ul className="text-sm md:text-base text-gray-500 space-y-2.5 font-semibold w-full">
+                                    <h3 className="text-[#1e2a6b] font-black text-xs xs:text-base md:text-xl mb-2 xs:mb-4 tracking-wide">{node.title}</h3>
+                                    <ul className="text-[10px] xs:text-xs sm:text-base text-gray-500 space-y-1.5 xs:space-y-2.5 font-semibold w-full">
                                         {node.items.map((item, i) => (
-                                            <li key={i} className="flex justify-center items-center gap-2">
-                                                <span className={`rounded-full shrink-0 transition-all duration-300 ${hoveredNode === node.id ? 'w-2 h-2 bg-indigo-400' : 'w-1 h-1 bg-indigo-200'}`} />
+                                            <li key={i} className="flex justify-center items-center gap-1 xs:gap-2">
+                                                <span className={`rounded-full shrink-0 transition-all duration-300 ${hoveredNode === node.id ? 'w-1.5 h-1.5 xs:w-2 xs:h-2 bg-indigo-400' : 'w-0.5 h-0.5 xs:w-1 xs:h-1 bg-indigo-200'}`} />
                                                 <span className={hoveredNode === node.id ? 'text-gray-800' : ''}>{item}</span>
                                             </li>
                                         ))}

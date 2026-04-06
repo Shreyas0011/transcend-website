@@ -7,8 +7,17 @@ const CustomCursor = () => {
     const [isHovered, setIsHovered] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
 
     useEffect(() => {
+        const checkTouch = () => {
+            const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            setIsTouchDevice(hasTouch);
+        };
+        checkTouch();
+
+        if (isTouchDevice) return;
+
         let mouseX = 0, mouseY = 0; // Target pos
         let dotX = 0, dotY = 0;     // Dot current pos
         let ringX = 0, ringY = 0;   // Ring current pos
@@ -72,6 +81,8 @@ const CustomCursor = () => {
             cancelAnimationFrame(rafId);
         };
     }, [isVisible]);
+
+    if (isTouchDevice) return null;
 
     return (
         <>

@@ -124,7 +124,7 @@ const statsData = [
         ),
     },
     {
-        target: 25, suffix: '+', label: 'Years of Excellence',
+        target: 10, suffix: '+', label: 'Years of Excellence',
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-8 h-8">
                 <circle cx="12" cy="8" r="6" /><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
@@ -155,7 +155,7 @@ const StatCard = ({ stat, index, isVisible }) => {
 
     return (
         <div
-            className="p-6 md:p-8 rounded-[20px] flex flex-col items-center text-center group cursor-default"
+            className="p-5 xs:p-6 md:p-8 rounded-[16px] xs:rounded-[20px] flex flex-col items-center text-center group cursor-default"
             style={{
                 background: 'rgba(255,255,255,0.7)',
                 backdropFilter: 'blur(16px)',
@@ -188,7 +188,7 @@ const StatCard = ({ stat, index, isVisible }) => {
 
             {/* Counter */}
             <div className="flex items-end justify-center gap-0.5 mb-2">
-                <span className="text-4xl md:text-5xl font-black leading-none"
+                <span className="text-3xl xs:text-4xl md:text-5xl font-black leading-none"
                     style={{
                         background: 'linear-gradient(135deg, #1e2a6b, #4338ca)',
                         WebkitBackgroundClip: 'text',
@@ -252,7 +252,7 @@ const Stats = () => {
                 </div>
 
                 {/* Stats grid */}
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                     {statsData.map((stat, i) => (
                         <StatCard key={stat.label} stat={stat} index={i} isVisible={isVisible} />
                     ))}

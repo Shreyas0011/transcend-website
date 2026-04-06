@@ -12,7 +12,7 @@ const BComACCADetail = () => {
                         </span>
                         <span className="text-gray-400 text-sm font-medium">Approx. CTC: 6L - 12L PA</span>
                     </div>
-                    <h1 className="text-4xl md:text-5xl font-black mb-6 text-[#1e2a6b]" style={{ fontFamily: 'var(--font-heading)' }}>
+                    <h1 className="text-3xl xs:text-4xl md:text-5xl font-black mb-6 text-[#1e2a6b] leading-[1.1]" style={{ fontFamily: 'var(--font-heading)' }}>
                         <span className="shimmer-text">B.Com + ACCA</span>
                     </h1>
                     <div className="w-20 h-1.5 bg-emerald-500 mb-10 rounded-full"></div>

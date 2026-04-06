@@ -49,8 +49,8 @@ const FacilitiesDetail = () => {
                             </svg>
                             Back to Home
                         </Link>
-                        <h1 className="text-4xl md:text-6xl font-black text-[#2d3e91]" style={{ fontFamily: 'Georgia, serif' }}>
-                            Our World-Class <span className="text-blue-600">Facilities</span>
+                        <h1 className="text-3xl xs:text-4xl md:text-6xl font-black text-[#2d3e91] leading-tight" style={{ fontFamily: 'var(--font-heading)' }}>
+                            Our World-Class <span className="text-blue-600 block xs:inline">Facilities</span>
                         </h1>
                         <p className="mt-4 text-gray-600 max-w-2xl text-lg font-medium leading-relaxed">
                             Every corner of our institution is designed to provide an inspiring environment for holistic growth, creativity, and excellence.

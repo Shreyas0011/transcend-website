@@ -6,8 +6,8 @@ const BComEveningDetail = () => {
             <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
                 {/* Main Content */}
                 <div className="lg:w-2/3">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-8 text-[#2d3e91]" style={{ fontFamily: 'Georgia, serif' }}>
-                        B.Com Evening
+                    <h1 className="text-3xl xs:text-4xl md:text-5xl font-black mb-8 text-[#2d3e91] leading-tight" style={{ fontFamily: 'var(--font-heading)' }}>
+                         B.Com <span className="shimmer-text">Evening</span>
                     </h1>
                     <div className="w-20 h-1 bg-[#6366f1] mb-8"></div>
 

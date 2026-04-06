@@ -6,8 +6,8 @@ const AboutDetail = () => {
             <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
                 {/* Left Column - Text Content */}
                 <div className="lg:w-1/2">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-8" style={{ color: '#2d3e91', fontFamily: 'Georgia, serif' }}>
-                        About TRANSCEND
+                    <h1 className="text-3xl xs:text-4xl md:text-5xl font-black mb-8 text-[#2d3e91] leading-tight" style={{ fontFamily: 'var(--font-heading)' }}>
+                        About <span className="shimmer-text">TRANSCEND</span>
                     </h1>
                     <div className="w-20 h-1 bg-[#6366f1] mb-8"></div>
 

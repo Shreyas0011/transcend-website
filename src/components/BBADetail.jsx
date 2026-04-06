@@ -12,8 +12,8 @@ const BBADetail = () => {
                         </span>
                         <span className="text-gray-400 text-sm font-medium">Approx. CTC: 4.5L - 11L PA</span>
                     </div>
-                    <h1 className="text-4xl md:text-5xl font-black mb-6 text-[#1e2a6b]" style={{ fontFamily: 'var(--font-heading)' }}>
-                        Bachelor of <span className="shimmer-text">Business Administration</span>
+                    <h1 className="text-3xl xs:text-4xl md:text-5xl font-black mb-6 text-[#1e2a6b] leading-[1.1]" style={{ fontFamily: 'var(--font-heading)' }}>
+                        Bachelor of <span className="shimmer-text block xs:inline">Business Administration</span>
                     </h1>
                     <div className="w-20 h-1.5 bg-gradient-to-r from-blue-900 to-blue-500 mb-10 rounded-full"></div>
 

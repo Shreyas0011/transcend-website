@@ -13,8 +13,8 @@ const BComProfessionalDetail = () => {
                         </span>
                         <span className="text-gray-400 text-sm font-medium">Approx. CTC: 8L - 15L PA</span>
                     </div>
-                    <h1 className="text-4xl md:text-5xl font-black mb-6 text-[#1e2a6b]" style={{ fontFamily: 'var(--font-heading)' }}>
-                        B.Com <span className="shimmer-text">Professional</span>
+                    <h1 className="text-3xl xs:text-4xl md:text-5xl font-black mb-6 text-[#1e2a6b] leading-[1.1]" style={{ fontFamily: 'var(--font-heading)' }}>
+                        B.Com <span className="shimmer-text block xs:inline">Professional</span>
                     </h1>
                     <div className="w-20 h-1.5 bg-[#2d3e91] mb-10 rounded-full"></div>
 

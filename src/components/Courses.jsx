@@ -98,8 +98,8 @@ const CourseCard = ({ course, index, visible }) => {
         const card = cardRef.current;
         if (!card) return;
         const rect = card.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 18;
-        const y = -((e.clientY - rect.top) / rect.height - 0.5) * 18;
+        const x = ((e.clientX - rect.left) / rect.width - 0.5) * (window.innerWidth < 768 ? 6 : 18);
+        const y = -((e.clientY - rect.top) / rect.height - 0.5) * (window.innerWidth < 768 ? 6 : 18);
         
         card.style.transform = `perspective(1000px) rotateX(${y}deg) rotateY(${x}deg) translateY(0)`;
         card.style.boxShadow = '0 24px 48px rgba(45,62,145,0.20), 0 0 0 1px rgba(99,102,241,0.3)';
@@ -138,7 +138,7 @@ const CourseCard = ({ course, index, visible }) => {
                 style={{ background: 'linear-gradient(90deg, #2d3e91, #4338ca, #6366f1)' }} />
 
             {/* Icon area */}
-            <div className="p-6 pb-0 flex-grow">
+            <div className="p-5 xs:p-6 pb-0 flex-grow">
                 <div className="flex items-start justify-between mb-4">
                     <div
                         className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
@@ -171,7 +171,7 @@ const CourseCard = ({ course, index, visible }) => {
             </div>
 
             {/* Footer */}
-            <div className="px-6 pb-6 mt-auto flex items-center justify-between">
+            <div className="px-5 xs:px-6 pb-5 xs:pb-6 mt-auto flex items-center justify-between">
                 <div className="flex items-center gap-1.5 text-[11px] text-gray-400 font-semibold">
                     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -232,9 +232,9 @@ const Courses = () => {
                             <span className="w-1.5 h-1.5 rounded-full bg-[#2d3e91] inline-block"></span>
                             Academic Programs
                         </span>
-                        <h2 className="text-3xl md:text-[2.8rem] font-black leading-[1.05] tracking-tight"
+                        <h2 className="text-3xl md:text-[2.8rem] font-black leading-[1.1] tracking-tight"
                             style={{ color: '#1e2a6b' }}>
-                            Future-Ready <span className="shimmer-text">Courses</span>
+                            Future-Ready <span className="shimmer-text block xs:inline">Courses</span>
                         </h2>
                         <p className="text-gray-500 text-lg mt-4 font-medium max-w-xl">
                             Unlock high-potential careers with certifications and skills that top global employers demand.
@@ -243,20 +243,21 @@ const Courses = () => {
 
                     {/* Filter Tabs */}
                     <div
-                        className="flex items-center gap-2 p-1.5 rounded-2xl"
+                        className="flex items-center gap-2 p-1.5 rounded-2xl overflow-x-auto no-scrollbar"
                         style={{
                             background: '#f8f9ff',
                             border: '1px solid rgba(99,102,241,0.12)',
                             opacity: visible ? 1 : 0,
                             transform: visible ? 'translateY(0)' : 'translateY(20px)',
                             transition: 'opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s',
+                            maxWidth: 'calc(100vw - 3rem)',
                         }}
                     >
                         {filters.map(filter => (
                             <button
                                 key={filter}
                                 onClick={() => setActiveFilter(filter)}
-                                className="px-5 py-2 rounded-xl text-sm font-bold transition-all duration-300"
+                                className="px-5 py-2 rounded-xl text-sm font-bold transition-all duration-300 whitespace-nowrap"
                                 style={{
                                     background: activeFilter === filter
                                         ? 'linear-gradient(135deg, #2d3e91, #4338ca)'

@@ -32,8 +32,8 @@ import vani_final from '../assets/faculty/vani_final.png';
 
 const faculty = [
     { id: 0, name: 'CA. PRASANNA KUMAR K', designation: 'Director - Operations', department: 'Leadership', qualification: 'B.Com, (M.Com), CA', expertise: 'Strategic Operations · Financial Management · Institutional Growth', photo: prasanna_final, scale: 1, objectPosition: 'center top' },
-    { id: 1, name: 'Prof. RAVI KIRAN T N', designation: 'Principal TDC & HOD for Languages', department: 'Leadership', qualification: 'B.Com, LLB, MBA, (PhD)', expertise: 'Author of 7 Books in Commerce & Management · BOS & BOE Member (Bangalore University) · Vidwath (Vocal & Veena)', photo: ravikiran_new, scale: 1, objectPosition: 'center 15%' },
-    { id: 2, name: 'Dr. Shashikala Rao KR', designation: 'Principal TECC & HOD for Languages', department: 'Languages', qualification: 'M.A (Hindi), B.Ed, Ph.D', expertise: 'Author of 15 Books in Hindi · Translator (Articles to Hindi) · BOS Member (Bangalore University) · BOE Member (Bangalore University)', photo: shashikala_final, scale: 1, objectPosition: 'center top' },
+    { id: 1, name: 'Prof. RAVI KIRAN T N', designation: 'Principal TDC', department: 'Leadership', qualification: 'B.Com, LLB, MBA, (PhD)', expertise: 'Author of 7 Books in Commerce & Management · BOS & BOE Member (Bangalore University) · Vidwath (Vocal & Veena)', photo: ravikiran_new, scale: 1, objectPosition: 'center 15%' },
+    { id: 2, name: 'Dr. Shashikala Rao KR', designation: 'Principal TECC', department: 'Languages', qualification: 'M.A (Hindi), B.Ed, Ph.D', expertise: 'Author of 15 Books in Hindi · Translator (Articles to Hindi) · BOS Member (Bangalore University) · BOE Member (Bangalore University)', photo: shashikala_final, scale: 1, objectPosition: 'center top' },
     { id: 3, name: 'AKSHAY KUMAR KULKARNI', designation: 'Coordinator TDC', department: 'Leadership', qualification: 'M.A (English), B.Ed', expertise: 'NCC Cadet (Republic Day March) · Sharp Shooter', photo: akshay_final, scale: 1, objectPosition: 'center top' },
     { id: 4, name: 'Anusha Balaji', designation: 'HOD Department of Management Studies', department: 'Management', qualification: 'B.Com, MBA Finance, ICWAI', expertise: 'Completed ICWAI · Anna University 11th Rank (MBA) · PhD in Management Studies (Pursuing, Christ University)', photo: anusha_final, scale: 1, objectPosition: 'center top' },
     { id: 5, name: 'Swathi K Iyer', designation: 'HOD Department of Commerce', department: 'Commerce', qualification: 'Univ 2nd Rank (Grad & PG), State 1st Rank (Diploma)', expertise: 'University 2nd Rank Holder · State 1st Rank (Commercial Practice) · Bharat Natyam Vidhwat 2nd Rank · BOE Member (MLACW & BMSCW)', photo: swathi_final, scale: 1, objectPosition: 'center top' },
@@ -212,7 +212,7 @@ const StatsBar = ({ visible }) => {
         { value: '19', label: 'Teaching Faculty' },
         { value: '2+', label: 'Ph.D. Holders' },
         { value: '100%', label: 'Industry Experienced' },
-        { value: '25+', label: 'Years of Excellence' },
+        { value: '10+', label: 'Years of Excellence' },
     ];
     return (
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-16"

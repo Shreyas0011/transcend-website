@@ -12,8 +12,8 @@ const BComHolisticDetail = () => {
                         </span>
                         <span className="text-gray-400 text-sm font-medium">Approx. CTC: 4.5L - 11L PA</span>
                     </div>
-                    <h1 className="text-4xl md:text-5xl font-black mb-6 text-[#1e2a6b]" style={{ fontFamily: 'var(--font-heading)' }}>
-                        B.Com <span className="shimmer-text">Holistic</span>
+                    <h1 className="text-3xl xs:text-4xl md:text-5xl font-black mb-6 text-[#1e2a6b] leading-[1.1]" style={{ fontFamily: 'var(--font-heading)' }}>
+                        B.Com <span className="shimmer-text block xs:inline">Holistic</span>
                     </h1>
                     <div className="w-20 h-1.5 bg-gradient-to-r from-[#2d3e91] to-[#6366f1] mb-10 rounded-full"></div>
 
