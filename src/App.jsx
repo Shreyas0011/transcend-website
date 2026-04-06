@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
 // Lazy Loading Components for better Performance
 const Navbar = lazy(() => import('./components/Navbar'))
@@ -22,7 +22,6 @@ const BComEveningDetail = lazy(() => import('./components/BComEveningDetail'))
 const BComCADetail = lazy(() => import('./components/BComCADetail'))
 const BComACCADetail = lazy(() => import('./components/BComACCADetail'))
 const BComUSCMADetail = lazy(() => import('./components/BComUSCMADetail'))
-const BCADetail = lazy(() => import('./components/BCADetail'))
 const BBADetail = lazy(() => import('./components/BBADetail'))
 const OurTeam = lazy(() => import('./components/OurTeam'))
 const Differentiators = lazy(() => import('./components/Differentiators'))
@@ -39,7 +38,18 @@ const Home = () => (
     <Vision />
     <FounderMessage />
     <LeadershipMessages />
-    <Courses />
+    {/* Programs now has its own page for better focus */}
+    <div className="py-20 flex justify-center bg-white">
+        <Link 
+            to="/programs" 
+            className="group flex items-center gap-4 px-10 py-5 rounded-[2rem] bg-[#2d3e91] text-white font-black text-lg transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_40px_rgba(45,62,145,0.3)]"
+        >
+            Explore Our Programs
+            <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4-4 4M3 12h18" />
+            </svg>
+        </Link>
+    </div>
     <Stats />
     <BeyondAcademics />
     <Testimonials />
@@ -67,6 +77,7 @@ const App = () => {
           {/* Page sections */}
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/programs" element={<Courses />} />
             <Route path="/about-detail" element={<AboutDetail />} />
             <Route path="/course-detail" element={<CourseDetail />} />
             <Route path="/bcom-holistic" element={<BComHolisticDetail />} />
@@ -74,7 +85,6 @@ const App = () => {
             <Route path="/bcom-ca" element={<BComCADetail />} />
             <Route path="/acca" element={<BComACCADetail />} />
             <Route path="/us-cma" element={<BComUSCMADetail />} />
-            <Route path="/bca" element={<BCADetail />} />
             <Route path="/bcom-evening" element={<BComEveningDetail />} />
             <Route path="/bba" element={<BBADetail />} />
             <Route path="/our-team" element={<OurTeam />} />

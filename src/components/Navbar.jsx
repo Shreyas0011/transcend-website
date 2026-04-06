@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const navLinks = [
     { label: 'Home', href: '/#home', section: 'home' },
-    { label: 'Programs', href: '/#programs', section: 'programs' },
+    { label: 'Programs', href: '/programs', section: 'programs' },
 ]
 
 const Navbar = () => {

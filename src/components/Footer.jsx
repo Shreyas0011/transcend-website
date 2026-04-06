@@ -5,14 +5,14 @@ const footerLinks = {
     'Quick Links': [
         { label: 'Home', href: '/#home' },
         { label: 'About Us', href: '/#about' },
-        { label: 'Programs', href: '/#programs' },
+        { label: 'Programs', href: '/programs' },
         { label: 'Events', href: '/#events' },
         { label: 'Campus', href: '/#campus' }
     ],
     'Programs': [
         { label: 'B.Com', href: '/bcom-holistic' },
         { label: 'BBA', href: '/bba' },
-        { label: 'Executive Education', href: '/#programs' }
+        { label: 'Executive Education', href: '/programs' }
     ],
     'Support': [
         { label: 'Enquire Now', href: 'https://transcenddegree.campuselement.in/enquiries' },

@@ -35,8 +35,8 @@ const BComProfessionalDetail = () => {
                             </Link>
                             <Link to="/acca" className="p-6 rounded-2xl border border-gray-100 bg-gray-50 hover:bg-white hover:shadow-xl hover:border-indigo-200 transition-all duration-300 group">
                                 <div className="text-2xl mb-3 group-hover:scale-110 transition-transform">🌍</div>
-                                <h4 className="font-bold text-[#1e2a6b]">ACCA</h4>
-                                <p className="text-xs text-gray-500 mt-2">Global Accounting</p>
+                                <h4 className="font-bold text-[#1e2a6b]">B.Com + ACCA</h4>
+                                <p className="text-xs text-gray-500 mt-2">Global Finance & Accounting</p>
                             </Link>
                             <Link to="/us-cma" className="p-6 rounded-2xl border border-gray-100 bg-gray-50 hover:bg-white hover:shadow-xl hover:border-indigo-200 transition-all duration-300 group">
                                 <div className="text-2xl mb-3 group-hover:scale-110 transition-transform">📈</div>

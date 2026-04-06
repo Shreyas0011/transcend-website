@@ -94,20 +94,25 @@ const FloatingElements = () => {
             : false
     )
 
-    // ── Interactive Physics Circles ───────────────────────────────────────────
+    // ── Unified Animation Engine (Circles + Constellations) ──────────────────
     useEffect(() => {
-        const canvas = circlesCanvasRef.current
-        if (!canvas || reducedMotion.current) return
+        if (reducedMotion.current) return
 
-        const ctx = canvas.getContext('2d')
+        const circlesCanvas = circlesCanvasRef.current
+        const dotsCanvas = canvasRef.current
+        if (!circlesCanvas || !dotsCanvas) return
+
+        const ctxC = circlesCanvas.getContext('2d', { alpha: true })
+        const ctxD = dotsCanvas.getContext('2d', { alpha: true })
         let animId
+
         const mouse = { x: -999, y: -999 }
         const REPEL_RADIUS = 100
         const REPEL_FORCE = 3.5
 
         const resize = () => {
-            canvas.width = window.innerWidth
-            canvas.height = window.innerHeight
+            circlesCanvas.width = dotsCanvas.width = window.innerWidth
+            circlesCanvas.height = dotsCanvas.height = window.innerHeight
         }
         resize()
         window.addEventListener('resize', resize)
@@ -121,74 +126,106 @@ const FloatingElements = () => {
         window.addEventListener('mouseleave', onMouseLeave)
 
         const isMobile = window.innerWidth < 768
-        const COUNT = isMobile ? 2 : 3
-        const circles = Array.from({ length: COUNT }, (_, i) => {
-            const style = CIRCLE_STYLES[i % CIRCLE_STYLES.length]
-            // Spread across grid so they start well-distributed
-            const col = i % 5
-            const row = Math.floor(i / 5)
+        
+        // Setup Clusters
+        const circleStyleItems = CIRCLE_STYLES
+        const circleCount = isMobile ? 2 : 3
+        const circles = Array.from({ length: circleCount }, (_, i) => {
+            const style = circleStyleItems[i % circleStyleItems.length]
             return {
-                x: (col / 4.5) * window.innerWidth + (Math.random() - 0.5) * 120,
-                y: (row / 1.5) * window.innerHeight + (Math.random() - 0.5) * 120,
+                x: (i / circleCount) * window.innerWidth + 100,
+                y: (i / circleCount) * window.innerHeight + 100,
                 vx: (Math.random() - 0.5) * 0.7,
                 vy: (Math.random() - 0.5) * 0.7,
-                r: style.r * (0.85 + Math.random() * 0.5),
+                r: style.r,
                 stroke: style.stroke,
                 fill: style.fill,
-                lineW: 1.2 + Math.random() * 1.0,
-                baseVx: 0,
-                baseVy: 0,
+                lineW: 1.2
             }
         })
 
-        const draw = () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height)
+        // Setup Dots
+        const dotCount = isMobile ? 12 : 28 // Reduced slightly for perf
+        const dots = Array.from({ length: dotCount }, () => ({
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+            vx: (Math.random() - 0.5) * 0.35,
+            vy: (Math.random() - 0.5) * 0.35,
+            r: 1 + Math.random() * 1.5,
+        }))
 
+        let frame = 0
+        const render = () => {
+            frame++
+            
+            // 1. Update & Draw Circles
+            ctxC.clearRect(0, 0, circlesCanvas.width, circlesCanvas.height)
             circles.forEach(c => {
-                // Mouse repulsion
                 const dx = c.x - mouse.x
                 const dy = c.y - mouse.y
                 const dist = Math.sqrt(dx * dx + dy * dy)
-
                 if (dist < REPEL_RADIUS && dist > 0) {
                     const force = (REPEL_RADIUS - dist) / REPEL_RADIUS
                     c.vx += (dx / dist) * force * REPEL_FORCE
                     c.vy += (dy / dist) * force * REPEL_FORCE
                 }
-
-                // Dampen velocity so circles settle back to gentle drift
-                c.vx *= 0.97
-                c.vy *= 0.97
-
-                // Keep a minimum drift so they never fully stop
-                const speed = Math.sqrt(c.vx * c.vx + c.vy * c.vy)
-                if (speed < 0.25) {
-                    c.vx += (Math.random() - 0.5) * 0.05
-                    c.vy += (Math.random() - 0.5) * 0.05
-                }
-
+                c.vx *= 0.96
+                c.vy *= 0.96
                 c.x += c.vx
                 c.y += c.vy
+                
+                if (c.x < 0 || c.x > circlesCanvas.width) c.vx *= -1
+                if (c.y < 0 || c.y > circlesCanvas.height) c.vy *= -1
 
-                // Bounce off edges with margin
-                if (c.x - c.r < 0) { c.x = c.r; c.vx = Math.abs(c.vx) }
-                if (c.x + c.r > canvas.width) { c.x = canvas.width - c.r; c.vx = -Math.abs(c.vx) }
-                if (c.y - c.r < 0) { c.y = c.r; c.vy = Math.abs(c.vy) }
-                if (c.y + c.r > canvas.height) { c.y = canvas.height - c.r; c.vy = -Math.abs(c.vy) }
-
-                // Draw circle
-                ctx.beginPath()
-                ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2)
-                ctx.fillStyle = c.fill
-                ctx.fill()
-                ctx.strokeStyle = c.stroke
-                ctx.lineWidth = c.lineW
-                ctx.stroke()
+                ctxC.beginPath()
+                ctxC.arc(c.x, c.y, c.r, 0, Math.PI * 2)
+                ctxC.fillStyle = c.fill
+                ctxC.fill()
+                ctxC.strokeStyle = c.stroke
+                ctxC.lineWidth = c.lineW
+                ctxC.stroke()
             })
 
-            animId = requestAnimationFrame(draw)
+            // 2. Update & Draw Dots/Constellations (Every other frame for dots)
+            if (frame % 2 === 0) {
+                ctxD.clearRect(0, 0, dotsCanvas.width, dotsCanvas.height)
+                const DIST_MAX = isMobile ? 70 : 90
+                
+                dots.forEach(d => {
+                    d.x += d.vx
+                    d.y += d.vy
+                    if (d.x < 0 || d.x > dotsCanvas.width) d.vx *= -1
+                    if (d.y < 0 || d.y > dotsCanvas.height) d.vy *= -1
+
+                    ctxD.beginPath()
+                    ctxD.arc(d.x, d.y, d.r, 0, Math.PI * 2)
+                    ctxD.fillStyle = 'rgba(91,75,220,0.1)'
+                    ctxD.fill()
+                })
+
+                for (let i = 0; i < dots.length; i++) {
+                    for (let j = i + 1; j < dots.length; j++) {
+                        const dx = dots[i].x - dots[j].x
+                        const dy = dots[i].y - dots[j].y
+                        if (Math.abs(dx) < DIST_MAX && Math.abs(dy) < DIST_MAX) {
+                            const d2 = dx * dx + dy * dy
+                            if (d2 < DIST_MAX * DIST_MAX) {
+                                const dist = Math.sqrt(d2)
+                                ctxD.beginPath()
+                                ctxD.moveTo(dots[i].x, dots[i].y)
+                                ctxD.lineTo(dots[j].x, dots[j].y)
+                                ctxD.strokeStyle = `rgba(61,47,150,${(1 - dist / DIST_MAX) * 0.06})`
+                                ctxD.lineWidth = 0.5
+                                ctxD.stroke()
+                            }
+                        }
+                    }
+                }
+            }
+
+            animId = requestAnimationFrame(render)
         }
-        draw()
+        animId = requestAnimationFrame(render)
 
         return () => {
             cancelAnimationFrame(animId)
@@ -198,110 +235,49 @@ const FloatingElements = () => {
         }
     }, [])
 
-    // ── Layer 2: Particle Constellation Canvas ────────────────────────────────
-    useEffect(() => {
-        const canvas = canvasRef.current
-        if (!canvas || reducedMotion.current) return
 
-        const ctx = canvas.getContext('2d')
-        let animId
-        const isMobile = window.innerWidth < 768
 
-        const resize = () => {
-            canvas.width = window.innerWidth
-            canvas.height = window.innerHeight
-        }
-        resize()
-        window.addEventListener('resize', resize)
-
-        const COUNT = isMobile ? 15 : 35
-        const dots = Array.from({ length: COUNT }, () => ({
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
-            vx: (Math.random() - 0.5) * 0.4,
-            vy: (Math.random() - 0.5) * 0.4,
-            r: 1.5 + Math.random() * 1.5,
-        }))
-
-            // Skip every other frame for performance on heavy constellation logic
-            let frameCount = 0;
-            const draw = () => {
-                frameCount++;
-                if (frameCount % 2 !== 0) {
-                    animId = requestAnimationFrame(draw);
-                    return;
-                }
-                
-                ctx.clearRect(0, 0, canvas.width, canvas.height)
-                const DOT_COLOR = 'rgba(91,75,220,0.12)'
-                const LINE_COLOR = 'rgba(61,47,150,'
-                const DIST = isMobile ? 80 : 100
-
-                dots.forEach(d => {
-                    d.x += d.vx
-                    d.y += d.vy
-                    if (d.x < 0 || d.x > canvas.width) d.vx *= -1
-                    if (d.y < 0 || d.y > canvas.height) d.vy *= -1
-
-                    ctx.beginPath()
-                    ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2)
-                    ctx.fillStyle = DOT_COLOR
-                    ctx.fill()
-                })
-
-                for (let i = 0; i < dots.length; i++) {
-                    for (let j = i + 1; j < dots.length; j++) {
-                        const dx = dots[i].x - dots[j].x
-                        const dy = dots[i].y - dots[j].y
-                        const dist = Math.sqrt(dx * dx + dy * dy)
-                        if (dist < DIST) {
-                            const alpha = (1 - dist / DIST) * 0.08
-                            ctx.beginPath()
-                            ctx.moveTo(dots[i].x, dots[i].y)
-                            ctx.lineTo(dots[j].x, dots[j].y)
-                            ctx.strokeStyle = `${LINE_COLOR}${alpha.toFixed(3)})`
-                            ctx.lineWidth = 0.5
-                            ctx.stroke()
-                        }
-                    }
-                }
-                animId = requestAnimationFrame(draw)
-            }
-        draw()
-
-        return () => {
-            cancelAnimationFrame(animId)
-            window.removeEventListener('resize', resize)
-        }
-    }, [])
-
-    // ── Layer 4: Scroll Parallax Blobs ────────────────────────────────────────
+    // ── Layer 4: Scroll Parallax (Throttled) ──────────────────────────────────
     useEffect(() => {
         if (reducedMotion.current) return
+        let ticking = false
         const onScroll = () => {
-            const sy = window.scrollY
-            blobRefs.current.forEach((el, i) => {
-                if (!el) return
-                el.style.transform = `translateY(${sy * BLOBS[i].speed}px)`
-            })
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const sy = window.scrollY
+                    blobRefs.current.forEach((el, i) => {
+                        if (el) el.style.transform = `translate3d(0, ${sy * BLOBS[i].speed}px, 0)`
+                    })
+                    ticking = false
+                })
+                ticking = true
+            }
         }
         window.addEventListener('scroll', onScroll, { passive: true })
         return () => window.removeEventListener('scroll', onScroll)
     }, [])
 
-    // ── Layer 6: Gradient Mesh via mousemove ─────────────────────────────────
+    // ── Layer 6: Gradient Mesh (Throttled) ────────────────────────────────────
     useEffect(() => {
         if (reducedMotion.current) return
         const el = meshRef.current
         if (!el) return
+        let ticking = false
         let cx = 30, cy = 40
+
         const onMove = (e) => {
-            const tx = (e.clientX / window.innerWidth) * 100
-            const ty = (e.clientY / window.innerHeight) * 100
-            cx += (tx - cx) * 0.05
-            cy += (ty - cy) * 0.05
-            el.style.setProperty('--x', `${cx.toFixed(1)}%`)
-            el.style.setProperty('--y', `${cy.toFixed(1)}%`)
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const tx = (e.clientX / window.innerWidth) * 100
+                    const ty = (e.clientY / window.innerHeight) * 100
+                    cx += (tx - cx) * 0.05
+                    cy += (ty - cy) * 0.05
+                    el.style.setProperty('--x', `${cx.toFixed(1)}%`)
+                    el.style.setProperty('--y', `${cy.toFixed(1)}%`)
+                    ticking = false
+                })
+                ticking = true
+            }
         }
         window.addEventListener('mousemove', onMove, { passive: true })
         return () => window.removeEventListener('mousemove', onMove)

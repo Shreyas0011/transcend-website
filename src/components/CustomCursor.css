@@ -16,6 +16,7 @@ body,
     z-index: 999999;
     translate: -50% -50%;
     opacity: 0;
+    mix-blend-mode: difference;
     transition: opacity 0.3s ease, width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, border 0.3s ease;
     will-change: transform, width, height, opacity;
 }
@@ -25,42 +26,38 @@ body,
     opacity: 1;
 }
 
-/* The central core dot - Instant movement */
+/* The central core dot */
 .custom-cursor-dot {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     background-color: #ffffff;
     border-radius: 50%;
 }
 
-/* The trailing ring - Smooth follow */
+/* The trailing ring */
 .custom-cursor-ring {
-    width: 30px;
-    height: 30px;
-    border: 1.5px solid rgba(255, 255, 255, 0.8);
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid #ffffff;
     border-radius: 50%;
-    /* This transition creates the "smooth follow" effect without JS lag */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     transition: opacity 0.3s ease, 
                 width 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-                height 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 0.15s cubic-bezier(0.17, 0.67, 0.83, 1), /* Slight lag for organic feel */
-                border 0.3s ease,
-                background-color 0.3s ease;
-    box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+                height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                border 0.3s ease;
 }
 
 /* Hover States */
 .custom-cursor-dot.hovered {
     width: 4px;
     height: 4px;
-    background-color: #818cf8;
 }
 
 .custom-cursor-ring.hovered {
-    width: 60px;
-    height: 60px;
-    background-color: rgba(129, 140, 248, 0.1);
-    border: 1px solid rgba(129, 140, 248, 0.5);
+    width: 70px;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(2px);
 }
 

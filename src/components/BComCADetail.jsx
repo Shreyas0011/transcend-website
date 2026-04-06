@@ -43,6 +43,20 @@ const BComCADetail = () => {
                             </div>
                         </div>
 
+                        <div className="my-12 rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-amber-50 relative group">
+                            <div className="absolute inset-0 bg-amber-600/5 pointer-events-none group-hover:opacity-0 transition-opacity duration-500"></div>
+                            <iframe 
+                                width="100%" 
+                                height="450" 
+                                src="https://www.youtube.com/embed/EIbw8lntfhI" 
+                                title="B.Com + CA Program Highlight" 
+                                frameBorder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowFullScreen
+                                className="w-full aspect-video"
+                            ></iframe>
+                        </div>
+
                         <p>
                             The CA course is notably challenging, demanding dedication and strong analytical abilities. Students must also complete a mandatory practical training period, enhancing their real-world experience. 
                         </p>

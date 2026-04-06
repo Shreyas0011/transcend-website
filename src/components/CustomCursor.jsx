@@ -9,18 +9,38 @@ const CustomCursor = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        const onMouseMove = (e) => {
-            if (!isVisible) setIsVisible(true);
-            
-            const { clientX, clientY } = e;
-            
-            // Direct DOM manipulation for maximum performance (lag-free)
+        let mouseX = 0, mouseY = 0; // Target pos
+        let dotX = 0, dotY = 0;     // Dot current pos
+        let ringX = 0, ringY = 0;   // Ring current pos
+        let rafId;
+
+        const lerp = (start, end, factor) => start + (end - start) * factor;
+
+        const updateCursor = () => {
+            // Speed settings (0.1 to 1.0)
+            const dotFactor = 0.25;
+            const ringFactor = 0.12;
+
+            // Interpolate positions
+            dotX = lerp(dotX, mouseX, dotFactor);
+            dotY = lerp(dotY, mouseY, dotFactor);
+            ringX = lerp(ringX, mouseX, ringFactor);
+            ringY = lerp(ringY, mouseY, ringFactor);
+
             if (dotRef.current) {
-                dotRef.current.style.transform = `translate3d(${clientX}px, ${clientY}px, 0)`;
+                dotRef.current.style.transform = `translate3d(${dotX}px, ${dotY}px, 0)`;
             }
             if (ringRef.current) {
-                ringRef.current.style.transform = `translate3d(${clientX}px, ${clientY}px, 0)`;
+                ringRef.current.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
             }
+
+            rafId = requestAnimationFrame(updateCursor);
+        };
+
+        const onMouseMove = (e) => {
+            if (!isVisible) setIsVisible(true);
+            mouseX = e.clientX;
+            mouseY = e.clientY;
         };
 
         const onMouseDown = () => setIsClicked(true);
@@ -30,8 +50,7 @@ const CustomCursor = () => {
 
         const onMouseOver = (e) => {
             const target = e.target.closest('a, button, [role="button"], .interactive, input, textarea');
-            if (target) setIsHovered(true);
-            else setIsHovered(false);
+            setIsHovered(!!target);
         };
 
         window.addEventListener('mousemove', onMouseMove, { passive: true });
@@ -40,6 +59,8 @@ const CustomCursor = () => {
         window.addEventListener('mouseover', onMouseOver, { passive: true });
         window.addEventListener('mouseenter', onMouseEnter);
         window.addEventListener('mouseleave', onMouseLeave);
+        
+        rafId = requestAnimationFrame(updateCursor);
 
         return () => {
             window.removeEventListener('mousemove', onMouseMove);
@@ -48,6 +69,7 @@ const CustomCursor = () => {
             window.removeEventListener('mouseover', onMouseOver);
             window.removeEventListener('mouseenter', onMouseEnter);
             window.removeEventListener('mouseleave', onMouseLeave);
+            cancelAnimationFrame(rafId);
         };
     }, [isVisible]);
 

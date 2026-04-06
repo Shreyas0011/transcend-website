@@ -1,24 +1,31 @@
 import React from 'react'
 
 const Hero = () => {
+    const [videoLoaded, setVideoLoaded] = React.useState(false);
+
     return (
         <section id="home" className="relative w-full h-screen bg-[#05060f] flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 w-full h-full overflow-hidden">
                 <video
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover opacity-80 z-10"
+                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover transition-opacity duration-1000 z-10 ${videoLoaded ? 'opacity-80' : 'opacity-0'}`}
                     autoPlay
                     muted
                     loop
                     playsInline
                     preload="auto"
+                    onLoadedData={() => setVideoLoaded(true)}
+                    poster="/logo.png" // Temporary poster, ideally a frame from the video
                 >
                     <source 
                         src="/hero_video.mp4" 
                         type="video/mp4" 
                     />
                 </video>
-                {/* Fallback gradient if video fails or is loading */}
+                {/* Fallback gradient/background always present to prevent layout shift */}
                 <div className="absolute inset-0 bg-[#05060f] z-0" />
+                {!videoLoaded && (
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#05060f] via-[#05060f]/80 to-[#05060f] animate-pulse z-5" />
+                )}
                 {/* Dark overlay for contrast */}
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#05060f]/20 to-[#05060f] z-20" />
             </div>

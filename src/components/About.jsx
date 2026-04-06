@@ -71,7 +71,7 @@ const About = () => {
                             <p style={{ transitionDelay: '0.2s' }}>
                                 Recognized among the{' '}
                                 <span className="text-indigo-600 font-bold">top colleges in Bangalore</span>, the institution
-                                offers <span className="text-[#2d3e91] font-bold">B.Com, BBA, and BCA</span> programs designed
+                                offers <span className="text-[#2d3e91] font-bold">B.Com and BBA</span> programs designed
                                 to build career-ready professionals equipped for today's competitive world.
                             </p>
                             <p className="italic text-[#2d3e91] font-semibold text-[16px] border-l-4 border-indigo-300 pl-4" style={{ transitionDelay: '0.3s' }}>

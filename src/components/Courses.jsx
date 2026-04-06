@@ -29,8 +29,8 @@ const coursesData = [
     },
     {
         id: 'acca',
-        title: 'ACCA',
-        subtitle: 'Global Accounting',
+        title: 'B.Com + ACCA',
+        subtitle: 'Global Finance & Accounting',
         stream: 'Commerce',
         badge: 'Global Icon',
         icon: '🌍',
@@ -76,18 +76,6 @@ const coursesData = [
         path: '/bba',
     },
     {
-        id: 'bca',
-        title: 'BCA',
-        subtitle: 'Computer Applications',
-        stream: 'Technology',
-        badge: 'High Demand',
-        icon: '💻',
-        duration: '3 Years',
-        ctc: '4L - 10L PA',
-        description: 'Comprehensive tech program focusing on Full-stack development, AI/ML, and cloud computing pathways.',
-        path: '/bca',
-    },
-    {
         id: 'bcom-evening',
         title: 'B.Com Evening',
         subtitle: 'Bachelor of Commerce',
@@ -101,11 +89,10 @@ const coursesData = [
     },
 ];
 
-const filters = ['All', 'Commerce', 'Management', 'Technology'];
+const filters = ['All', 'Commerce', 'Management'];
 
 const CourseCard = ({ course, index, visible }) => {
     const cardRef = useRef(null);
-    const [tilt, setTilt] = useState({ x: 0, y: 0, active: false });
 
     const handleMouseMove = (e) => {
         const card = cardRef.current;
@@ -113,10 +100,19 @@ const CourseCard = ({ course, index, visible }) => {
         const rect = card.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width - 0.5) * 18;
         const y = -((e.clientY - rect.top) / rect.height - 0.5) * 18;
-        setTilt({ x, y, active: true });
+        
+        card.style.transform = `perspective(1000px) rotateX(${y}deg) rotateY(${x}deg) translateY(0)`;
+        card.style.boxShadow = '0 24px 48px rgba(45,62,145,0.20), 0 0 0 1px rgba(99,102,241,0.3)';
+        card.style.transition = 'transform 0.1s ease, opacity 0.6s ease, box-shadow 0.3s ease';
     };
 
-    const handleMouseLeave = () => setTilt({ x: 0, y: 0, active: false });
+    const handleMouseLeave = () => {
+        const card = cardRef.current;
+        if (!card) return;
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`;
+        card.style.boxShadow = '0 8px 32px rgba(45,62,145,0.07)';
+        card.style.transition = `transform 0.5s cubic-bezier(0.34,1.56,0.64,1), opacity 0.6s ease, box-shadow 0.3s ease`;
+    };
 
     return (
         <Link
@@ -128,16 +124,12 @@ const CourseCard = ({ course, index, visible }) => {
             style={{
                 opacity: visible ? 1 : 0,
                 transform: visible
-                    ? `perspective(1000px) rotateX(${tilt.y}deg) rotateY(${tilt.x}deg) translateY(0)`
+                    ? `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`
                     : `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(28px)`,
-                transition: tilt.active
-                    ? 'transform 0.1s ease, opacity 0.6s ease, box-shadow 0.3s ease'
-                    : `transform 0.5s cubic-bezier(0.34,1.56,0.64,1) ${index * 0.1}s, opacity 0.6s ease ${index * 0.1}s, box-shadow 0.3s ease`,
+                transition: `transform 0.5s cubic-bezier(0.34,1.56,0.64,1) ${index * 0.1}s, opacity 0.6s ease ${index * 0.1}s, box-shadow 0.3s ease`,
                 background: 'rgba(255,255,255,0.9)',
                 border: '1px solid rgba(99,102,241,0.1)',
-                boxShadow: tilt.active
-                    ? '0 24px 48px rgba(45,62,145,0.20), 0 0 0 1px rgba(99,102,241,0.3)'
-                    : '0 8px 32px rgba(45,62,145,0.07)',
+                boxShadow: '0 8px 32px rgba(45,62,145,0.07)',
                 willChange: 'transform',
             }}
         >

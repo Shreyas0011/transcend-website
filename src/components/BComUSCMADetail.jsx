@@ -39,6 +39,20 @@ const BComUSCMADetail = () => {
                             </div>
                         </div>
 
+                        <div className="my-12 rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-indigo-50 relative group">
+                            <div className="absolute inset-0 bg-indigo-600/5 pointer-events-none group-hover:opacity-0 transition-opacity duration-500"></div>
+                            <iframe 
+                                width="100%" 
+                                height="450" 
+                                src="https://www.youtube.com/embed/Mb4Xw_FLwgE" 
+                                title="US-CMA Program Highlight" 
+                                frameBorder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowFullScreen
+                                className="w-full aspect-video"
+                            ></iframe>
+                        </div>
+
                         <p>
                             Each part covers critical subjects such as budgeting, forecasting, financial analysis, and risk management, helping students develop a holistic understanding of corporate finance. The US-CMA exam is known for its rigor, requiring not only theoretical knowledge but also practical application and analytical thinking.
                         </p>

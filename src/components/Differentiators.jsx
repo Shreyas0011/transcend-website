@@ -302,11 +302,11 @@ const sections = [
         tag: 'MAIN CHARACTER ENERGY 🎯',
         tagColor: '#f97316',
         blocks: [
-            { icon: '🤝', heading: 'JK Shah Collaboration', body: 'Pursue global certifications like CA, ACCA, and US CMA alongside your degree. Partnered with JK Shah Classes for specialized coaching and experienced mentorship within the campus environment.' },
+            { icon: '🤝', heading: 'JK Shah Collaboration', body: 'Pursue global certifications like CA, B.Com + ACCA, and US CMA alongside your degree. Partnered with JK Shah Classes for specialized coaching and experienced mentorship within the campus environment.' },
             { icon: '📅', heading: 'Integrated Structure', body: 'Our ecosystem enables students to manage both academic and career-oriented goals efficiently. Receive exam-focused preparation that aligns professional training with your undergraduate education.' },
             { icon: '📊', heading: 'Academic Monitoring', body: 'Regular mock tests, detailed performance evaluations, and continuous mentoring ensure conceptual clarity. We track progress consistently to keep students well-prepared for international exams.' },
         ],
-        badges: ['JK Shah', 'CA', 'ACCA', 'US CMA', 'Mock Tests', 'Mentoring'],
+        badges: ['JK Shah', 'CA', 'B.Com + ACCA', 'US CMA', 'Mock Tests', 'Mentoring'],
         videoUrl: "https://drive.google.com/file/d/1CX6XucWydMbsvVmZGZi3HblrFBWN4Wu-/preview",
     },
     {

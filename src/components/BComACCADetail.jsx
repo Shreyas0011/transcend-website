@@ -13,13 +13,13 @@ const BComACCADetail = () => {
                         <span className="text-gray-400 text-sm font-medium">Approx. CTC: 6L - 12L PA</span>
                     </div>
                     <h1 className="text-4xl md:text-5xl font-black mb-6 text-[#1e2a6b]" style={{ fontFamily: 'var(--font-heading)' }}>
-                        <span className="shimmer-text">ACCA</span> (Association of Chartered Certified Accountants)
+                        <span className="shimmer-text">B.Com + ACCA</span>
                     </h1>
                     <div className="w-20 h-1.5 bg-emerald-500 mb-10 rounded-full"></div>
 
                     <div className="space-y-8 text-[#52525c] text-lg leading-relaxed font-medium">
                         <p className="text-xl font-bold text-[#1e2a6b]">
-                            The ACCA program offers a globally recognized qualification that prepares students for a successful career in finance and accounting.
+                            Our integrated B.Com + ACCA program offers a globally recognized qualification (Association of Chartered Certified Accountants) alongside a comprehensive commerce degree.
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
@@ -40,12 +40,26 @@ const BComACCADetail = () => {
                             </div>
                         </div>
 
+                        <div className="my-12 rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-emerald-50 relative group">
+                            <div className="absolute inset-0 bg-emerald-600/5 pointer-events-none group-hover:opacity-0 transition-opacity duration-500"></div>
+                            <iframe 
+                                width="100%" 
+                                height="450" 
+                                src="https://www.youtube.com/embed/grH9Rw_KvKY" 
+                                title="B.Com + ACCA Program Highlight" 
+                                frameBorder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowFullScreen
+                                className="w-full aspect-video"
+                            ></iframe>
+                        </div>
+
                         <p>
-                            The ACCA qualification is known for its rigor, requiring a blend of theoretical understanding and practical application. Students must also complete an Ethics and Professional Skills module and gain relevant work experience to qualify. 
+                            The B.Com + ACCA qualification is known for its rigor, requiring a blend of theoretical understanding and practical application. Students must also complete an Ethics and Professional Skills module and gain relevant work experience to qualify. 
                         </p>
                         
                         <p>
-                            Earning the ACCA designation opens up numerous career opportunities as financial analysts, auditors, and tax advisors, making it a sought-after qualification in the accounting profession.
+                            Earning the B.Com + ACCA designation opens up numerous career opportunities as financial analysts, auditors, and tax advisors, making it a sought-after qualification in the accounting profession.
                         </p>
 
                         <div className="bg-[#1a2e21] text-white p-8 rounded-3xl mt-12 relative overflow-hidden group">
